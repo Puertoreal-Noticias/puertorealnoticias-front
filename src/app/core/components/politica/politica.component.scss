@@ -1,9 +1,22 @@
+@use "../../../../scss/variables" as v;
+@use "../../../../scss/mixings" as m;
+
 .img--carrusel {
   object-fit: cover;
   height: 18rem;
+  @include m.tabletM {
+    height: 22rem;
+  }
 }
 .carrusel {
   position: relative;
+  &__category {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: block;
+    border-bottom: solid 4px v.$colorPrincipal;
+  }
   &--absolute {
     position: absolute;
     bottom: 0;
@@ -11,6 +24,7 @@
     text-align: center;
     padding: 0.5rem;
     background-color: rgba(0, 0, 0, 0.066);
+    width: 100%;
   }
   &__text--small {
     color: rgb(255, 255, 255);

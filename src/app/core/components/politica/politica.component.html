@@ -1,19 +1,29 @@
-<p-carousel [value]="news" [numVisible]="1" [numScroll]="1" [circular]="false">
-  <ng-template let-new pTemplate="item">
-    <div class="carrusel">
-      <div class="mb-3">
-        <img
-          [src]="new.img"
-          [alt]="new.title"
-          class="w-6 shadow-2 img--carrusel"
-        />
-      </div>
-      <div class="carrusel--absolute">
-        <h4 class="mb-1 carrusel__text--small">
-          {{ new.categoria | uppercase }}
-        </h4>
-        <h6 class="mt-0 mb-3 carrusel__text--titular">{{ new.titular }}</h6>
-      </div>
-    </div>
-  </ng-template>
-</p-carousel>
+<section>
+  <article>
+    <span class="carrusel__category"> {{ categoryName | uppercase }} </span>
+    <p-carousel
+      [value]="news"
+      [numVisible]="1"
+      [numScroll]="1"
+      [circular]="false"
+    >
+      <ng-template let-new pTemplate="item">
+        <div class="carrusel">
+          <div class="mb-3">
+            <img
+              [src]="new.img"
+              [alt]="new.title"
+              class="w-6 shadow-2 img--carrusel"
+            />
+          </div>
+          <div class="carrusel--absolute">
+            <h4 class="mb-1 carrusel__text--small">
+              {{ new.categoria | uppercase }}
+            </h4>
+            <h6 class="mt-0 mb-3 carrusel__text--titular">{{ new.titular }}</h6>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </article>
+</section>

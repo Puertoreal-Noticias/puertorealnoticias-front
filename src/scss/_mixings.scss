@@ -12,6 +12,12 @@
   }
 }
 
+@mixin tabletM {
+  @media screen and (min-width: 800px) {
+    @content;
+  }
+}
+
 @mixin movilGrandeL {
   @media screen and (min-width: 650px) {
     @content;

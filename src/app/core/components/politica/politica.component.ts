@@ -7,6 +7,7 @@ import { News } from '../../interfaces/news.interface';
   styleUrls: ['./politica.component.scss'],
 })
 export class PoliticaComponent {
+  public categoryName: string = 'Política';
   public news: News[] = [
     {
       id: 0,

@@ -70,8 +70,17 @@
 .categoria {
   padding: 1rem;
   &--flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include m.tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &--flexL {
+    @include m.portatil {
+      display: flex;
+      justify-content: space-between;
+      gap: 2rem;
+    }
   }
 }
