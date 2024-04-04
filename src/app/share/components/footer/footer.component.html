@@ -1,0 +1,15 @@
+<footer class="footer">
+  <h2 class="footer__h2">Puerto real hoy</h2>
+  <div class="footer__global">
+    <ul class="footer__ul">
+      <li class="footer__title" *ngFor="let element of footerElements">
+        {{ element.title }}
+        <ul>
+          <li class="footer__links" *ngFor="let subtitle of element.subtitles">
+            {{ subtitle.element }}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</footer>

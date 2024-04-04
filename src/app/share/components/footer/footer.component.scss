@@ -1,0 +1,35 @@
+@use "../../../../scss/variables" as v;
+
+.footer {
+  &__h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    border-bottom: solid 6px v.$colorPrincipal;
+    text-align: center;
+    width: 100%;
+    max-width: 22rem;
+    font-weight: bolder;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+  &__global {
+    background-color: v.$colorGrisaceo;
+    padding: 1rem;
+  }
+  &__ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  &__title {
+    color: red;
+    text-align: center;
+  }
+  &__links {
+    color: rgb(92, 92, 92);
+    font-size: 0.8rem;
+    text-align: center;
+  }
+}

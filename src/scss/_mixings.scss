@@ -1,0 +1,19 @@
+// De ordenador a movil
+
+@mixin portatil {
+  @media screen and (min-width: 1100px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 950px) {
+    @content;
+  }
+}
+
+@mixin movilGrande {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}

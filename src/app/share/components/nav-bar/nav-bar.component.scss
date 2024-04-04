@@ -1,0 +1,31 @@
+@use "../../../../scss/variables" as v;
+
+.header {
+  // background-color: red;
+  padding: 1rem;
+  &__container {
+    border-bottom: solid 0.4rem v.$colorPrincipal;
+    margin-bottom: 1rem;
+  }
+  &__h1 {
+    font-size: 3.2rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+  }
+  &__nav {
+  }
+  &__ul {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-bottom: solid 1px v.$colorSeparador;
+    padding-bottom: 1rem;
+  }
+  &__li {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+  }
+}

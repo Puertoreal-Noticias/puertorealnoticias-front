@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("./scss/_reset.scss");
+
+body {
+  font-family: var(--tipo-principal);
+  color: var(--negro);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--tipo-principal);
+}
+
+p,
+span,
+a,
+strong,
+blockquote,
+i,
+b,
+u,
+em {
+  font-family: var(--tipo-principal);
+}

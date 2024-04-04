@@ -1,0 +1,12 @@
+<header class="header">
+  <div class="header__container">
+    <h1 class="header__h1">Puerto real hoy</h1>
+  </div>
+  <nav class="header__nav">
+    <ul class="header__ul">
+      <li class="header__li" *ngFor="let element of navBarElements">
+        {{ element.title }}
+      </li>
+    </ul>
+  </nav>
+</header>
