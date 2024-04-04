@@ -1,1 +1,17 @@
-<p>medio-ambiente works!</p>
+<section class="noticias">
+  <article class="noticias__general">
+    <span class="noticias__category">{{ categoryName | uppercase }}</span>
+
+    <div class="noticias__grid">
+      <div class="noticias__card" *ngFor="let notice of newsObjeto">
+        <img [src]="notice.img" [alt]="notice.titular" class="noticias__img" />
+        <div class="noticias__container">
+          <span class="noticias__category--small">
+            {{ notice.categoria }}
+          </span>
+          <p class="noticias__titular">{{ notice.titular }}</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

@@ -35,7 +35,10 @@
   }
   &__news--container {
     position: absolute;
-    background: linear-gradient(rgba(225, 225, 225, 0.4), rgba(0, 0, 0, 0.4));
+    background: linear-gradient(
+      rgba(225, 225, 225, 0.169),
+      rgba(0, 0, 0, 0.701)
+    );
     z-index: 2;
     bottom: 0;
     padding: 1rem;
@@ -73,7 +76,7 @@
     @include m.tablet {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      gap: 2rem;
     }
   }
   &--flexL {

@@ -1,0 +1,69 @@
+@use "../../../../scss/variables" as v;
+@use "../../../../scss/mixings" as m;
+.noticias {
+  margin-bottom: 1rem;
+  &__general {
+  }
+  &__category {
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: block;
+    border-bottom: solid 4px v.$colorPrincipal;
+  }
+  &__card {
+  }
+  &__container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  &__img--principal {
+    height: 23rem;
+  }
+  &__span--category {
+    font-size: 0.8rem;
+  }
+  &__titular--principal {
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  &__span--redaccion {
+    color: black;
+    font-size: 0.8rem;
+  }
+  &__redaccion {
+    font-size: 0.8rem;
+    color: v.$colorSecundario;
+  }
+  &__subtitular {
+    font-size: 0.8rem;
+    color: v.$colorSecundario;
+  }
+  &__subcontainer {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+  }
+  &__card--smalls {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  &__img--subprincipal {
+    width: 100%;
+    max-width: 6rem;
+  }
+  &__card--text {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+  }
+  &__titular--small {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+  &__redaccion {
+  }
+}

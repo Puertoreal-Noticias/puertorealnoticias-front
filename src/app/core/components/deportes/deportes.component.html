@@ -1,1 +1,39 @@
-<p>deportes works!</p>
+<section class="noticias">
+  <article class="noticias__general">
+    <span class="noticias__category">{{ categoryName | uppercase }}</span>
+    <div class="noticias__card" *ngFor="let notice of newsObjeto">
+      <div class="noticias__container">
+        <img
+          [src]="notice.img"
+          [alt]="notice.titular"
+          class="noticias__img--principal"
+        />
+        <span class="noticias__span--category">{{
+          notice.categoria | uppercase
+        }}</span>
+        <h3 class="noticias__titular--principal">{{ notice.titular }}</h3>
+        <span class="noticias__span--redaccion">
+          Redacción -
+          <span class="noticias__redaccion">{{ notice.redaccion }}</span>
+        </span>
+        <p class="noticias__subtitular">{{ notice.subtitular }}</p>
+      </div>
+      <div class="noticias__subcontainer">
+        <div
+          class="noticias__card--smalls"
+          *ngFor="let subNotice of notice.notices"
+        >
+          <img
+            [src]="subNotice.img"
+            [alt]="subNotice.titular"
+            class="noticias__img--subprincipal"
+          />
+          <div class="noticias__card--text">
+            <p class="noticias__titular--small">{{ subNotice.titular }}</p>
+            <span class="noticias__redaccion"> {{ subNotice.redaccion }} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
