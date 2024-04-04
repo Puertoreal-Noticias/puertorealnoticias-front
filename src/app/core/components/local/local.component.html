@@ -1,0 +1,41 @@
+<ng-container class="categoria">
+  <article class="categoria__local">
+    <div
+      class="categoria__local--principal"
+      *ngFor="let local of categoriaLocal"
+    >
+      <span class="categoria__local--span"> {{ local.category }} </span>
+      <div class="categoria__flex">
+        <div class="categoria__container">
+          <img [src]="local.img" [alt]="local.category" />
+          <span class="categoria__span--light"> {{ local.category }} </span>
+          <h4 class="categoria__h4">{{ local.title }}</h4>
+          <span class="categoria__redaccion">
+            <span class="categoria__span--small">Redacción -</span>
+            {{ local.redaccion }}
+          </span>
+          <h5 class="categoria__h5">{{ local.subtitle }}</h5>
+        </div>
+        <div class="categoria__grid">
+          <div
+            class="categoria__subnoticias--card"
+            *ngFor="let subNoticias of local.subsNoticias"
+          >
+            <img
+              [src]="subNoticias.img"
+              [alt]="subNoticias.title"
+              class="categoria__grid--img"
+            />
+
+            <div class="categoria__local--text">
+              <p class="categoria__grid--titles">{{ subNoticias.title }}</p>
+              <span class="categoria__grid--span">
+                {{ subNoticias.redaccion }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</ng-container>

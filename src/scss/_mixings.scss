@@ -12,6 +12,11 @@
   }
 }
 
+@mixin movilGrandeL {
+  @media screen and (min-width: 650px) {
+    @content;
+  }
+}
 @mixin movilGrande {
   @media screen and (min-width: 600px) {
     @content;

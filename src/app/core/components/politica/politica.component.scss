@@ -1,0 +1,25 @@
+.img--carrusel {
+  object-fit: cover;
+  height: 18rem;
+}
+.carrusel {
+  position: relative;
+  &--absolute {
+    position: absolute;
+    bottom: 0;
+    z-index: 10;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.066);
+  }
+  &__text--small {
+    color: rgb(255, 255, 255);
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+    font-weight: bold;
+  }
+  &__text--titular {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+  }
+}
