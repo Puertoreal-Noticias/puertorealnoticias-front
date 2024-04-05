@@ -9,9 +9,10 @@ import { PoliticaComponent } from './components/politica/politica.component';
 import { CulturaComponent } from './components/cultura/cultura.component';
 import { DeportesComponent } from './components/deportes/deportes.component';
 import { MedioAmbienteComponent } from './components/medio-ambiente/medio-ambiente.component';
+import { UltimasNoticiasComponent } from './components/ultimas-noticias/ultimas-noticias.component';
 
 @NgModule({
-  declarations: [HomePageComponent, LocalComponent, PoliticaComponent, CulturaComponent, DeportesComponent, MedioAmbienteComponent],
+  declarations: [HomePageComponent, LocalComponent, PoliticaComponent, CulturaComponent, DeportesComponent, MedioAmbienteComponent, UltimasNoticiasComponent],
   imports: [CommonModule, CoreRoutingModule, PrimeNgModule],
 })
 export class CoreModule {}
