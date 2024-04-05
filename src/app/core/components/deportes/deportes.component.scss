@@ -18,6 +18,7 @@
     flex-flow: column nowrap;
     gap: 0.5rem;
     margin-bottom: 1rem;
+    cursor: pointer;
   }
   &__img--principal {
     height: 23rem;
@@ -45,6 +46,7 @@
     display: flex;
     flex-flow: column nowrap;
     gap: 1rem;
+    cursor: pointer;
   }
   &__card--smalls {
     display: flex;
@@ -61,7 +63,7 @@
     gap: 1rem;
   }
   &__titular--small {
-  }
-  &__redaccion {
+    font-size: 0.8rem;
+    font-weight: bolder;
   }
 }

@@ -6,6 +6,7 @@
         <img
           [src]="notice.img"
           [alt]="notice.titular"
+          loading="lazy"
           class="noticias__img--principal"
         />
         <span class="noticias__span--category">{{
@@ -26,6 +27,7 @@
           <img
             [src]="subNotice.img"
             [alt]="subNotice.titular"
+            loading="lazy"
             class="noticias__img--subprincipal"
           />
           <div class="noticias__card--text">

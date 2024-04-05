@@ -37,6 +37,7 @@
     flex-flow: column nowrap;
     //
     margin-bottom: 2rem;
+    cursor: pointer;
   }
   &__h4 {
     font-weight: bold;
@@ -57,6 +58,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    cursor: pointer;
   }
   &__grid--img {
     width: 100%;

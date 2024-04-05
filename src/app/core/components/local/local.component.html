@@ -7,7 +7,7 @@
       <span class="categoria__local--span"> {{ local.category }} </span>
       <div class="categoria__flex">
         <div class="categoria__container">
-          <img [src]="local.img" [alt]="local.category" />
+          <img [src]="local.img" [alt]="local.category" loading="lazy" />
           <span class="categoria__span--light"> {{ local.category }} </span>
           <h4 class="categoria__h4">{{ local.title }}</h4>
           <span class="categoria__redaccion">
@@ -23,6 +23,7 @@
           >
             <img
               [src]="subNoticias.img"
+              loading="lazy"
               [alt]="subNoticias.title"
               class="categoria__grid--img"
             />

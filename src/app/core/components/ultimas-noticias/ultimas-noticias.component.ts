@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ultimas-noticias',
@@ -51,4 +52,9 @@ export class UltimasNoticiasComponent {
       redaccion: 'Redaccion - 3 De Abril De 2024',
     },
   ];
+  constructor(private navigate: Router) {}
+
+  public navigateNoticia() {
+    this.navigate.navigateByUrl('noticiaDetail');
+  }
 }

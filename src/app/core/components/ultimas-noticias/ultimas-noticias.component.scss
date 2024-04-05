@@ -28,9 +28,13 @@
   }
   &__news {
     position: relative;
+    cursor: pointer;
   }
   &__news--img {
     display: inline;
+    width: 100%;
+    max-width: 40rem;
+    height: auto;
   }
   &__news--container {
     position: absolute;

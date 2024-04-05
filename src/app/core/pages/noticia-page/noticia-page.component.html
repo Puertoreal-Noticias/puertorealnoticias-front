@@ -1,0 +1,38 @@
+<section class="noticia wrapper">
+  <article class="noticia__global">
+    <div class="noticia__container" *ngFor="let noticia of noticiaUp">
+      <span class="noticia__span--categoria"> {{ noticia.categoria }} </span>
+      <h3 class="noticia__h3--titular">{{ noticia.titular }}</h3>
+      <span class="noticia__redaccion"> {{ noticia.redaccion }} </span>
+      <div class="noticia__subcontainer">
+        <img
+          [src]="noticia.img"
+          [alt]="noticia.titular"
+          class="noticia__img--titular"
+        />
+        <p class="noticia__parrafo">{{ noticia.parrafo }}</p>
+      </div>
+    </div>
+  </article>
+  <article class="noticia__relacionada--container">
+    <span class="noticia__relacionada--span"> Árticulos relacionados </span>
+    <div class="noticia__relacionada--grid">
+      <div
+        class="noticia__relacionada--card"
+        *ngFor="let noticia of articulosRelacionados"
+      >
+        <img
+          [src]="noticia.img"
+          [alt]="noticia.titular"
+          class="noticia__relacionada--img"
+        />
+        <div class="noticia__relacionada--text">
+          <span class="noticia__relacionada--categoria">{{
+            noticia.categoria
+          }}</span>
+          <h4 class="noticia__relacionada--titular">{{ noticia.titular }}</h4>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

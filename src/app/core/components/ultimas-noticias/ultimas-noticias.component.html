@@ -3,8 +3,12 @@
     <span class="home__last--span"> {{ spanLastNews | uppercase }} </span>
 
     <div class="home__flex">
-      <div class="home__news" *ngFor="let new of nuevasNoticias">
-        <img [src]="new.img" alt="" class="home__news--img" />
+      <div
+        class="home__news"
+        *ngFor="let new of nuevasNoticias"
+        (click)="navigateNoticia()"
+      >
+        <img [src]="new.img" loading="lazy" alt="" class="home__news--img" />
         <div class="home__news--container">
           <span class="home__news--category"> {{ new.categoria }} </span>
           <h3 class="home__news--title">{{ new.title }}</h3>

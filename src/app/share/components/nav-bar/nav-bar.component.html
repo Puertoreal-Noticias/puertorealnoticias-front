@@ -5,7 +5,7 @@
   <nav class="header__nav">
     <ul class="header__ul">
       <li class="header__li" *ngFor="let element of navBarElements">
-        {{ element.title }}
+        {{ element.title | titlecase }}
       </li>
     </ul>
   </nav>

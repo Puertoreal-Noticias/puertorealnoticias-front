@@ -28,3 +28,8 @@
     @content;
   }
 }
+@mixin movilNormal {
+  @media screen and (min-width: 400px) {
+    @content;
+  }
+}

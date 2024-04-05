@@ -1,4 +1,5 @@
 @use "../../../../scss/variables" as v;
+@use "../../../../scss/mixings" as m;
 
 .header {
   // background-color: red;
@@ -17,15 +18,18 @@
   }
   &__ul {
     display: flex;
-    gap: 1rem;
+    gap: 0.5rem;
     align-items: center;
     justify-content: center;
     width: 100%;
     border-bottom: solid 1px v.$colorSeparador;
     padding-bottom: 1rem;
+    @include m.movilNormal {
+      gap: 1rem;
+    }
   }
   &__li {
     font-size: 0.8rem;
-    text-transform: uppercase;
+    cursor: pointer;
   }
 }

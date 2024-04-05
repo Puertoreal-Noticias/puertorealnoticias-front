@@ -9,22 +9,32 @@ export class NavBarComponent {
   public navBarElements = [
     {
       id: 0,
-      title: 'Elemento 1',
+      title: 'Inicio',
       url: '',
     },
     {
       id: 1,
-      title: 'Elemento 2',
+      title: 'Local',
       url: '',
     },
     {
       id: 2,
-      title: 'Elemento 3',
+      title: 'Política',
       url: '',
     },
     {
       id: 3,
-      title: 'Elemento 4',
+      title: 'Deportes',
+      url: '',
+    },
+    {
+      id: 4,
+      title: 'Cultura',
+      url: '',
+    },
+    {
+      id: 5,
+      title: 'Medio ambiente',
       url: '',
     },
   ];

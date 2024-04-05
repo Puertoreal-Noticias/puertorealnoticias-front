@@ -24,8 +24,14 @@
   }
   &__card {
     position: relative;
+    cursor: pointer;
   }
   &__img {
+    width: 100%;
+    max-width: 40rem;
+    height: 20rem;
+    // height: auto;
+    object-fit: cover;
   }
   &__container {
     position: absolute;
