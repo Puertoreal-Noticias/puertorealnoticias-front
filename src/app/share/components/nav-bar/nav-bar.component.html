@@ -1,10 +1,14 @@
 <header class="header">
   <div class="header__container">
-    <h1 class="header__h1">Puerto real hoy</h1>
+    <h1 class="header__h1">Noticias Puerto Real</h1>
   </div>
   <nav class="header__nav">
     <ul class="header__ul">
-      <li class="header__li" *ngFor="let element of navBarElements">
+      <li
+        class="header__li"
+        *ngFor="let element of navBarElements"
+        (click)="navigate(element.url)"
+      >
         {{ element.title | titlecase }}
       </li>
     </ul>

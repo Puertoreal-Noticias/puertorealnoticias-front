@@ -12,6 +12,15 @@
         />
         <p class="noticia__parrafo">{{ noticia.parrafo }}</p>
       </div>
+      <div class="noticia__grid">
+        <div class="noticia__grid--card" *ngFor="let img of noticia.galeria">
+          <img
+            [src]="img.img"
+            [alt]="noticia.titular"
+            class="noticia__galeria--img"
+          />
+        </div>
+      </div>
     </div>
   </article>
   <article class="noticia__relacionada--container">
@@ -36,3 +45,9 @@
     </div>
   </article>
 </section>
+
+<!--
+
+
+
+ -->

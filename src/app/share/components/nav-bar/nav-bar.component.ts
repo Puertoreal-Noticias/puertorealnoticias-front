@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
+  constructor(private route: Router) {}
   public navBarElements = [
     {
       id: 0,
@@ -38,4 +40,9 @@ export class NavBarComponent {
       url: '',
     },
   ];
+
+  public navigate(params: string) {
+    console.log(params);
+    this.route.navigateByUrl(`${params}`);
+  }
 }

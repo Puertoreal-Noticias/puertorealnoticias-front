@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { News } from '../../interfaces/news.interface';
 
 @Component({
   selector: 'app-noticia-page',
@@ -13,17 +14,43 @@ export class NoticiaPageComponent {
       titular: '"Puertas Abiertas", nueva exposición de La máquina creativa',
       redaccion: '3 De Abril De 2024',
       img: '/assets/20240403_cultura_puertas_abiertas_maquina_creativa_.jpg',
+      galeria: [
+        {
+          id: 0,
+          img: '/assets/20240403_cultura_puertas_abiertas_maquina_creativa_.jpg',
+        },
+        {
+          id: 1,
+          img: '/assets/20240403_cultura_puertas_abiertas_maquina_creativa_.jpg',
+        },
+        {
+          id: 2,
+          img: '/assets/20240403_cultura_puertas_abiertas_maquina_creativa_.jpg',
+        },
+        {
+          id: 3,
+          img: '/assets/20240403_cultura_puertas_abiertas_maquina_creativa_.jpg',
+        },
+        {
+          id: 4,
+          img: '/assets/20240403_cultura_puertas_abiertas_maquina_creativa_.jpg',
+        },
+        {
+          id: 5,
+          img: '/assets/20240403_cultura_puertas_abiertas_maquina_creativa_.jpg',
+        },
+      ],
       parrafo:
         'Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.Texto de ejemplo ficticio, solo para demostrar contenido.',
     },
   ];
+
   public articulosRelacionados = [
     {
       id: 0,
       categoria: 'Empleo',
       titular: 'Desciende el paro en 1,14% en Puerto Real en el mes de Marzo',
       img: '/assets/noticias/20180202_sae_empleo.jpg',
-
       url: '',
     },
     {
@@ -31,7 +58,6 @@ export class NoticiaPageComponent {
       categoria: 'Empleo',
       titular: 'Desciende el paro en 1,14% en Puerto Real en el mes de Marzo',
       img: '/assets/noticias/20180202_sae_empleo.jpg',
-
       url: '',
     },
     {
@@ -39,7 +65,6 @@ export class NoticiaPageComponent {
       categoria: 'Empleo',
       titular: 'Desciende el paro en 1,14% en Puerto Real en el mes de Marzo',
       img: '/assets/noticias/20180202_sae_empleo.jpg',
-
       url: '',
     },
   ];
