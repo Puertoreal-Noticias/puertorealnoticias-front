@@ -13,7 +13,16 @@ import { UltimasNoticiasComponent } from './components/ultimas-noticias/ultimas-
 import { NoticiaPageComponent } from './pages/noticia-page/noticia-page.component';
 
 @NgModule({
-  declarations: [HomePageComponent, LocalComponent, PoliticaComponent, CulturaComponent, DeportesComponent, MedioAmbienteComponent, UltimasNoticiasComponent, NoticiaPageComponent],
+  declarations: [
+    HomePageComponent,
+    LocalComponent,
+    PoliticaComponent,
+    CulturaComponent,
+    DeportesComponent,
+    MedioAmbienteComponent,
+    UltimasNoticiasComponent,
+    NoticiaPageComponent,
+  ],
   imports: [CommonModule, CoreRoutingModule, PrimeNgModule],
 })
 export class CoreModule {}
