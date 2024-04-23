@@ -1,51 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { News, Imagen } from '../../interfaces/news.interface';
+import { ApiConectService } from '../../services/api-conect.service';
 
 @Component({
   selector: 'app-local',
   templateUrl: './local.component.html',
   styleUrls: ['./local.component.scss'],
 })
-export class LocalComponent {
-  // public categoriaLocal = [
-  //   {
-  //     id: 0,
-  //     category: 'Local',
-  //     img: '/assets/20240402_local_ayto_pr_azul_01.jpg',
-  //     redaccion: '2 De Abril De 2024',
-  //     title:
-  //       'Los edificios municipales se iluminarán por el Día Mundial del Autismo',
-  //     subtitle:
-  //       'Como cada 2 de Abril, los edificios de Puerto Real lucirán de azul durante las últimas horas del día,',
-  //     subsNoticias: [
-  //       {
-  //         id: 0,
-  //         img: '/assets/20240402_cultura_abecedaria_01-218x150.jpg',
-  //         redaccion: '2 De Abril De 2024',
-  //         title:
-  //           'El programa ABECEDARIA llega al teatro para el alumnado puertorrealeño',
-  //       },
-  //       {
-  //         id: 1,
-  //         img: '/assets/20240402_cultura_abecedaria_01-218x150.jpg',
-  //         redaccion: '2 De Abril De 2024',
-  //         title:
-  //           'El programa ABECEDARIA llega al teatro para el alumnado puertorrealeño',
-  //       },
-  //       {
-  //         id: 2,
-  //         img: '/assets/20240402_cultura_abecedaria_01-218x150.jpg',
-  //         redaccion: '2 De Abril De 2024',
-  //         title:
-  //           'El programa ABECEDARIA llega al teatro para el alumnado puertorrealeño',
-  //       },
-  //       {
-  //         id: 3,
-  //         img: '/assets/20240402_cultura_abecedaria_01-218x150.jpg',
-  //         redaccion: '2 De Abril De 2024',
-  //         title:
-  //           'El programa ABECEDARIA llega al teatro para el alumnado puertorrealeño',
-  //       },
-  //     ],
-  //   },
-  // ];
+export class LocalComponent implements OnInit {
+  public categoria: string = 'local';
+  public noticiasLocal: News[] = [];
+
+  constructor(private ApiConectService: ApiConectService) {}
+  ngOnInit(): void {
+    this.ApiConectService.filtrarPorCategoria(this.categoria).subscribe(
+      (noticias) => {
+        this.noticiasLocal = noticias;
+        console.log(this.noticiasLocal);
+
+        for (let noticia of this.noticiasLocal) {
+          this.ApiConectService.obtenerImagen(
+            noticia.imagenPrincipal
+          ).subscribe(
+            (imagen: Imagen) => {
+              if (imagen.url) {
+                noticia.imagenUrl = imagen.url;
+              } else {
+                console.error('La imagen no tiene URL');
+              }
+            },
+            (error) => {
+              console.error('Hubo un error al obtener la imagen', error);
+            }
+          );
+        }
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  }
 }

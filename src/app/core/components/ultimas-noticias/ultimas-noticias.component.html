@@ -3,18 +3,23 @@
     <span class="home__last--span"> {{ spanLastNews | uppercase }} </span>
 
     <div class="home__flex">
-      <!-- <div
+      <div
         class="home__news"
         *ngFor="let new of nuevasNoticias"
         (click)="navigateNoticia()"
       >
-        <img [src]="new.img" loading="lazy" alt="" class="home__news--img" />
+        <img
+          [src]="new.imagenUrl"
+          loading="lazy"
+          [alt]="new.titulo"
+          class="home__news--img"
+        />
         <div class="home__news--container">
           <span class="home__news--category"> {{ new.categoria }} </span>
-          <h3 class="home__news--title">{{ new.title }}</h3>
-          <span class="home__news--redaccion"> {{ new.redaccion }} </span>
+          <h3 class="home__news--title">{{ new.titulo }}</h3>
+          <span class="home__news--redaccion"> {{ new.contenido }} </span>
         </div>
-      </div> -->
+      </div>
     </div>
   </article>
 </ng-container>
