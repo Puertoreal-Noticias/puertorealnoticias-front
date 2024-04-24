@@ -1,27 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import { News } from '../../interfaces/news.interface';
+import { News, Imagen } from '../../interfaces/news.interface';
+import { ApiConectService } from '../../services/api-conect.service';
 
 @Component({
   selector: 'app-politica',
   templateUrl: './politica.component.html',
   styleUrls: ['./politica.component.scss'],
 })
-export class PoliticaComponent {
-  // public categoryName: string = 'Política';
-  // public news: News[] = [
-  //   {
-  //     id: 0,
-  //     img: 'assets/carrusel/20240311_politica_blanca_armario_vox_01.jpeg',
-  //     categoria: 'política',
-  //     titular:
-  //       'VOX reclama al Gobierno la construcción de un nuevo dique para Navantia Puerto real',
-  //   },
-  //   {
-  //     id: 1,
-  //     img: 'assets/carrusel/20230228_politica_premios_axsi_28f_02.jpg',
-  //     categoria: 'política',
-  //     titular:
-  //       'AxSí se interesa por la demanda entre el puerto real CF y la EPSUVI',
-  //   },
-  // ];
+export class PoliticaComponent implements OnInit {
+  public categoria: string = 'politica';
+  public news: News[] = [];
+  constructor(private ApiConectService: ApiConectService) {}
+  ngOnInit(): void {
+    this.obtenerNoticias();
+  }
+  public calcularUrl = (noticia: News) => {
+    this.ApiConectService.obtenerImagen(noticia.imagenPrincipal).subscribe(
+      (imagen: Imagen) => {
+        if (imagen.url) {
+          noticia.imagenUrl = imagen.url;
+        } else {
+          console.error('La imagen no tiene URL');
+        }
+      },
+      (error) => {
+        console.error('Hubo un error al obtener la imagen', error);
+      }
+    );
+  };
+  public obtenerNoticias = () => {
+    this.ApiConectService.filtrarPorCategoria(this.categoria).subscribe(
+      (noticias) => {
+        this.news = noticias;
+        this.news.forEach((noticia) => {
+          this.calcularUrl(noticia);
+        });
+        console.log(this.news);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  };
 }

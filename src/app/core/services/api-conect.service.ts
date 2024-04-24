@@ -22,4 +22,15 @@ export class ApiConectService {
       `${environment.baseUrl}/noticias/filtrar/${categoria}`
     );
   }
+
+  filtrarPrimeroCategoria(categoria: string): Observable<News> {
+    return this.http.get<News>(
+      `${environment.baseUrl}/noticias/obtener/first/${categoria}`
+    );
+  }
+  filtrarExceptoUltimoCategoria(categoria: string): Observable<News[]> {
+    return this.http.get<News[]>(
+      `${environment.baseUrl}/noticias/obtener/excepto-ultimo/${categoria}`
+    );
+  }
 }

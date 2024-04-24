@@ -10,6 +10,7 @@ export interface News {
   titulo: string;
   contenido: string;
   categoria: string;
+  fecha_publicacion: Date;
   autor: string;
   imagenes: Imagen[]; // Ahora 'imagenes' es un array de 'Imagen'
   __v: number;

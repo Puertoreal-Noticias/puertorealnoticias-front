@@ -1,6 +1,6 @@
-<!-- <section>
+<section>
   <article>
-    <span class="carrusel__category"> {{ categoryName | uppercase }} </span>
+    <span class="carrusel__category"> {{ categoria | uppercase }} </span>
     <p-carousel
       [value]="news"
       [numVisible]="1"
@@ -11,8 +11,8 @@
         <div class="carrusel">
           <div class="mb-3">
             <img
-              [src]="new.img"
-              [alt]="new.title"
+              [src]="new.imagenUrl"
+              [alt]="new.titulo"
               loading="lazy"
               class="w-6 shadow-2 img--carrusel"
             />
@@ -21,10 +21,10 @@
             <h4 class="mb-1 carrusel__text--small">
               {{ new.categoria | uppercase }}
             </h4>
-            <h6 class="mt-0 mb-3 carrusel__text--titular">{{ new.titular }}</h6>
+            <h6 class="mt-0 mb-3 carrusel__text--titular">{{ new.titulo }}</h6>
           </div>
         </div>
       </ng-template>
     </p-carousel>
   </article>
-</section> -->
+</section>

@@ -1,25 +1,25 @@
 <ng-container class="categoria">
   <article class="categoria__local">
-    <div
-      class="categoria__local--principal"
-      *ngFor="let local of noticiasLocal"
-    >
-      <span class="categoria__local--span"> {{ local.categoria }} </span>
+    <div class="categoria__local--principal">
+      <span class="categoria__local--span">
+        {{ primeraNoticia?.categoria }}
+      </span>
       <div class="categoria__flex">
         <div class="categoria__container">
-          <img [src]="local.imagenUrl" [alt]="local.titulo" loading="lazy" />
-          <span class="categoria__span--light"> {{ local.categoria }} </span>
-          <h4 class="categoria__h4">{{ local.titulo }}</h4>
-          <!-- <span class="categoria__redaccion">
-            <span class="categoria__span--small">Redacción -</span>
-            {{ local.redaccion }}
-          </span> -->
-          <!-- <h5 class="categoria__h5">{{ local.subtitle }}</h5> -->
+          <img
+            [src]="primeraNoticia?.imagenUrl"
+            [alt]="primeraNoticia?.titulo"
+            loading="lazy"
+          />
+          <span class="categoria__span--light">
+            {{ primeraNoticia?.categoria }}
+          </span>
+          <h4 class="categoria__h4">{{ primeraNoticia?.titulo }}</h4>
         </div>
         <div class="categoria__grid">
           <div
             class="categoria__subnoticias--card"
-            *ngFor="let subNoticias of noticiasLocal"
+            *ngFor="let subNoticias of exceptoUltimasNoticias"
           >
             <img
               [src]="subNoticias.imagenUrl"
@@ -31,8 +31,7 @@
             <div class="categoria__local--text">
               <p class="categoria__grid--titles">{{ subNoticias.titulo }}</p>
               <span class="categoria__grid--span">
-                prueba de redaccion
-                <!-- {{ subNoticias.redaccion }} -->
+                {{ formatearFecha(subNoticias.fecha_publicacion) }}
               </span>
             </div>
           </div>
