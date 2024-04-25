@@ -1,33 +1,40 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { ApiConectService } from '../../services/api-conect.service';
+import { News, Imagen } from '../../interfaces/news.interface';
 @Component({
   selector: 'app-medio-ambiente',
   templateUrl: './medio-ambiente.component.html',
   styleUrls: ['./medio-ambiente.component.scss'],
 })
-export class MedioAmbienteComponent {
-  // public categoryName: string = 'Medio ambiente';
-  // public newsObjeto = [
-  //   {
-  //     id: 0,
-  //     categoria: 'Medio ambiente',
-  //     titular:
-  //       'Nueva limpieza en Las Canteras para los próximos 7 y 21 de Abril',
-  //     img: '/assets/medioambiente/20230831_colonia_gatos.jpg',
-  //   },
-  //   {
-  //     id: 1,
-  //     categoria: 'Medio ambiente',
-  //     titular:
-  //       'Aumento de la vigilancia en las colonias de gatos en Puerto Real',
-  //     img: '/assets/medioambiente/20240322_ma_limpieza_canteras_01.jpg',
-  //   },
-  //   {
-  //     id: 2,
-  //     categoria: 'Medio ambiente',
-  //     titular:
-  //       'Nueva limpieza en Las Canteras para los próximos 7 y 21 de Abril',
-  //     img: '/assets/medioambiente/20230831_colonia_gatos.jpg',
-  //   },
-  // ];
+export class MedioAmbienteComponent implements OnInit {
+  public categoria: string = 'medioambiente';
+  public noticias: News[] = [];
+
+  constructor(private ApiConectService: ApiConectService) {}
+
+  ngOnInit(): void {
+    this.noticiasExceptoUltima();
+  }
+  public noticiasExceptoUltima = () => {
+    this.ApiConectService.filtrarPorCategoria(this.categoria).subscribe(
+      (noticias) => {
+        this.noticias = noticias;
+        this.noticias.forEach((noticia) =>
+          this.ApiConectService.calcularUrl(noticia)
+        );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  };
+  // Agrega esta función en tu componente
+  public formatearFecha = (fecha: Date) => {
+    let fechaPublicacion = new Date(fecha);
+    return fechaPublicacion.toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
 }

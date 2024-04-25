@@ -1,41 +1,46 @@
-<!-- <section class="noticias">
+<section class="noticias">
   <article class="noticias__general">
-    <span class="noticias__category">{{ categoryName | uppercase }}</span>
-    <div class="noticias__card" *ngFor="let notice of newsObjeto">
+    <span class="noticias__category">{{ categoria | uppercase }}</span>
+    <div class="noticias__card">
       <div class="noticias__container">
         <img
-          [src]="notice.img"
-          [alt]="notice.titular"
+          [src]="primeraNoticia?.imagenUrl"
+          [alt]="primeraNoticia?.titulo"
           loading="lazy"
           class="noticias__img--principal"
         />
         <span class="noticias__span--category">{{
-          notice.categoria | uppercase
+          primeraNoticia?.categoria | uppercase
         }}</span>
-        <h3 class="noticias__titular--principal">{{ notice.titular }}</h3>
+        <h3 class="noticias__titular--principal">
+          {{ primeraNoticia?.titulo }}
+        </h3>
         <span class="noticias__span--redaccion">
-          Redacción -
-          <span class="noticias__redaccion">{{ notice.redaccion }}</span>
+          <span class="noticias__redaccion">{{
+            primeraNoticia?.contenido
+          }}</span>
         </span>
-        <p class="noticias__subtitular">{{ notice.subtitular }}</p>
       </div>
       <div class="noticias__subcontainer">
         <div
           class="noticias__card--smalls"
-          *ngFor="let subNotice of notice.notices"
+          *ngFor="let subNotice of exceptoUltimasNoticias"
         >
           <img
-            [src]="subNotice.img"
-            [alt]="subNotice.titular"
+            [src]="subNotice.imagenUrl"
+            [alt]="subNotice.titulo"
             loading="lazy"
             class="noticias__img--subprincipal"
           />
           <div class="noticias__card--text">
-            <p class="noticias__titular--small">{{ subNotice.titular }}</p>
-            <span class="noticias__redaccion"> {{ subNotice.redaccion }} </span>
+            <p class="noticias__titular--small">{{ subNotice.titulo }}</p>
+            <span class="noticias__redaccion"> {{ subNotice.contenido }} </span>
+            <span class="noticias__redaccion">
+              {{ formatearFecha(subNotice.fecha_publicacion) }}
+            </span>
           </div>
         </div>
       </div>
     </div>
   </article>
-</section> -->
+</section>

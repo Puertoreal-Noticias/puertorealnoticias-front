@@ -18,20 +18,7 @@ export class LocalComponent implements OnInit {
     this.noticiasExceptoUltima();
   }
 
-  public calcularUrl = (noticia: News) => {
-    this.ApiConectService.obtenerImagen(noticia.imagenPrincipal).subscribe(
-      (imagen: Imagen) => {
-        if (imagen.url) {
-          noticia.imagenUrl = imagen.url;
-        } else {
-          console.error('La imagen no tiene URL');
-        }
-      },
-      (error) => {
-        console.error('Hubo un error al obtener la imagen', error);
-      }
-    );
-  };
+  // this.NewsHelper()
 
   public noticiasExceptoUltima = () => {
     this.ApiConectService.filtrarExceptoUltimoCategoria(
@@ -40,7 +27,7 @@ export class LocalComponent implements OnInit {
       (noticias) => {
         this.exceptoUltimasNoticias = noticias;
         this.exceptoUltimasNoticias.forEach((noticia) =>
-          this.calcularUrl(noticia)
+          this.ApiConectService.calcularUrl(noticia)
         );
       },
       (error) => {
@@ -53,7 +40,7 @@ export class LocalComponent implements OnInit {
     this.ApiConectService.filtrarPrimeroCategoria(this.categoria).subscribe(
       (noticia) => {
         this.primeraNoticia = noticia;
-        this.calcularUrl(this.primeraNoticia);
+        this.ApiConectService.calcularUrl(this.primeraNoticia);
       },
       (error) => {
         console.error(error);

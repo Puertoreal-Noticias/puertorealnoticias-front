@@ -8,6 +8,7 @@ export interface Imagen {
 export interface News {
   _id: string;
   titulo: string;
+  subtitulo?: string;
   contenido: string;
   categoria: string;
   fecha_publicacion: Date;

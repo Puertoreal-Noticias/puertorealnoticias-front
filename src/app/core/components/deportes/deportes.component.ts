@@ -1,44 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiConectService } from '../../services/api-conect.service';
+import { News, Imagen } from '../../interfaces/news.interface';
 
 @Component({
   selector: 'app-deportes',
   templateUrl: './deportes.component.html',
   styleUrls: ['./deportes.component.scss'],
 })
-export class DeportesComponent {
-  // public categoryName: string = 'Deportes';
-  // public newsObjeto = [
-  //   {
-  //     id: 0,
-  //     categoria: 'deportes',
-  //     titular: 'La Peña Cadista de Puerto Real inaugura su nueva sede',
-  //     img: 'assets/deportes/20240329_futbol_pena_cadista_inauguracion_01.jpg',
-  //     redaccion: '29 De Marzo De 2024',
-  //     subtitular:
-  //       'La Peña del Cádiz CF en Puerto Real inaugura su nueva sede de la Calle Sagasta, tras su reorganización el pasado año.',
-  //     notices: [
-  //       {
-  //         id: 0,
-  //         img: 'assets/deportes/20240307_i_duatlon_cross_vdp_02-218x150.webp',
-  //         titular:
-  //           ' Los Toruños acogerá el 1 Duatlón Cross Villa de Puerto Real',
-  //         redaccion: '8 De Marzo De 2024',
-  //       },
-  //       {
-  //         id: 1,
-  //         img: 'assets/deportes/20240307_i_duatlon_cross_vdp_02-218x150.webp',
-  //         titular:
-  //           ' Los Toruños acogerá el 1 Duatlón Cross Villa de Puerto Real',
-  //         redaccion: '8 De Marzo De 2024',
-  //       },
-  //       {
-  //         id: 2,
-  //         img: 'assets/deportes/20240307_i_duatlon_cross_vdp_02-218x150.webp',
-  //         titular:
-  //           ' Los Toruños acogerá el 1 Duatlón Cross Villa de Puerto Real',
-  //         redaccion: '8 De Marzo De 2024',
-  //       },
-  //     ],
-  //   },
-  // ];
+export class DeportesComponent implements OnInit {
+  public categoria: string = 'deportes';
+  public exceptoUltimasNoticias: News[] = [];
+  public primeraNoticia: News | null = null;
+  constructor(private ApiConectService: ApiConectService) {}
+
+  ngOnInit(): void {
+    this.noticiaMasNueva();
+    this.noticiasExceptoUltima();
+  }
+
+  // this.NewsHelper()
+
+  public noticiasExceptoUltima = () => {
+    this.ApiConectService.filtrarExceptoUltimoCategoria(
+      this.categoria
+    ).subscribe(
+      (noticias) => {
+        this.exceptoUltimasNoticias = noticias;
+        this.exceptoUltimasNoticias.forEach((noticia) =>
+          this.ApiConectService.calcularUrl(noticia)
+        );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  };
+
+  public noticiaMasNueva = () => {
+    this.ApiConectService.filtrarPrimeroCategoria(this.categoria).subscribe(
+      (noticia) => {
+        this.primeraNoticia = noticia;
+        this.ApiConectService.calcularUrl(this.primeraNoticia);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  };
+
+  // Agrega esta función en tu componente
+  public formatearFecha = (fecha: Date) => {
+    let fechaPublicacion = new Date(fecha);
+    return fechaPublicacion.toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
 }

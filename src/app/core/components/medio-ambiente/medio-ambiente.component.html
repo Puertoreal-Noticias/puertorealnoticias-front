@@ -1,12 +1,12 @@
-<!-- <section class="noticias">
+<section class="noticias">
   <article class="noticias__general">
-    <span class="noticias__category">{{ categoryName | uppercase }}</span>
+    <span class="noticias__category">{{ categoria | uppercase }}</span>
 
     <div class="noticias__grid">
-      <div class="noticias__card" *ngFor="let notice of newsObjeto">
+      <div class="noticias__card" *ngFor="let notice of noticias">
         <img
-          [src]="notice.img"
-          [alt]="notice.titular"
+          [src]="notice.imagenUrl"
+          [alt]="notice.titulo"
           loading="lazy"
           class="noticias__img"
         />
@@ -14,9 +14,10 @@
           <span class="noticias__category--small">
             {{ notice.categoria }}
           </span>
-          <p class="noticias__titular">{{ notice.titular }}</p>
+          <p class="noticias__titular">{{ notice.titulo }}</p>
+          <p class="noticias__titular">{{ notice.subtitulo }}</p>
         </div>
       </div>
     </div>
   </article>
-</section> -->
+</section>

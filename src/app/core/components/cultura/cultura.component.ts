@@ -1,44 +1,55 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { ApiConectService } from '../../services/api-conect.service';
+import { News, Imagen } from '../../interfaces/news.interface';
 @Component({
   selector: 'app-cultura',
   templateUrl: './cultura.component.html',
   styleUrls: ['./cultura.component.scss'],
 })
-export class CulturaComponent {
-  // public categoryName: string = 'Cultura';
-  // public newsObjeto = [
-  //   {
-  //     id: 0,
-  //     categoria: 'Cultura',
-  //     titular: 'La Peña Cadista de Puerto Real inaugura su nueva sede',
-  //     img: '/assets/cultura/20240403_cultura_puertas_abiertas_maquina_creativa_01-696x690.jpg',
-  //     redaccion: '29 De Marzo De 2024',
-  //     subtitular:
-  //       'La Peña del Cádiz CF en Puerto Real inaugura su nueva sede de la Calle Sagasta, tras su reorganización el pasado año.',
-  //     notices: [
-  //       {
-  //         id: 0,
-  //         img: 'assets/cultura/20200627_dia_villa_01.jpg',
-  //         titular:
-  //           ' Abierto el Plazo de recepción de candidaturas para el Día de la Villa 2024',
-  //         redaccion: '2 De Abril De 2024',
-  //       },
-  //       {
-  //         id: 1,
-  //         img: 'assets/cultura/20200627_dia_villa_01.jpg',
-  //         titular:
-  //           ' Abierto el Plazo de recepción de candidaturas para el Día de la Villa 2024',
-  //         redaccion: '2 De Abril De 2024',
-  //       },
-  //       {
-  //         id: 2,
-  //         img: 'assets/cultura/20200627_dia_villa_01.jpg',
-  //         titular:
-  //           ' Abierto el Plazo de recepción de candidaturas para el Día de la Villa 2024',
-  //         redaccion: '2 De Abril De 2024',
-  //       },
-  //     ],
-  //   },
-  // ];
+export class CulturaComponent implements OnInit {
+  public categoria: string = 'cultura';
+  public exceptoUltimasNoticias: News[] = [];
+  public primeraNoticia: News | null = null;
+  constructor(private ApiConectService: ApiConectService) {}
+
+  ngOnInit(): void {
+    this.noticiaMasNueva();
+    this.noticiasExceptoUltima();
+  }
+  public noticiasExceptoUltima = () => {
+    this.ApiConectService.filtrarExceptoUltimoCategoria(
+      this.categoria
+    ).subscribe(
+      (noticias) => {
+        this.exceptoUltimasNoticias = noticias;
+        this.exceptoUltimasNoticias.forEach((noticia) =>
+          this.ApiConectService.calcularUrl(noticia)
+        );
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  };
+  public noticiaMasNueva = () => {
+    this.ApiConectService.filtrarPrimeroCategoria(this.categoria).subscribe(
+      (noticia) => {
+        this.primeraNoticia = noticia;
+        this.ApiConectService.calcularUrl(this.primeraNoticia);
+      },
+      (error) => {
+        console.error(error);
+      }
+    );
+  };
+
+  // Agrega esta función en tu componente
+  public formatearFecha = (fecha: Date) => {
+    let fechaPublicacion = new Date(fecha);
+    return fechaPublicacion.toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
 }

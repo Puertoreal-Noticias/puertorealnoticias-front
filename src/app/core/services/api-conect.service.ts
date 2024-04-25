@@ -33,4 +33,20 @@ export class ApiConectService {
       `${environment.baseUrl}/noticias/obtener/excepto-ultimo/${categoria}`
     );
   }
+
+  // Calcular la imagen
+  public calcularUrl = (noticia: News) => {
+    this.obtenerImagen(noticia.imagenPrincipal).subscribe(
+      (imagen: Imagen) => {
+        if (imagen.url) {
+          noticia.imagenUrl = imagen.url;
+        } else {
+          console.error('La imagen no tiene URL');
+        }
+      },
+      (error) => {
+        console.error('Hubo un error al obtener la imagen', error);
+      }
+    );
+  };
 }
