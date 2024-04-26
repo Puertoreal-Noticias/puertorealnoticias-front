@@ -9,17 +9,19 @@ import { News, Imagen } from '../interfaces/news.interface';
 export class ApiConectService {
   constructor(private http: HttpClient) {}
 
-  obtenerNoticias(): Observable<News[]> {
-    return this.http.get<News[]>(`${environment.baseUrl}/noticias/obtener`);
+  obtenerNoticias(limit?: number): Observable<News[]> {
+    return this.http.get<News[]>(
+      `${environment.baseUrl}/noticias/obtener?limit=${limit}`
+    );
   }
 
   obtenerImagen(id: string): Observable<Imagen> {
     return this.http.get<Imagen>(`${environment.baseUrl}/imgs/obtener/${id}`);
   }
 
-  filtrarPorCategoria(categoria: string): Observable<News[]> {
+  filtrarPorCategoria(categoria: string, limit: number): Observable<News[]> {
     return this.http.get<News[]>(
-      `${environment.baseUrl}/noticias/filtrar/${categoria}`
+      `${environment.baseUrl}/noticias/filtrar/${categoria}?limit=${limit}`
     );
   }
 
@@ -28,9 +30,12 @@ export class ApiConectService {
       `${environment.baseUrl}/noticias/obtener/first/${categoria}`
     );
   }
-  filtrarExceptoUltimoCategoria(categoria: string): Observable<News[]> {
+  filtrarExceptoUltimoCategoria(
+    categoria: string,
+    limit?: number
+  ): Observable<News[]> {
     return this.http.get<News[]>(
-      `${environment.baseUrl}/noticias/obtener/excepto-ultimo/${categoria}`
+      `${environment.baseUrl}/noticias/obtener/excepto-ultimo/${categoria}?limit=${limit}`
     );
   }
 

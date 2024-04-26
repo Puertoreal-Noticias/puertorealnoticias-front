@@ -23,6 +23,10 @@
     font-weight: lighter;
     font-size: 0.9rem;
   }
+  &__img {
+    border-radius: 0.3rem;
+    object-fit: contain;
+  }
   &__span--small {
     font-weight: bold;
     font-size: 0.8rem;
@@ -64,6 +68,8 @@
   &__grid--img {
     width: 100%;
     max-width: 8rem;
+    border-radius: 0.3rem;
+    object-fit: contain;
   }
   &__grid--titles {
     font-size: 0.8rem;

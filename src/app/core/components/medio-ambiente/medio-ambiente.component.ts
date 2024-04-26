@@ -9,14 +9,17 @@ import { News, Imagen } from '../../interfaces/news.interface';
 export class MedioAmbienteComponent implements OnInit {
   public categoria: string = 'medioambiente';
   public noticias: News[] = [];
-
+  public limit: number = 3;
   constructor(private ApiConectService: ApiConectService) {}
 
   ngOnInit(): void {
     this.noticiasExceptoUltima();
   }
   public noticiasExceptoUltima = () => {
-    this.ApiConectService.filtrarPorCategoria(this.categoria).subscribe(
+    this.ApiConectService.filtrarPorCategoria(
+      this.categoria,
+      this.limit
+    ).subscribe(
       (noticias) => {
         this.noticias = noticias;
         this.noticias.forEach((noticia) =>

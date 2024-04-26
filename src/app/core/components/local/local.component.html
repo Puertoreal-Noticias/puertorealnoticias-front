@@ -2,7 +2,7 @@
   <article class="categoria__local">
     <div class="categoria__local--principal">
       <span class="categoria__local--span">
-        {{ primeraNoticia?.categoria }}
+        {{ categoria | uppercase }}
       </span>
       <div class="categoria__flex">
         <div class="categoria__container">
@@ -10,6 +10,7 @@
             [src]="primeraNoticia?.imagenUrl"
             [alt]="primeraNoticia?.titulo"
             loading="lazy"
+            class="categoria__img"
           />
           <span class="categoria__span--light">
             {{ primeraNoticia?.categoria }}

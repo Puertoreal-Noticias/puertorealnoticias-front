@@ -11,6 +11,7 @@ export class DeportesComponent implements OnInit {
   public categoria: string = 'deportes';
   public exceptoUltimasNoticias: News[] = [];
   public primeraNoticia: News | null = null;
+  public limit: number = 4;
   constructor(private ApiConectService: ApiConectService) {}
 
   ngOnInit(): void {
@@ -22,7 +23,8 @@ export class DeportesComponent implements OnInit {
 
   public noticiasExceptoUltima = () => {
     this.ApiConectService.filtrarExceptoUltimoCategoria(
-      this.categoria
+      this.categoria,
+      this.limit
     ).subscribe(
       (noticias) => {
         this.exceptoUltimasNoticias = noticias;

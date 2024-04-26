@@ -31,6 +31,7 @@
     max-width: 40rem;
     height: 20rem;
     // height: auto;
+    border-radius: 0.3rem;
     object-fit: cover;
   }
   &__container {
@@ -40,6 +41,7 @@
       rgba(225, 225, 225, 0.169),
       rgba(0, 0, 0, 0.701)
     );
+    border-radius: 0rem 0rem 0.3rem 0.3rem;
     z-index: 2;
     text-align: center;
     display: flex;

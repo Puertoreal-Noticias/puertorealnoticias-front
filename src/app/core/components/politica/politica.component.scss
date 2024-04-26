@@ -2,8 +2,9 @@
 @use "../../../../scss/mixings" as m;
 
 .img--carrusel {
-  object-fit: cover;
+  object-fit: contain;
   height: 18rem;
+  border-radius: 0.3rem;
   @include m.tabletM {
     height: 22rem;
   }
@@ -23,8 +24,9 @@
     z-index: 10;
     text-align: center;
     padding: 0.5rem;
-    background-color: rgba(0, 0, 0, 0.066);
+    background-color: rgba(0, 0, 0, 0.257);
     width: 100%;
+    border-radius: 0.3rem;
   }
   &__text--small {
     color: rgb(255, 255, 255);

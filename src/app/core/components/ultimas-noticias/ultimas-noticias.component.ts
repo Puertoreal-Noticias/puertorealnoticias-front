@@ -11,14 +11,14 @@ import { News, Imagen } from '../../interfaces/news.interface';
 export class UltimasNoticiasComponent implements OnInit {
   public spanLastNews: string = 'Útimas entradas';
   public nuevasNoticias: News[] = [];
-
+  public limit: number = 6;
   constructor(
     private navigate: Router,
     private ApiConectService: ApiConectService
   ) {}
 
   ngOnInit(): void {
-    this.ApiConectService.obtenerNoticias().subscribe(
+    this.ApiConectService.obtenerNoticias(this.limit).subscribe(
       (response: News[]) => {
         // Asegúrate de que la respuesta es un array de noticias
         this.nuevasNoticias = response;

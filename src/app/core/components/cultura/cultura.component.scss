@@ -2,16 +2,12 @@
 @use "../../../../scss/mixings" as m;
 .noticias {
   margin-bottom: 1rem;
-  &__general {
-  }
   &__category {
     font-weight: bold;
     margin-bottom: 1rem;
     font-size: 1.2rem;
     display: block;
     border-bottom: solid 4px v.$colorPrincipal;
-  }
-  &__card {
   }
   &__container {
     display: flex;
@@ -21,6 +17,7 @@
   }
   &__img--principal {
     height: 23rem;
+    border-radius: 0.3rem;
   }
   &__span--category {
     font-size: 0.8rem;
@@ -48,12 +45,13 @@
   }
   &__card--smalls {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: 1rem;
   }
   &__img--subprincipal {
     width: 100%;
     max-width: 6rem;
+    border-radius: 0.3rem;
   }
   &__card--text {
     display: flex;

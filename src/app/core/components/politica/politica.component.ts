@@ -10,6 +10,7 @@ import { ApiConectService } from '../../services/api-conect.service';
 export class PoliticaComponent implements OnInit {
   public categoria: string = 'politica';
   public news: News[] = [];
+  public limit: number = 6;
   constructor(private ApiConectService: ApiConectService) {}
   ngOnInit(): void {
     this.obtenerNoticias();
@@ -29,7 +30,10 @@ export class PoliticaComponent implements OnInit {
     );
   };
   public obtenerNoticias = () => {
-    this.ApiConectService.filtrarPorCategoria(this.categoria).subscribe(
+    this.ApiConectService.filtrarPorCategoria(
+      this.categoria,
+      this.limit
+    ).subscribe(
       (noticias) => {
         this.news = noticias;
         this.news.forEach((noticia) => {

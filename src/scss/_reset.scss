@@ -1,13 +1,9 @@
-/* Definimos las Custom properties */
 :root {
   /* Colores */
   --negro: #393939;
 
   /* Tipografía */
-  --tipo-principal: sans-serif, Helvetica, Arial;
-  --tipo-secundaria: Verdana;
 }
-
 /* Reseteamos los margin y paddings de todas las etiquetas */
 *,
 *::before,
@@ -87,7 +83,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 
