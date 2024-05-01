@@ -13,6 +13,15 @@
     width: max-content;
     border-radius: 0.3rem;
   }
+  &__flex--global {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    border-radius: 0.3rem;
+  }
+  &__news--destacado {
+    position: relative;
+  }
   &__flex {
     gap: 1rem;
     display: flex;
@@ -26,6 +35,10 @@
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr;
     }
+  }
+  &__img--destacado {
+    height: 30rem;
+    border-radius: 0.3rem;
   }
   &__news {
     position: relative;
@@ -53,6 +66,9 @@
     gap: 0.5rem;
     width: 100%;
     border-radius: 0rem 0rem 0.3rem 0.3rem;
+  }
+  &__news--containerdestacado {
+    bottom: 0rem;
   }
   &__news--category {
     color: white;

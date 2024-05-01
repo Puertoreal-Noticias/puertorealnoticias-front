@@ -11,6 +11,7 @@ export interface News {
   subtitulo?: string;
   contenido: string;
   categoria: string;
+  destacado?: string;
   fecha_publicacion: Date;
   autor: string;
   imagenes: Imagen[]; // Ahora 'imagenes' es un array de 'Imagen'

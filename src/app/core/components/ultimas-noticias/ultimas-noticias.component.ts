@@ -10,6 +10,7 @@ import { News, Imagen } from '../../interfaces/news.interface';
 })
 export class UltimasNoticiasComponent implements OnInit {
   public spanLastNews: string = 'Útimas entradas';
+  public noticiaDestacada: News | null = null;
   public nuevasNoticias: News[] = [];
   public limit: number = 6;
   constructor(

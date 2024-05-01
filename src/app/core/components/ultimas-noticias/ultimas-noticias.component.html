@@ -2,22 +2,38 @@
   <article class="home__article--news">
     <span class="home__last--span"> {{ spanLastNews | uppercase }} </span>
 
-    <div class="home__flex">
-      <div
-        class="home__news"
-        *ngFor="let new of nuevasNoticias"
-        (click)="navigateNoticia()"
-      >
+    <div class="home__flex--global">
+      <div class="home__news--destacado">
         <img
-          [src]="new.imagenUrl"
-          loading="lazy"
-          [alt]="new.titulo"
-          class="home__news--img"
+          src="../../../../assets/20240402_local_ayto_pr_azul_01.jpg"
+          alt=""
+          class="home__img--destacado"
         />
-        <div class="home__news--container">
-          <span class="home__news--category"> {{ new.categoria }} </span>
-          <h3 class="home__news--title">{{ new.titulo }}</h3>
-          <span class="home__news--redaccion"> {{ new?.subtitulo }} </span>
+        <div class="home__news--container home__news--containerdestacado">
+          <span class="home__news--category"> Destacado </span>
+          <h3 class="home__news--title">Ayuntamiento de puerto real</h3>
+          <span class="home__news--redaccion"
+            >Elecciones de alcalde de puerto real
+          </span>
+        </div>
+      </div>
+      <div class="home__flex">
+        <div
+          class="home__news"
+          *ngFor="let new of nuevasNoticias"
+          (click)="navigateNoticia()"
+        >
+          <img
+            [src]="new.imagenUrl"
+            loading="lazy"
+            [alt]="new.titulo"
+            class="home__news--img"
+          />
+          <div class="home__news--container">
+            <span class="home__news--category"> {{ new.categoria }} </span>
+            <h3 class="home__news--title">{{ new.titulo }}</h3>
+            <span class="home__news--redaccion"> {{ new?.subtitulo }} </span>
+          </div>
         </div>
       </div>
     </div>

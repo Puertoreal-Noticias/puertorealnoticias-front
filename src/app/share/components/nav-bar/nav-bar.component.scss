@@ -5,14 +5,26 @@
   // background-color: red;
   padding: 1rem;
   &__container {
-    border-bottom: solid 0.4rem v.$colorPrincipal;
     margin-bottom: 1rem;
+    background-position: center;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    @include m.movilGrande {
+      height: 20rem;
+    }
   }
   &__h1 {
-    font-size: 3.2rem;
+    font-size: 2.5rem;
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
+    color: white;
+    @include m.movilNormal {
+      font-size: 3.5rem;
+    }
   }
   &__nav {
   }
@@ -22,14 +34,22 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    border-bottom: solid 1px v.$colorSeparador;
+    border-bottom: solid 1px v.$colorPrincipal;
     padding-bottom: 1rem;
     @include m.movilNormal {
       gap: 1rem;
     }
   }
+  &__img {
+    height: 20rem;
+  }
   &__li {
     font-size: 0.8rem;
     cursor: pointer;
   }
+}
+.wrapper {
+  margin: auto;
+  width: 100%;
+  max-width: 1350px;
 }
