@@ -14,6 +14,11 @@ export class ApiConectService {
       `${environment.baseUrl}/noticias/obtener?limit=${limit}`
     );
   }
+  obtenerNoiticiaDestacada(limit: number = 1): Observable<News> {
+    return this.http.get<News>(
+      `${environment.baseUrl}/noticias/obtener/destacada?limit=${limit}`
+    );
+  }
 
   obtenerImagen(id: string): Observable<Imagen> {
     return this.http.get<Imagen>(`${environment.baseUrl}/imgs/obtener/${id}`);

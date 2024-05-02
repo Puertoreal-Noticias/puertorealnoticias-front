@@ -2,11 +2,12 @@
 @use "../../../../scss/mixings" as m;
 
 .img--carrusel {
-  object-fit: contain;
-  height: 18rem;
+  height: 22rem;
   border-radius: 0.3rem;
+  object-fit: cover;
+  width: 100%;
   @include m.tabletM {
-    height: 22rem;
+    height: 24rem;
   }
 }
 .carrusel {

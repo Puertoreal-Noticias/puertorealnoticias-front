@@ -19,6 +19,10 @@ export class UltimasNoticiasComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.noticiaDestacadaFuncion();
+    this.ultimasNoticiasMenosDestacada();
+  }
+  public ultimasNoticiasMenosDestacada = () => {
     this.ApiConectService.obtenerNoticias(this.limit).subscribe(
       (response: News[]) => {
         // Asegúrate de que la respuesta es un array de noticias
@@ -47,8 +51,27 @@ export class UltimasNoticiasComponent implements OnInit {
         console.error('Hubo un error al obtener los datos', error);
       }
     );
-  }
-
+  };
+  public noticiaDestacadaFuncion = () => {
+    this.ApiConectService.obtenerNoiticiaDestacada().subscribe(
+      (noticia: News) => {
+        this.noticiaDestacada = noticia;
+        console.log('noticia destacada', this.noticiaDestacada);
+        this.ApiConectService.obtenerImagen(noticia.imagenPrincipal).subscribe(
+          (imagen: Imagen) => {
+            if (imagen.url) {
+              noticia.imagenUrl = imagen.url;
+            } else {
+              console.error('La imagen no tiene URL');
+            }
+          },
+          (error) => {
+            console.error('Hubo un error al obtener la imagen', error);
+          }
+        );
+      }
+    );
+  };
   public navigateNoticia() {
     this.navigate.navigateByUrl('noticiaDetail');
   }
