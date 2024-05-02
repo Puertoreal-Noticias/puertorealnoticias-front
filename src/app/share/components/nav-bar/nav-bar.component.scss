@@ -12,6 +12,7 @@
     align-items: center;
     justify-content: center;
     background-size: cover;
+    border-radius: 0.3rem;
     @include m.movilGrande {
       height: 20rem;
     }
@@ -26,8 +27,7 @@
       font-size: 3.5rem;
     }
   }
-  &__nav {
-  }
+
   &__ul {
     display: flex;
     gap: 0.5rem;
