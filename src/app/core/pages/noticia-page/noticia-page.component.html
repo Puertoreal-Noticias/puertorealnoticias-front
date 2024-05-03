@@ -1,18 +1,20 @@
 <section class="noticia wrapper">
   <article class="noticia__global">
-    <div class="noticia__container" *ngFor="let noticia of noticiaUp">
-      <span class="noticia__span--categoria"> {{ noticia.categoria }} </span>
-      <h3 class="noticia__h3--titular">{{ noticia.titular }}</h3>
-      <span class="noticia__redaccion"> {{ noticia.redaccion }} </span>
+    <div class="noticia__container">
+      <span class="noticia__span--categoria">
+        {{ noticiaSeleccionada?.categoria }}
+      </span>
+      <h3 class="noticia__h3--titular">{{ noticiaSeleccionada?.titulo }}</h3>
+      <h4 class="noticia__subtitulo">{{ noticiaSeleccionada?.subtitulo }}</h4>
       <div class="noticia__subcontainer">
         <img
-          [src]="noticia.img"
-          [alt]="noticia.titular"
+          [src]="noticiaSeleccionada?.imagenUrl"
+          [alt]="noticiaSeleccionada?.titulo"
           class="noticia__img--titular"
         />
-        <p class="noticia__parrafo">{{ noticia.parrafo }}</p>
+        <p class="noticia__parrafo">{{ noticiaSeleccionada?.contenido }}</p>
       </div>
-      <div class="noticia__grid">
+      <!-- <div class="noticia__grid">
         <div class="noticia__grid--card" *ngFor="let img of noticia.galeria">
           <img
             [src]="img.img"
@@ -20,7 +22,7 @@
             class="noticia__galeria--img"
           />
         </div>
-      </div>
+      </div> -->
     </div>
   </article>
   <article class="noticia__relacionada--container">
@@ -45,9 +47,3 @@
     </div>
   </article>
 </section>
-
-<!--
-
-
-
- -->

@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomePageComponent,
   },
   {
-    path: 'noticiaDetail',
+    path: 'noticia-detallada/:id',
     component: NoticiaPageComponent,
   },
 ];

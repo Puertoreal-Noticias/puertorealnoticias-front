@@ -56,7 +56,6 @@ export class UltimasNoticiasComponent implements OnInit {
     this.ApiConectService.obtenerNoiticiaDestacada().subscribe(
       (noticia: News) => {
         this.noticiaDestacada = noticia;
-        console.log('noticia destacada', this.noticiaDestacada);
         this.ApiConectService.obtenerImagen(noticia.imagenPrincipal).subscribe(
           (imagen: Imagen) => {
             if (imagen.url) {
@@ -72,7 +71,9 @@ export class UltimasNoticiasComponent implements OnInit {
       }
     );
   };
-  public navigateNoticia() {
-    this.navigate.navigateByUrl('noticiaDetail');
+  public navigateNoticia(id: any) {
+    console.log(id);
+    this.navigate.navigate(['/noticia-detallada', id]);
+    // this.navigate.navigateByUrl(['/noticiasPage', id]);
   }
 }

@@ -24,6 +24,9 @@ export class ApiConectService {
     return this.http.get<Imagen>(`${environment.baseUrl}/imgs/obtener/${id}`);
   }
 
+  obtenerNoticiaId(id: string): Observable<News> {
+    return this.http.get<News>(`${environment.baseUrl}/noticias/obtener/${id}`);
+  }
   filtrarPorCategoria(categoria: string, limit: number): Observable<News[]> {
     return this.http.get<News[]>(
       `${environment.baseUrl}/noticias/filtrar/${categoria}?limit=${limit}`

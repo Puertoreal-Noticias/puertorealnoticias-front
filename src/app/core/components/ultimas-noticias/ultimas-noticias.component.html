@@ -23,7 +23,7 @@
         <div
           class="home__news"
           *ngFor="let new of nuevasNoticias"
-          (click)="navigateNoticia()"
+          (click)="navigateNoticia(new._id)"
         >
           <img
             [src]="new.imagenUrl"
