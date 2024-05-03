@@ -14,15 +14,26 @@
         />
         <p class="noticia__parrafo">{{ noticiaSeleccionada?.contenido }}</p>
       </div>
-      <!-- <div class="noticia__grid">
-        <div class="noticia__grid--card" *ngFor="let img of noticia.galeria">
-          <img
-            [src]="img.img"
-            [alt]="noticia.titular"
-            class="noticia__galeria--img"
-          />
+      <ng-container *ngIf="noticiaSeleccionada?.imagenes">
+        <h3
+          *ngIf="noticiaSeleccionada?.imagenesUrl"
+          class="noticia__h3--relacionado"
+        >
+          Imagenes relacionadas
+        </h3>
+        <div class="noticia__grid">
+          <div
+            class="noticia__grid--card"
+            *ngFor="let imgUrl of noticiaSeleccionada?.imagenesUrl"
+          >
+            <img
+              [src]="imgUrl"
+              alt="Imagenes relacionadas con la noticia"
+              class="noticia__galeria--img"
+            />
+          </div>
         </div>
-      </div> -->
+      </ng-container>
     </div>
   </article>
   <article class="noticia__relacionada--container">
@@ -30,18 +41,18 @@
     <div class="noticia__relacionada--grid">
       <div
         class="noticia__relacionada--card"
-        *ngFor="let noticia of articulosRelacionados"
+        *ngFor="let noticia of noticiasRelacionadasRandom"
       >
         <img
-          [src]="noticia.img"
-          [alt]="noticia.titular"
+          [src]="noticia.imagenUrl"
+          [alt]="noticia.titulo"
           class="noticia__relacionada--img"
         />
         <div class="noticia__relacionada--text">
           <span class="noticia__relacionada--categoria">{{
             noticia.categoria
           }}</span>
-          <h4 class="noticia__relacionada--titular">{{ noticia.titular }}</h4>
+          <h4 class="noticia__relacionada--titular">{{ noticia.titulo }}</h4>
         </div>
       </div>
     </div>

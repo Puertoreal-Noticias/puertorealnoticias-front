@@ -37,6 +37,12 @@
     cursor: pointer;
   }
   &__galeria--img {
+    background-color: red;
+    border-radius: 0.3rem;
+  }
+  &__h3--relacionado {
+    text-transform: capitalize;
+    font-weight: bold;
   }
   &__subcontainer {
     display: flex;

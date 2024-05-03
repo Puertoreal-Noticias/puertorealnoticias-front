@@ -14,8 +14,9 @@ export interface News {
   destacado?: string;
   fecha_publicacion: Date;
   autor: string;
-  imagenes: Imagen[]; // Ahora 'imagenes' es un array de 'Imagen'
+  imagenes: string[]; // Ahora 'imagenes' es un array de 'Imagen'
   __v: number;
   imagenPrincipal: string;
   imagenUrl?: string;
+  imagenesUrl?: string[];
 }
