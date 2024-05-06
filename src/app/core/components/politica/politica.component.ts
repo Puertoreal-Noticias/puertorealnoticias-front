@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { News, Imagen } from '../../interfaces/news.interface';
 import { ApiConectService } from '../../services/api-conect.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-politica',
@@ -11,24 +12,13 @@ export class PoliticaComponent implements OnInit {
   public categoria: string = 'politica';
   public news: News[] = [];
   public limit: number = 6;
-  constructor(private ApiConectService: ApiConectService) {}
+  constructor(
+    private ApiConectService: ApiConectService,
+    private navigate: Router
+  ) {}
   ngOnInit(): void {
     this.obtenerNoticias();
   }
-  public calcularUrl = (noticia: News) => {
-    this.ApiConectService.obtenerImagen(noticia.imagenPrincipal).subscribe(
-      (imagen: Imagen) => {
-        if (imagen.url) {
-          noticia.imagenUrl = imagen.url;
-        } else {
-          console.error('La imagen no tiene URL');
-        }
-      },
-      (error) => {
-        console.error('Hubo un error al obtener la imagen', error);
-      }
-    );
-  };
   public obtenerNoticias = () => {
     this.ApiConectService.filtrarPorCategoria(
       this.categoria,
@@ -37,7 +27,7 @@ export class PoliticaComponent implements OnInit {
       (noticias) => {
         this.news = noticias;
         this.news.forEach((noticia) => {
-          this.calcularUrl(noticia);
+          this.ApiConectService.calcularUrl(noticia);
         });
         console.log(this.news);
       },
@@ -46,4 +36,7 @@ export class PoliticaComponent implements OnInit {
       }
     );
   };
+  public navigateNoticia(id: any) {
+    this.navigate.navigate(['/noticia-detallada', id]);
+  }
 }

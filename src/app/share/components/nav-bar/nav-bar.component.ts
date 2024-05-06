@@ -29,27 +29,27 @@ export class NavBarComponent implements OnInit {
     {
       id: 1,
       title: 'Local',
-      url: '',
+      url: '/tipo-noticia/local',
     },
     {
       id: 2,
       title: 'Política',
-      url: '',
+      url: '/tipo-noticia/politica',
     },
     {
       id: 3,
       title: 'Deportes',
-      url: '',
+      url: '/tipo-noticia/deportes',
     },
     {
       id: 4,
       title: 'Cultura',
-      url: '',
+      url: '/tipo-noticia/cultura',
     },
     {
       id: 5,
       title: 'Medio ambiente',
-      url: '',
+      url: '/tipo-noticia/medioambiente',
     },
   ];
   public obtenerImg = () => {
@@ -61,11 +61,9 @@ export class NavBarComponent implements OnInit {
       this.new.forEach((ele) => {
         this.ApiConectService.calcularUrl(ele);
       });
-      console.log('navbar', this.new);
     });
   };
   public navigate(params: string) {
-    console.log(params);
     this.route.navigateByUrl(`${params}`);
   }
 }

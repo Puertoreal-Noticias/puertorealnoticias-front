@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiConectService } from '../../services/api-conect.service';
 import { News, Imagen } from '../../interfaces/news.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-deportes',
@@ -12,7 +13,10 @@ export class DeportesComponent implements OnInit {
   public exceptoUltimasNoticias: News[] = [];
   public primeraNoticia: News | null = null;
   public limit: number = 4;
-  constructor(private ApiConectService: ApiConectService) {}
+  constructor(
+    private ApiConectService: ApiConectService,
+    private navigate: Router
+  ) {}
 
   ngOnInit(): void {
     this.noticiaMasNueva();
@@ -59,4 +63,7 @@ export class DeportesComponent implements OnInit {
       day: 'numeric',
     });
   };
+  public navigateNoticia(id: any) {
+    this.navigate.navigate(['/noticia-detallada', id]);
+  }
 }

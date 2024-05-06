@@ -9,7 +9,7 @@
     >
       <ng-template let-new pTemplate="item">
         <div class="carrusel">
-          <div class="mb-3">
+          <div class="mb-3 card" (click)="navigateNoticia(new._id)">
             <img
               [src]="new.imagenUrl"
               [alt]="new.titulo"

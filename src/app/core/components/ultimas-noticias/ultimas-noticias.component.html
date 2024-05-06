@@ -3,7 +3,10 @@
     <span class="home__last--span"> {{ spanLastNews | uppercase }} </span>
 
     <div class="home__flex--global">
-      <div class="home__news--destacado">
+      <div
+        class="home__news--destacado"
+        (click)="navigateNoticia(noticiaDestacada?._id)"
+      >
         <img
           [src]="noticiaDestacada?.imagenUrl"
           [alt]="noticiaDestacada?.titulo"

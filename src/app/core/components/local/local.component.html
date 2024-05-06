@@ -5,7 +5,10 @@
         {{ categoria | uppercase }}
       </span>
       <div class="categoria__flex">
-        <div class="categoria__container">
+        <div
+          class="categoria__container"
+          (click)="navigateNoticia(primeraNoticia?._id)"
+        >
           <img
             [src]="primeraNoticia?.imagenUrl"
             [alt]="primeraNoticia?.titulo"

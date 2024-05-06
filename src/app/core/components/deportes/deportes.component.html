@@ -2,7 +2,10 @@
   <article class="noticias__general">
     <span class="noticias__category">{{ categoria | uppercase }}</span>
     <div class="noticias__card">
-      <div class="noticias__container">
+      <div
+        class="noticias__container"
+        (click)="navigateNoticia(primeraNoticia?._id)"
+      >
         <img
           [src]="primeraNoticia?.imagenUrl"
           [alt]="primeraNoticia?.titulo"
@@ -27,6 +30,7 @@
         <div
           class="noticias__card--smalls"
           *ngFor="let subNotice of exceptoUltimasNoticias"
+          (click)="navigateNoticia(subNotice._id)"
         >
           <img
             [src]="subNotice?.imagenUrl"

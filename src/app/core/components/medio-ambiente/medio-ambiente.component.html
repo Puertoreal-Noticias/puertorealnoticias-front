@@ -3,7 +3,11 @@
     <span class="noticias__category">{{ categoria | uppercase }}</span>
 
     <div class="noticias__grid">
-      <div class="noticias__card" *ngFor="let notice of noticias">
+      <div
+        class="noticias__card"
+        *ngFor="let notice of noticias"
+        (click)="navigateNoticia(notice._id)"
+      >
         <img
           [src]="notice.imagenUrl"
           [alt]="notice.titulo"

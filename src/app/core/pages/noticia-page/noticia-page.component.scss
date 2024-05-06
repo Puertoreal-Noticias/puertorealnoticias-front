@@ -89,10 +89,12 @@
     );
     padding: 1rem;
     width: 100%;
+    border-radius: 0rem 0rem 0.3rem 0.3rem;
     text-align: center;
   }
   &__relacionada--card {
     position: relative;
+    cursor: pointer;
   }
   &__relacionada--grid {
     display: grid;
@@ -103,6 +105,9 @@
     }
   }
   &__relacionada--img {
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 0.3rem;
   }
   &__relacionada--categoria {
     color: white;

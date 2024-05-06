@@ -42,6 +42,7 @@
       <div
         class="noticia__relacionada--card"
         *ngFor="let noticia of noticiasRelacionadasRandom"
+        (click)="navigateNoticia(noticia._id)"
       >
         <img
           [src]="noticia.imagenUrl"

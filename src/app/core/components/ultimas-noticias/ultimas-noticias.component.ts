@@ -27,24 +27,9 @@ export class UltimasNoticiasComponent implements OnInit {
       (response: News[]) => {
         // Asegúrate de que la respuesta es un array de noticias
         this.nuevasNoticias = response;
-        console.log(this.nuevasNoticias);
-
         // Para cada noticia, obtener la imagen principal
         for (let noticia of this.nuevasNoticias) {
-          this.ApiConectService.obtenerImagen(
-            noticia.imagenPrincipal
-          ).subscribe(
-            (imagen: Imagen) => {
-              if (imagen.url) {
-                noticia.imagenUrl = imagen.url;
-              } else {
-                console.error('La imagen no tiene URL');
-              }
-            },
-            (error) => {
-              console.error('Hubo un error al obtener la imagen', error);
-            }
-          );
+          this.ApiConectService.calcularUrl(noticia);
         }
       },
       (error) => {
@@ -56,24 +41,11 @@ export class UltimasNoticiasComponent implements OnInit {
     this.ApiConectService.obtenerNoiticiaDestacada().subscribe(
       (noticia: News) => {
         this.noticiaDestacada = noticia;
-        this.ApiConectService.obtenerImagen(noticia.imagenPrincipal).subscribe(
-          (imagen: Imagen) => {
-            if (imagen.url) {
-              noticia.imagenUrl = imagen.url;
-            } else {
-              console.error('La imagen no tiene URL');
-            }
-          },
-          (error) => {
-            console.error('Hubo un error al obtener la imagen', error);
-          }
-        );
+        this.ApiConectService.calcularUrl(noticia);
       }
     );
   };
   public navigateNoticia(id: any) {
-    console.log(id);
     this.navigate.navigate(['/noticia-detallada', id]);
-    // this.navigate.navigateByUrl(['/noticiasPage', id]);
   }
 }

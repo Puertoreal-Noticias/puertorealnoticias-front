@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { News, Imagen } from '../../interfaces/news.interface';
 import { ApiConectService } from '../../services/api-conect.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-local',
@@ -13,7 +14,10 @@ export class LocalComponent implements OnInit {
   public primeraNoticia: News | null = null;
   public limit: number = 4;
 
-  constructor(private ApiConectService: ApiConectService) {}
+  constructor(
+    private ApiConectService: ApiConectService,
+    private navigate: Router
+  ) {}
   ngOnInit(): void {
     this.noticiaMasNueva();
     this.noticiasExceptoUltima();
@@ -59,4 +63,7 @@ export class LocalComponent implements OnInit {
       day: 'numeric',
     });
   };
+  public navigateNoticia(id: any) {
+    this.navigate.navigate(['/noticia-detallada', id]);
+  }
 }

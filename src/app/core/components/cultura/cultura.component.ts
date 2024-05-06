@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiConectService } from '../../services/api-conect.service';
 import { News, Imagen } from '../../interfaces/news.interface';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-cultura',
   templateUrl: './cultura.component.html',
@@ -11,7 +12,10 @@ export class CulturaComponent implements OnInit {
   public exceptoUltimasNoticias: News[] = [];
   public primeraNoticia: News | null = null;
   public limit: number = 3;
-  constructor(private ApiConectService: ApiConectService) {}
+  constructor(
+    private ApiConectService: ApiConectService,
+    private navigate: Router
+  ) {}
 
   ngOnInit(): void {
     this.noticiaMasNueva();
@@ -54,4 +58,7 @@ export class CulturaComponent implements OnInit {
       day: 'numeric',
     });
   };
+  public navigateNoticia(id: any) {
+    this.navigate.navigate(['/noticia-detallada', id]);
+  }
 }
