@@ -1,0 +1,48 @@
+@use "../../../../scss/variables" as v;
+@use "../../../../scss/mixings" as m;
+.noticias {
+  padding: 1rem;
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    @include m.tabletM {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  &__card {
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    cursor: pointer;
+  }
+  &__img {
+    border-radius: 0.3rem;
+    width: 100%;
+    max-width: 50rem;
+    object-fit: cover;
+    height: 20rem;
+  }
+  &__text {
+  }
+  &__fecha {
+    color: rgb(98, 98, 98);
+  }
+  &__h2 {
+    font-weight: bolder;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+  &__h3 {
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+  }
+}
+
+.wrapper {
+  margin: auto;
+  width: 100%;
+  max-width: 1350px;
+}
