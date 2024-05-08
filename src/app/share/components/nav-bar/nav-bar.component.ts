@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiConectService } from '../../../core/services/api-conect.service';
 import { News } from 'src/app/core/interfaces/news.interface';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,6 +10,8 @@ import { News } from 'src/app/core/interfaces/news.interface';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent implements OnInit {
+  private menuVisible = new BehaviorSubject<boolean>(false);
+  public $menuVisible: Observable<boolean> = this.menuVisible.asObservable();
   public limit: number = 1;
   public new: News[] = [];
   public categoria: string = 'importante';
@@ -24,7 +27,7 @@ export class NavBarComponent implements OnInit {
     {
       id: 0,
       title: 'Inicio',
-      url: '',
+      url: '/',
     },
     {
       id: 1,
@@ -51,6 +54,16 @@ export class NavBarComponent implements OnInit {
       title: 'Medio ambiente',
       url: '/tipo-noticia/medioambiente',
     },
+    {
+      id: 6,
+      title: 'Tiempo',
+      url: '/tiempo',
+    },
+  ];
+  public redesSociales = [
+    { id: 0, title: 'facebook', url: '', img: 'pi pi-facebook' },
+    { id: 1, title: 'instagram', url: '', img: 'pi pi-facebook' },
+    { id: 2, title: 'instagram', url: '', img: 'pi pi-facebook' },
   ];
   public obtenerImg = () => {
     this.ApiConectService.filtrarPorCategoria(
@@ -66,4 +79,20 @@ export class NavBarComponent implements OnInit {
   public navigate(params: string) {
     this.route.navigateByUrl(`${params}`);
   }
+  public showMenu = () => {
+    this.menuVisible.next(true);
+    console.log(this.menuVisible);
+  };
+  public hideMenu = (event?: MouseEvent) => {
+    event?.stopPropagation();
+    this.menuVisible.next(false);
+    console.log('cierrate');
+  };
+
+  public navigateAndHideMenu = (ruta?: string) => {
+    this.menuVisible.next(false);
+    if (ruta) {
+      this.route.navigateByUrl(ruta);
+    }
+  };
 }

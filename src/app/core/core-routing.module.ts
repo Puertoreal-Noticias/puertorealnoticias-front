@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NoticiaPageComponent } from './pages/noticia-page/noticia-page.component';
 import { SeccionNoticiaComponent } from './pages/seccion-noticia/seccion-noticia.component';
+import { TiempoPageComponent } from './pages/tiempo-page/tiempo-page.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'tipo-noticia/:categoria',
     component: SeccionNoticiaComponent,
+  },
+  {
+    path: 'tiempo',
+    component: TiempoPageComponent,
   },
 ];
 

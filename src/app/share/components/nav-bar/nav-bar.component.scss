@@ -3,7 +3,9 @@
 
 .header {
   // background-color: red;
+  // padding: 1rem 0rem 1rem 0rem;
   padding: 1rem;
+  position: relative;
   &__container {
     margin-bottom: 1rem;
     background-position: center;
@@ -13,6 +15,7 @@
     justify-content: center;
     background-size: cover;
     border-radius: 0.3rem;
+    // position: relative;
     @include m.movilGrande {
       height: 20rem;
     }
@@ -28,28 +31,118 @@
     }
   }
 
+  &__nav {
+    position: relative;
+  }
   &__ul {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     border-bottom: solid 1px v.$colorPrincipal;
     padding-bottom: 1rem;
-    @include m.movilNormal {
-      gap: 1rem;
-    }
+    position: fixed;
+    left: -100%;
+    bottom: 0;
+    background-color: rgb(168, 39, 22);
+    height: 100vh;
+    transition: all 0.5s ease;
+    z-index: 12;
+    padding-top: 5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  &__ul--flex {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+  &__redes--span {
+    border-bottom: solid 1px white;
+    font-size: 1.2rem;
+    color: white;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 1rem 1rem 0.5rem;
+  }
+  &__ul--container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+  }
+  &__redes--container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column nowrap;
+    gap: 1rem;
+  }
+  &__redes--flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  &__redes--card {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
   }
   &__img {
     height: 20rem;
   }
   &__li {
-    font-size: 0.8rem;
+    font-size: 1.4rem;
     cursor: pointer;
+    color: white;
+  }
+  &__redes--social {
+    font-size: 1.1rem;
+    color: white;
   }
 }
 .wrapper {
   margin: auto;
   width: 100%;
   max-width: 1350px;
+}
+.menu {
+  cursor: pointer;
+  color: v.$colorPrincipal;
+  font-size: 1.8rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 12;
+  top: 3rem;
+  right: 2rem;
+  background-color: rgba(255, 255, 255, 0.695);
+  border-radius: 50%;
+}
+.menu-visible {
+  opacity: 1;
+  transition: all 0.5s ease;
+  left: 0%;
+  bottom: 0;
+}
+.cerrar-menu {
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  cursor: pointer;
+}
+i {
+  font-size: 2rem;
+  color: white;
 }

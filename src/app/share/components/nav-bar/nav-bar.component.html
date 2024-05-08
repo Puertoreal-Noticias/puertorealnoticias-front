@@ -7,14 +7,27 @@
     <h1 class="header__h1">Puerto real noticias</h1>
   </div>
   <nav class="header__nav">
-    <ul class="header__ul">
-      <li
-        class="header__li"
-        *ngFor="let element of navBarElements"
-        (click)="navigate(element.url)"
-      >
-        {{ element.title | titlecase }}
-      </li>
+    <i class="pi pi-bars menu" (click)="showMenu()"></i>
+    <ul class="header__ul" [ngClass]="{ 'menu-visible': $menuVisible | async }">
+      <div class="header__ul--container">
+        <i class="pi pi-times cerrar-menu" (click)="hideMenu($event)"></i>
+        <li
+          class="header__li"
+          *ngFor="let element of navBarElements"
+          (click)="navigateAndHideMenu(element.url)"
+        >
+          {{ element.title | titlecase }}
+        </li>
+      </div>
+      <div class="header__redes--container">
+        <span class="header__redes--span">Redes sociales</span>
+        <div class="header__redes--flex">
+          <div class="header__redes--card" *ngFor="let redes of redesSociales">
+            <i [class]="redes.img"></i>
+            <span class="header__redes--social">{{ redes.title }}</span>
+          </div>
+        </div>
+      </div>
     </ul>
   </nav>
 </header>

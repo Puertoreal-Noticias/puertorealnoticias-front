@@ -12,6 +12,7 @@ import { MedioAmbienteComponent } from './components/medio-ambiente/medio-ambien
 import { UltimasNoticiasComponent } from './components/ultimas-noticias/ultimas-noticias.component';
 import { NoticiaPageComponent } from './pages/noticia-page/noticia-page.component';
 import { SeccionNoticiaComponent } from './pages/seccion-noticia/seccion-noticia.component';
+import { TiempoPageComponent } from './pages/tiempo-page/tiempo-page.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { SeccionNoticiaComponent } from './pages/seccion-noticia/seccion-noticia
     UltimasNoticiasComponent,
     NoticiaPageComponent,
     SeccionNoticiaComponent,
+    TiempoPageComponent,
   ],
   imports: [CommonModule, CoreRoutingModule, PrimeNgModule],
 })

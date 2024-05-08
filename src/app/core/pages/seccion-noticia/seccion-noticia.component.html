@@ -3,19 +3,19 @@
     <div
       class="noticias__card"
       *ngFor="let noticia of noticias"
-      (click)="navigateNoticia(noticia._id)"
+      (click)="navigateNoticia(noticia?._id)"
     >
       <img
-        [src]="noticia.imagenUrl"
-        [alt]="noticia.titulo"
+        [src]="noticia?.imagenUrl"
+        [alt]="noticia?.titulo"
         class="noticias__img"
       />
       <div class="noticias__text">
         <span class="noticias__fecha">
           {{ formatearFecha(noticia.fecha_publicacion) }}
         </span>
-        <h2 class="noticias__h2">{{ noticia.titulo }}</h2>
-        <h3 class="noticias__h3">{{ noticia.subtitulo }}</h3>
+        <h2 class="noticias__h2">{{ noticia?.titulo }}</h2>
+        <h3 class="noticias__h3">{{ noticia?.subtitulo }}</h3>
       </div>
     </div>
   </article>
