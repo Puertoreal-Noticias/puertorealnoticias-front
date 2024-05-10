@@ -1,0 +1,86 @@
+@use "../../../../scss/variables" as v;
+@use "../../../../scss/mixings" as m;
+.tiempo {
+  height: 100vh;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+  &__titular--span {
+    text-transform: capitalize;
+    font-size: 2rem;
+    border-bottom: solid 3px v.$colorPrincipal;
+    padding-bottom: 0.5rem;
+    width: 100%;
+    max-width: 30rem;
+    font-weight: bolder;
+    text-align: center;
+    @include m.tablet {
+      max-width: 35rem;
+    }
+    @include m.portatil {
+      max-width: 40rem;
+    }
+  }
+  &__container {
+    height: 30rem;
+    width: 100%;
+    max-width: 30rem;
+    padding: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0.3rem;
+    @include m.tablet {
+      max-width: 35rem;
+    }
+    @include m.portatil {
+      max-width: 40rem;
+    }
+  }
+  &__container--top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  &__h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+  }
+  &__tiempo--span {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    background-color: rgba(0, 0, 0, 0.116);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+  }
+  &__flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-around;
+  }
+  &__tiempo--spantop {
+    color: white;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-transform: capitalize;
+    padding-top: 0.5rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__img--icon {
+    width: 3rem;
+    height: 3rem;
+  }
+}

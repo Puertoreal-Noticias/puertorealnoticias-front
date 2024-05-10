@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/enviroments';
 import { News, Imagen } from '../interfaces/news.interface';
+import { Tiempo } from '../interfaces/tiempo.inteface';
 @Injectable({
   providedIn: 'root',
 })
@@ -47,6 +48,9 @@ export class ApiConectService {
     return this.http.get<News[]>(
       `${environment.baseUrl}/noticias/obtener/excepto-ultimo/${categoria}?limit=${limit}`
     );
+  }
+  obtenerNoticiasPuertoReal(): Observable<Tiempo> {
+    return this.http.get<Tiempo>(`${environment.baseUrlTiempo}`);
   }
   // Calcular la imagen
   public calcularUrl = (noticia: News) => {

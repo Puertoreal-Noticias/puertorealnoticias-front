@@ -50,6 +50,14 @@
     flex-flow: column nowrap;
     justify-content: space-between;
     gap: 2rem;
+    @include m.movilGrandeL {
+      position: relative;
+      left: 0;
+      bottom: auto;
+      background-color: transparent;
+      height: auto;
+      padding-top: 1rem;
+    }
   }
   &__ul--flex {
     display: flex;
@@ -72,6 +80,9 @@
     gap: 2rem;
     align-items: center;
     justify-content: center;
+    @include m.movilGrandeL {
+      flex-flow: row nowrap;
+    }
   }
   &__redes--container {
     display: flex;
@@ -79,6 +90,9 @@
     justify-content: center;
     flex-flow: column nowrap;
     gap: 1rem;
+    @include m.movilGrandeL {
+      display: none;
+    }
   }
   &__redes--flex {
     display: flex;
@@ -100,6 +114,10 @@
     font-size: 1.4rem;
     cursor: pointer;
     color: white;
+    @include m.movilGrandeL {
+      font-size: 1.2rem;
+      color: black;
+    }
   }
   &__redes--social {
     font-size: 1.1rem;
@@ -127,6 +145,9 @@
   right: 2rem;
   background-color: rgba(255, 255, 255, 0.695);
   border-radius: 50%;
+  @include m.movilGrandeL {
+    display: none;
+  }
 }
 .menu-visible {
   opacity: 1;
@@ -141,6 +162,9 @@
   top: 2rem;
   left: 2rem;
   cursor: pointer;
+  @include m.movilGrandeL {
+    display: none;
+  }
 }
 i {
   font-size: 2rem;

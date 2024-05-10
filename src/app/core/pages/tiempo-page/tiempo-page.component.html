@@ -1,1 +1,54 @@
-<p>tiempo-page works!</p>
+<div *ngIf="tiempo.length > 0; else loading">
+  <section *ngFor="let item of tiempo" class="tiempo">
+    <span class="tiempo__titular--span">El tiempo</span>
+    <div
+      class="tiempo__container"
+      [style.background-image]="'url(' + backgroundImg + ')'"
+    >
+      <div class="tiempo__container--top">
+        <h2 class="tiempo__h2">{{ item.name }}</h2>
+        <div class="tiempo__card--top">
+          <span class="tiempo__tiempo--spantop"
+            >{{ item.weather[0].description }}
+            <img
+              [src]="
+                'http://openweathermap.org/img/w/' +
+                item.weather[0].icon +
+                '.png'
+              "
+              alt="Icono del tiempo"
+              class="tiempo__img--icon"
+            />
+          </span>
+        </div>
+      </div>
+      <div class="tiempo__flex">
+        <div class="tiempo__card">
+          <span class="tiempo__tiempo--span">
+            Temperatura:
+            {{ kelvinToCelsius(item.main.temp) | number : "1.2-2" }} °C
+          </span>
+        </div>
+        <div class="tiempo__card">
+          <span class="tiempo__tiempo--span">
+            Sensación térmica:
+            {{ kelvinToCelsius(item.main.feels_like) | number : "1.2-2" }} °C
+          </span>
+        </div>
+        <div class="tiempo__card">
+          <span class="tiempo__tiempo--span"
+            >Humedad: {{ item.main.humidity }}%</span
+          >
+        </div>
+        <div class="tiempo__card">
+          <span class="tiempo__tiempo--span"
+            >Velocidad del viento: {{ mpsToKmph(item.wind.speed) }} m/s</span
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<ng-template #loading>
+  <p>Cargando datos del tiempo...</p>
+</ng-template>
