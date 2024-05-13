@@ -13,6 +13,16 @@ import { UltimasNoticiasComponent } from './components/ultimas-noticias/ultimas-
 import { NoticiaPageComponent } from './pages/noticia-page/noticia-page.component';
 import { SeccionNoticiaComponent } from './pages/seccion-noticia/seccion-noticia.component';
 import { TiempoPageComponent } from './pages/tiempo-page/tiempo-page.component';
+import { LoginComponent } from './components/login/login.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { NavegadorGestorComponent } from './components/navegador-gestor/navegador-gestor.component';
+import { AddNoticiaComponent } from './components/add-noticia/add-noticia.component';
+import { GestorNoticiasComponent } from './pages/gestor-noticias/gestor-noticias.component';
+import { ModificarNoticiaComponent } from './components/modificar-noticia/modificar-noticia.component';
+import { EliminarNoticiaComponent } from './components/eliminar-noticia/eliminar-noticia.component';
+import { ObtenerNoticiaComponent } from './components/obtener-noticia/obtener-noticia.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +36,19 @@ import { TiempoPageComponent } from './pages/tiempo-page/tiempo-page.component';
     NoticiaPageComponent,
     SeccionNoticiaComponent,
     TiempoPageComponent,
+    LoginComponent,
+    NavegadorGestorComponent,
+    AddNoticiaComponent,
+    GestorNoticiasComponent,
+    ModificarNoticiaComponent,
+    EliminarNoticiaComponent,
+    ObtenerNoticiaComponent,
   ],
-  imports: [CommonModule, CoreRoutingModule, PrimeNgModule],
+  imports: [
+    CommonModule,
+    CoreRoutingModule,
+    PrimeNgModule,
+    ReactiveFormsModule,
+  ],
 })
 export class CoreModule {}

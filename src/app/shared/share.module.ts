@@ -10,5 +10,6 @@ import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 @NgModule({
   declarations: [LayoutPageComponent, NavBarComponent, FooterComponent],
   imports: [CommonModule, ShareRoutingModule, PrimeNgModule],
+  exports: [],
 })
 export class ShareModule {}

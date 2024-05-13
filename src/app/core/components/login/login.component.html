@@ -1,0 +1,22 @@
+<section class="global">
+  <h3 class="global__h3">Formulario Administrador</h3>
+  <form
+    action=""
+    class="global__form"
+    [formGroup]="formGroup"
+    (ngSubmit)="submitForm($event)"
+  >
+    <div class="global__container--global">
+      <div class="global__container">
+        <label for="" class="global__label">Usuario</label>
+        <input type="text" pInputText formControlName="user" />
+      </div>
+      <div class="global__container">
+        <label for="" class="global__label">Contraseña</label>
+        <p-password formControlName="password" [feedback]="false"></p-password>
+      </div>
+    </div>
+
+    <button type="submit" class="global__button">Login</button>
+  </form>
+</section>

@@ -1,0 +1,9 @@
+<section class="gestor">
+  <button
+    class="gestor__btns"
+    *ngFor="let item of navGestorNoticias"
+    (click)="cambiarRuta(item.url)"
+  >
+    {{ item.titulo }}
+  </button>
+</section>

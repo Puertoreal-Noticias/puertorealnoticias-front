@@ -4,6 +4,12 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NoticiaPageComponent } from './pages/noticia-page/noticia-page.component';
 import { SeccionNoticiaComponent } from './pages/seccion-noticia/seccion-noticia.component';
 import { TiempoPageComponent } from './pages/tiempo-page/tiempo-page.component';
+import { LoginComponent } from './components/login/login.component';
+import { GestorNoticiasComponent } from './pages/gestor-noticias/gestor-noticias.component';
+import { AddNoticiaComponent } from './components/add-noticia/add-noticia.component';
+import { EliminarNoticiaComponent } from './components/eliminar-noticia/eliminar-noticia.component';
+import { ModificarNoticiaComponent } from './components/modificar-noticia/modificar-noticia.component';
+import { ObtenerNoticiaComponent } from './components/obtener-noticia/obtener-noticia.component';
 
 const routes: Routes = [
   {
@@ -21,6 +27,37 @@ const routes: Routes = [
   {
     path: 'tiempo',
     component: TiempoPageComponent,
+  },
+  {
+    path: 'noticia/crear-noticias/admin/login',
+    component: LoginComponent,
+  },
+  // Ruta privada
+  {
+    path: 'noticia/gestor/admin/page/admitido',
+    component: GestorNoticiasComponent,
+    children: [
+      {
+        path: '',
+        component: AddNoticiaComponent,
+      },
+      {
+        path: 'añadir',
+        component: AddNoticiaComponent,
+      },
+      {
+        path: 'eliminar',
+        component: EliminarNoticiaComponent,
+      },
+      {
+        path: 'modificar',
+        component: ModificarNoticiaComponent,
+      },
+      {
+        path: 'obtener',
+        component: ObtenerNoticiaComponent,
+      },
+    ],
   },
 ];
 

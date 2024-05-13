@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./share/share.module').then((m) => m.ShareModule),
+      import('./shared/share.module').then((m) => m.ShareModule),
   },
 ];
 

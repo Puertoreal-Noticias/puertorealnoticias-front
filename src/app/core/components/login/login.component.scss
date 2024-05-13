@@ -1,0 +1,57 @@
+@use "../../../../scss/variables" as v;
+@use "../../../../scss/mixings" as m;
+.global {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  gap: 1rem;
+
+  &__h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: solid 3px v.$colorPrincipal;
+    width: 100%;
+    max-width: 30rem;
+    text-align: center;
+  }
+  &__container--global {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+  }
+  &__form {
+    background-color: rgba(33, 33, 23, 0.884);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    max-width: 30rem;
+    height: 20rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border-radius: 0.3rem;
+    padding-top: 1rem;
+  }
+  &__label {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: rgb(214, 214, 214);
+    border-bottom: solid 2px v.$colorPrincipal;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  &__button {
+    color: white;
+    background-color: v.$colorPrincipal;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border-radius: 0rem 0rem 0.3rem 0.3rem;
+  }
+}
