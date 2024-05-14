@@ -1,0 +1,25 @@
+@use "../../../../scss/variables" as v;
+@use "../../../../scss/mixings" as m;
+.gestor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  &__global {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+  }
+  &__h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: v.$colorPrincipal;
+  }
+}
+
+.wrapper {
+  margin: auto;
+  width: 100%;
+  max-width: 1350px;
+}

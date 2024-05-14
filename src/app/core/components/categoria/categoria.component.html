@@ -1,0 +1,56 @@
+<div class="global">
+  <h4 class="global__h4">Elegir categoria</h4>
+  <form action="" class="global__form" [formGroup]="formGroup">
+    <select
+      name=""
+      id=""
+      class="global__select"
+      formControlName="categoria"
+      (change)="solicitarNoticias(formGroup.value.categoria)"
+    >
+      <option
+        *ngFor="let category of categorias"
+        [value]="category.categoria"
+        class="global__options"
+      >
+        {{ category.categoria }}
+      </option>
+    </select>
+  </form>
+  <div class="global__container">
+    <div class="global__cards" *ngFor="let noticia of noticiasSeleccionadas">
+      <img [src]="noticia.imagenUrl" alt="" class="global__card--img" />
+      <div class="global__container--text">
+        <span class="global__card--text">
+          categoria :
+          <span class="global__text--contenido">{{
+            noticia.categoria
+          }}</span> </span
+        ><span class="global__card--text"
+          >contenido :
+          <span class="global__text--contenido">{{
+            noticia.contenido
+          }}</span> </span
+        ><span class="global__card--text"
+          >titulo :
+          <span class="global__text--contenido">{{
+            noticia.titulo
+          }}</span> </span
+        ><span class="global__card--text"
+          >subtitulo :
+          <span class="global__text--contenido">
+            {{ noticia.subtitulo }}</span
+          > </span
+        ><span class="global__card--text"
+          >destacado :
+          <span class="global__text--contenido">{{ noticia.destacado }}</span>
+        </span>
+        <div class="global__container--btns">
+          <button class="global__card--btn" *ngFor="let boton of btnsCrud">
+            {{ boton.text }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

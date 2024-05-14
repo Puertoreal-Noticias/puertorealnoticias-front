@@ -26,7 +26,7 @@ export class ApiConectService {
   obtenerNoticiaId(id: string): Observable<News> {
     return this.http.get<News>(`${environment.baseUrl}/noticias/obtener/${id}`);
   }
-  filtrarPorCategoria(categoria: string, limit: number): Observable<News[]> {
+  filtrarPorCategoria(categoria: string, limit?: number): Observable<News[]> {
     return this.http.get<News[]>(
       `${environment.baseUrl}/noticias/filtrar/${categoria}?limit=${limit}`
     );

@@ -1,0 +1,9 @@
+.component {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  &__btns--container {
+    display: flex;
+    justify-content: space-between;
+  }
+}

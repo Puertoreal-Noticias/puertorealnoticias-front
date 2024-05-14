@@ -10,6 +10,8 @@ import { AddNoticiaComponent } from './components/add-noticia/add-noticia.compon
 import { EliminarNoticiaComponent } from './components/eliminar-noticia/eliminar-noticia.component';
 import { ModificarNoticiaComponent } from './components/modificar-noticia/modificar-noticia.component';
 import { ObtenerNoticiaComponent } from './components/obtener-noticia/obtener-noticia.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
+import { RecientesComponent } from './components/recientes/recientes.component';
 
 const routes: Routes = [
   {
@@ -56,6 +58,20 @@ const routes: Routes = [
       {
         path: 'obtener',
         component: ObtenerNoticiaComponent,
+        children: [
+          {
+            path: '',
+            component: CategoriaComponent,
+          },
+          {
+            path: 'categoria',
+            component: CategoriaComponent,
+          },
+          {
+            path: 'recientes',
+            component: RecientesComponent,
+          },
+        ],
       },
     ],
   },

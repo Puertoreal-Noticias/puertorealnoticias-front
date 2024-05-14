@@ -23,6 +23,8 @@ import { GestorNoticiasComponent } from './pages/gestor-noticias/gestor-noticias
 import { ModificarNoticiaComponent } from './components/modificar-noticia/modificar-noticia.component';
 import { EliminarNoticiaComponent } from './components/eliminar-noticia/eliminar-noticia.component';
 import { ObtenerNoticiaComponent } from './components/obtener-noticia/obtener-noticia.component';
+import { CategoriaComponent } from './components/categoria/categoria.component';
+import { RecientesComponent } from './components/recientes/recientes.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { ObtenerNoticiaComponent } from './components/obtener-noticia/obtener-no
     ModificarNoticiaComponent,
     EliminarNoticiaComponent,
     ObtenerNoticiaComponent,
+    CategoriaComponent,
+    RecientesComponent,
   ],
   imports: [
     CommonModule,

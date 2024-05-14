@@ -1,0 +1,76 @@
+@use "../../../../scss/variables" as v;
+@use "../../../../scss/mixings" as m;
+.global {
+  &__h4 {
+    margin-bottom: 2rem;
+  }
+  &__form {
+    margin-bottom: 2rem;
+  }
+  &__select {
+    background-color: v.$colorPrincipal;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 0.3rem;
+    text-align: center;
+  }
+  &__options {
+    font-size: 1.2rem;
+    color: white;
+    cursor: pointer;
+    // text-align: center;
+  }
+  &__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+  &__cards {
+    width: 100%;
+    max-width: 40rem;
+    display: flex;
+    gap: 1rem;
+    background-color: v.$colorPrincipal;
+    padding: 1rem;
+    border-radius: 0.3rem;
+  }
+  &__card--img {
+    width: 15rem;
+  }
+  &__card--text {
+    font-size: 1.1rem;
+    display: block;
+    font-weight: bold;
+    color: white;
+  }
+  &__text--contenido {
+    font-weight: 500;
+    color: white;
+  }
+  &__container--text {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    height: 100%;
+    width: 100%;
+  }
+  &__container--btns {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__card--btn {
+    cursor: pointer;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    color: black;
+    font-weight: bold;
+  }
+}

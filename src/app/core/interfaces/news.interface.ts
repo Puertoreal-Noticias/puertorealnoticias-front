@@ -20,3 +20,8 @@ export interface News {
   imagenUrl?: string;
   imagenesUrl?: string[];
 }
+
+export interface Categoria {
+  id: number;
+  categoria: string;
+}
