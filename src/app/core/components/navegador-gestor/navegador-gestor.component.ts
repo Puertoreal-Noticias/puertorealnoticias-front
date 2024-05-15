@@ -16,16 +16,6 @@ export class NavegadorGestorComponent {
     },
     {
       id: 1,
-      titulo: 'Eliminar noticia',
-      url: 'eliminar',
-    },
-    {
-      id: 2,
-      titulo: 'Modificar noticia',
-      url: 'modificar',
-    },
-    {
-      id: 3,
       titulo: 'obtener noticia',
       url: 'obtener',
     },

@@ -48,11 +48,7 @@ const routes: Routes = [
         component: AddNoticiaComponent,
       },
       {
-        path: 'eliminar',
-        component: EliminarNoticiaComponent,
-      },
-      {
-        path: 'modificar',
+        path: 'modificar/:id',
         component: ModificarNoticiaComponent,
       },
       {

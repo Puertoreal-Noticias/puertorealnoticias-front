@@ -1,1 +1,48 @@
-<p>recientes works!</p>
+<div class="global">
+  <div class="global__cards" *ngFor="let noticia of noticiasRecientes">
+    <img [src]="noticia.imagenUrl" alt="" class="global__card--img" />
+    <div class="global__container--padre">
+      <div class="global__container--text">
+        <span class="global__card--text">
+          categoria :
+          <span class="global__text--contenido">{{
+            noticia.categoria
+          }}</span> </span
+        ><span class="global__card--text"
+          >contenido :
+          <span class="global__text--contenido">{{
+            noticia.contenido
+          }}</span> </span
+        ><span class="global__card--text"
+          >titulo :
+          <span class="global__text--contenido">{{
+            noticia.titulo
+          }}</span> </span
+        ><span class="global__card--text"
+          >subtitulo :
+          <span class="global__text--contenido">
+            {{ noticia.subtitulo }}</span
+          > </span
+        ><span class="global__card--text"
+          >destacado :
+          <span class="global__text--contenido">{{ noticia.destacado }}</span>
+        </span>
+      </div>
+
+      <div class="global__container--btns">
+        <button
+          class="global__card--btn"
+          (click)="modificarNoticia(noticia._id)"
+        >
+          Modificar noticia
+        </button>
+        <button
+          class="global__card--btn"
+          (click)="eliminarNoticia(noticia._id)"
+        >
+          Eliminar noticia
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

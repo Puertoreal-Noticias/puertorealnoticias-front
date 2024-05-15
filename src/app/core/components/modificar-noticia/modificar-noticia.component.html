@@ -1,1 +1,53 @@
-<p>modificar-noticia works!</p>
+<div class="global" *ngIf="noticiaSeleccionada">
+  <div class="global__container">
+    <h1 class="global__h1">Noticia seleccionada para modificar</h1>
+    <div class="global__container--subcontainer">
+      <img
+        [src]="noticiaSeleccionada.imagenUrl"
+        [alt]="noticiaSeleccionada.titulo"
+        class="global__img"
+      />
+      <div>
+        <h2 class="global__h2">Titulo: {{ noticiaSeleccionada.titulo }}</h2>
+        <h3 class="global__h3">
+          Subtitulo: {{ noticiaSeleccionada.subtitulo }}
+        </h3>
+        <p class="global__p">Contenido: {{ noticiaSeleccionada.contenido }}</p>
+      </div>
+    </div>
+  </div>
+  <form action="" [formGroup]="formGroup">
+    <h4>Modificar noticia</h4>
+    <input
+      type="text"
+      placeholder="Titulo"
+      formControlName="titulo"
+      [(ngModel)]="noticiaSeleccionada.titulo"
+    />
+    <input
+      type="text"
+      placeholder="Subtitulo"
+      formControlName="subtitulo"
+      [(ngModel)]="noticiaSeleccionada.subtitulo"
+    />
+    <input
+      type="text"
+      placeholder="Contenido"
+      formControlName="contenido"
+      [(ngModel)]="noticiaSeleccionada.contenido"
+    />
+    <input
+      type="text"
+      placeholder="autor"
+      formControlName="autor"
+      [(ngModel)]="noticiaSeleccionada.autor"
+    />
+    <!-- <input
+      type="text"
+      placeholder="Imagen URL"
+      formControlName=""
+      [(ngModel)]="noticiaSeleccionada.imagenUrl"
+    /> -->
+    <!-- <button (click)="modificarNoticia()">Modificar</button> -->
+  </form>
+</div>
