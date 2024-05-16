@@ -37,4 +37,19 @@ export class ModificarNoticiaComponent implements OnInit {
       this.ApiConectService.calcularUrl(this.noticiaSeleccionada);
     });
   };
+  public modificarNoticia = () => {
+    if (this.noticiaSeleccionada) {
+      this.noticiaSeleccionada.titulo = this.formGroup.get('titulo')?.value;
+      this.noticiaSeleccionada.subtitulo =
+        this.formGroup.get('subtitulo')?.value;
+      this.noticiaSeleccionada.contenido =
+        this.formGroup.get('contenido')?.value;
+      this.noticiaSeleccionada.autor = this.formGroup.get('autor')?.value;
+      this.ApiConectService.modificarNoticia(
+        this.noticiaSeleccionada
+      ).subscribe((noticia) => {
+        console.log(noticia);
+      });
+    }
+  };
 }

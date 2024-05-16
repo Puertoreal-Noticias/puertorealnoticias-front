@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/enviroments';
-import { News, Imagen } from '../interfaces/news.interface';
+import { News, Imagen, AddNews } from '../interfaces/news.interface';
 import { Tiempo } from '../interfaces/tiempo.inteface';
 @Injectable({
   providedIn: 'root',
@@ -20,7 +20,27 @@ export class ApiConectService {
       `${environment.baseUrl}/noticias/eliminar/${id}`
     );
   }
-
+  modificarNoticia(noticia: News): Observable<string> {
+    return this.http.patch<string>(
+      `${environment.baseUrl}/noticias/modificar/${noticia._id}`,
+      noticia,
+      { responseType: 'text' as 'json' }
+    );
+  }
+  agregarNoticia(noticia: AddNews): Observable<string> {
+    return this.http.post<string>(
+      `${environment.baseUrl}/noticias/crear`,
+      noticia,
+      { responseType: 'text' as 'json' }
+    );
+  }
+  addImgToNoticia(id: string, img: Imagen): Observable<string> {
+    return this.http.post<string>(
+      `${environment.baseUrl}/imgs/crear/${id}`,
+      img,
+      { responseType: 'text' as 'json' }
+    );
+  }
   obtenerNoiticiaDestacada(limit: number = 1): Observable<News> {
     return this.http.get<News>(
       `${environment.baseUrl}/noticias/obtener/destacada?limit=${limit}`

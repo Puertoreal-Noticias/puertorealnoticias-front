@@ -1,0 +1,62 @@
+@use "../../../../scss/variables" as v;
+@use "../../../../scss/mixings" as m;
+.global {
+  &__h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+  &__form {
+    background-color: beige;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+  }
+  &__form__group {
+    display: flex;
+    // background-color: red;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  &__form__group__label {
+    font-size: 1.4rem;
+  }
+  &__form__group__input {
+    border: solid 1px black;
+    padding: 1rem;
+    font-size: 1.4rem;
+  }
+  &__form__group__button {
+    padding: 1rem;
+    border-radius: 0.3rem;
+    font-size: 1.4rem;
+    background-color: v.$colorPrincipal;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    &:hover {
+      background-color: rgb(119, 199, 0);
+      transition: all 0.5s ease;
+    }
+  }
+  &__form__group__textarea {
+    border: solid 1px black;
+    padding: 1rem;
+    font-size: 1.4rem;
+  }
+  &__form__group__select {
+    border: solid 1px black;
+    padding: 1rem;
+    font-size: 1.4rem;
+  }
+  &__form__group__select__option {
+  }
+  &__form__group--center {
+    // background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

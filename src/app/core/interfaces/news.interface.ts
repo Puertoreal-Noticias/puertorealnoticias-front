@@ -20,6 +20,14 @@ export interface News {
   imagenUrl?: string;
   imagenesUrl?: string[];
 }
+export interface AddNews {
+  titulo: string;
+  subtitulo?: string;
+  contenido: string;
+  autor: string;
+  categoria: string;
+  destacado?: boolean;
+}
 
 export interface Categoria {
   id: number;
