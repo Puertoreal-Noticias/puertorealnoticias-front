@@ -1,35 +1,68 @@
 <div class="global">
   <h1 class="global__h1">Añadir una nueva noticia</h1>
-  <form action="" class="global__form">
+  <form
+    action=""
+    [formGroup]="formGroup"
+    (ngSubmit)="addNoticia()"
+    class="global__form"
+  >
     <div class="global__form__group">
       <label for="titulo" class="global__form__group__label">Título</label>
-      <input type="text" id="titulo" class="global__form__group__input" />
+      <input
+        type="text"
+        id="titulo"
+        formControlName="titulo"
+        class="global__form__group__input"
+      />
     </div>
     <div class="global__form__group">
       <label for="subtitulo" class="global__form__group__label"
         >Subtitulo</label
       >
-      <input type="text" id="subtitulo" class="global__form__group__input" />
+      <input
+        type="text"
+        id="subtitulo"
+        formControlName="subtitulo"
+        class="global__form__group__input"
+      />
     </div>
     <div class="global__form__group">
       <label for="autor" class="global__form__group__label">Autor</label>
-      <input type="text" id="autor" class="global__form__group__input" />
+      <input
+        type="text"
+        id="autor"
+        formControlName="autor"
+        class="global__form__group__input"
+      />
     </div>
     <div class="global__form__group">
       <label for="contenido" class="global__form__group__label"
         >Contenido</label
       >
-      <textarea id="contenido" class="global__form__group__textarea"></textarea>
+      <textarea
+        id="contenido"
+        formControlName="contenido"
+        class="global__form__group__textarea"
+      ></textarea>
     </div>
     <div class="global__form__group">
       <label for="imagen" class="global__form__group__label">Imagen</label>
-      <input type="file" id="imagen" class="global__form__group__input" />
+      <input
+        type="file"
+        id="imagen"
+        (change)="onFileChange($event)"
+        class="global__form__group__input"
+      />
     </div>
     <div class="global__form__group">
       <label for="categoria" class="global__form__group__label"
         >Categoría</label
       >
-      <select id="categoria" class="global__form__group__select">
+      <select
+        id="categoria"
+        formControlName="categoria"
+        class="global__form__group__select"
+      >
         <option
           *ngFor="let categoria of categoriasDisponibles"
           [value]="categoria.nombre"
@@ -39,8 +72,28 @@
         </option>
       </select>
     </div>
+    <div class="global__form__group">
+      <label for="destacado" class="global__form__group__label"
+        >Destacado</label
+      >
+      <select
+        id="destacado"
+        formControlName="destacado"
+        class="global__form__group__select"
+      >
+        <option
+          *ngFor="let des of destacado"
+          [value]="des.nombre"
+          class="global__form__group__select__option"
+        >
+          {{ des.nombre }}
+        </option>
+      </select>
+    </div>
     <div class="global__form__group--center">
-      <button class="global__form__group__button">Añadir noticia</button>
+      <button type="submit" class="global__form__group__button">
+        Añadir noticia
+      </button>
     </div>
   </form>
 </div>

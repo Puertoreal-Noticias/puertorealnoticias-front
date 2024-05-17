@@ -26,7 +26,8 @@ export interface AddNews {
   contenido: string;
   autor: string;
   categoria: string;
-  destacado?: boolean;
+  destacado?: string;
+  imagen?: File | null; // Cambia 'string' a 'File | null'
 }
 
 export interface Categoria {

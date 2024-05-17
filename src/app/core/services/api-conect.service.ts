@@ -27,18 +27,18 @@ export class ApiConectService {
       { responseType: 'text' as 'json' }
     );
   }
-  agregarNoticia(noticia: AddNews): Observable<string> {
-    return this.http.post<string>(
-      `${environment.baseUrl}/noticias/crear`,
-      noticia,
-      { responseType: 'text' as 'json' }
+  agregarNoticia(noticia: AddNews): Observable<News> {
+    return this.http.post<News>(
+      `${environment.baseUrl}/noticias/create-new`,
+      noticia
     );
   }
-  addImgToNoticia(id: string, img: Imagen): Observable<string> {
-    return this.http.post<string>(
-      `${environment.baseUrl}/imgs/crear/${id}`,
-      img,
-      { responseType: 'text' as 'json' }
+  addImgToNoticia(id: string, img: File): Observable<Imagen> {
+    const formData = new FormData();
+    formData.append('imagen', img);
+    return this.http.post<Imagen>(
+      `${environment.baseUrl}/imgs/upload/${id}`,
+      formData
     );
   }
   obtenerNoiticiaDestacada(limit: number = 1): Observable<News> {
