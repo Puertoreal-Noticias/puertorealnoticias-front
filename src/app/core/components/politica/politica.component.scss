@@ -2,12 +2,15 @@
 @use "../../../../scss/mixings" as m;
 
 .img--carrusel {
-  height: 22rem;
+  aspect-ratio: 16/9;
   border-radius: 0.3rem;
   object-fit: cover;
   width: 100%;
   @include m.tabletM {
-    height: 24rem;
+    height: 30rem;
+  }
+  @include m.portatil {
+    height: 35rem;
   }
 }
 .carrusel {
@@ -38,6 +41,9 @@
   &__text--titular {
     color: rgb(255, 255, 255);
     font-weight: bold;
+  }
+  &__text--subtitular {
+    color: white;
   }
 }
 .card {

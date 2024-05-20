@@ -15,15 +15,17 @@
             loading="lazy"
             class="categoria__img"
           />
+          <h2 class="categoria__h2">{{ primeraNoticia?.titulo }}</h2>
+          <h3 class="categoria__h3">{{ primeraNoticia?.subtitulo }}</h3>
           <span class="categoria__span--light">
             {{ primeraNoticia?.categoria }}
           </span>
-          <h4 class="categoria__h4">{{ primeraNoticia?.titulo }}</h4>
         </div>
         <div class="categoria__grid">
           <div
             class="categoria__subnoticias--card"
             *ngFor="let subNoticias of exceptoUltimasNoticias"
+            (click)="navigateNoticia(subNoticias?._id)"
           >
             <img
               [src]="subNoticias.imagenUrl"
@@ -33,7 +35,10 @@
             />
 
             <div class="categoria__local--text">
-              <p class="categoria__grid--titles">{{ subNoticias.titulo }}</p>
+              <h4 class="categoria__grid--titles">{{ subNoticias.titulo }}</h4>
+              <h5 class="categoria__grid--subtitles">
+                {{ subNoticias.subtitulo }}
+              </h5>
               <span class="categoria__grid--span">
                 {{ formatearFecha(subNoticias.fecha_publicacion) }}
               </span>

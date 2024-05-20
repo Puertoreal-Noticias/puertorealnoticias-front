@@ -15,9 +15,15 @@ export class ApiConectService {
       `${environment.baseUrl}/noticias/obtener?limit=${limit}`
     );
   }
+  obtenerRecientes(limit?: number): Observable<News[]> {
+    return this.http.get<News[]>(
+      `${environment.baseUrl}/noticias/obtener/recientes?limit=${limit}`
+    );
+  }
   eliminarNoticia(id: string): Observable<string> {
     return this.http.delete<string>(
-      `${environment.baseUrl}/noticias/eliminar/${id}`
+      `${environment.baseUrl}/noticias/eliminar/${id}`,
+      { responseType: 'text' as 'json' }
     );
   }
   modificarNoticia(noticia: News): Observable<string> {

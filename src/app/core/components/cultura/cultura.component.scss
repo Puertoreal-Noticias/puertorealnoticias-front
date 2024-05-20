@@ -17,7 +17,9 @@
     cursor: pointer;
   }
   &__img--principal {
-    height: 23rem;
+    // height: 23rem;
+    height: 25rem;
+    aspect-ratio: 16/9;
     border-radius: 0.3rem;
   }
   &__span--category {

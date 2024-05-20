@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./politica.component.scss'],
 })
 export class PoliticaComponent implements OnInit {
+  public categoriaShow: string = 'Política';
   public categoria: string = 'politica';
   public news: News[] = [];
   public limit: number = 6;

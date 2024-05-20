@@ -7,20 +7,13 @@
 .wrapper {
   margin: auto;
   width: 100%;
-  max-width: 1350px;
+  max-width: 1500px;
 }
 
 .categoria {
   padding: 1rem;
   &--flex {
     @include m.tablet {
-      display: flex;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-  }
-  &--flexL {
-    @include m.portatil {
       display: flex;
       justify-content: space-between;
       gap: 2rem;

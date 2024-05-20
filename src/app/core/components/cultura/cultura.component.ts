@@ -11,7 +11,7 @@ export class CulturaComponent implements OnInit {
   public categoria: string = 'cultura';
   public exceptoUltimasNoticias: News[] = [];
   public primeraNoticia: News | null = null;
-  public limit: number = 3;
+  public limit: number = 4;
   constructor(
     private ApiConectService: ApiConectService,
     private navigate: Router

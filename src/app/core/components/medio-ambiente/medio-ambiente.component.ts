@@ -11,6 +11,7 @@ export class MedioAmbienteComponent implements OnInit {
   public categoria: string = 'medioambiente';
   public noticias: News[] = [];
   public limit: number = 3;
+
   constructor(
     private ApiConectService: ApiConectService,
     private navigate: Router

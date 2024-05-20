@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { News } from '../../interfaces/news.interface';
 import { ApiConectService } from '../../services/api-conect.service';
 import { Router } from '@angular/router';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-recientes',
@@ -18,7 +19,7 @@ export class RecientesComponent implements OnInit {
     this.obtenerNoticias();
   }
   public obtenerNoticias = () => {
-    this.ApiConectService.obtenerNoticias().subscribe((noticia) => {
+    this.ApiConectService.obtenerRecientes().subscribe((noticia) => {
       this.noticiasRecientes = noticia;
       this.noticiasRecientes.forEach((noticia) => {
         this.ApiConectService.calcularUrl(noticia);
@@ -26,10 +27,16 @@ export class RecientesComponent implements OnInit {
     });
   };
   public eliminarNoticia = (id: string) => {
-    this.ApiConectService.eliminarNoticia(id).subscribe(() => {
-      this.obtenerNoticias();
-    });
-    console.log('eliminar');
+    this.ApiConectService.eliminarNoticia(id)
+      .pipe(
+        catchError((error) => {
+          console.error('Error al eliminar la noticia:', error);
+          return of(); // Devuelve un observable vacío para que la cadena de observables pueda continuar
+        })
+      )
+      .subscribe(() => {
+        this.obtenerNoticias();
+      });
   };
   public modificarNoticia = (id: string) => {
     this.navigate.navigate([

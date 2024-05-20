@@ -1,6 +1,6 @@
 <section>
   <article>
-    <span class="carrusel__category"> {{ categoria | uppercase }} </span>
+    <span class="carrusel__category"> {{ categoriaShow | uppercase }} </span>
     <p-carousel
       [value]="news"
       [numVisible]="1"
@@ -17,12 +17,12 @@
               class="w-6 shadow-2 img--carrusel"
             />
             <div class="carrusel--absolute">
-              <h4 class="mb-1 carrusel__text--small">
-                {{ new.categoria | uppercase }}
-              </h4>
-              <h6 class="mt-0 mb-3 carrusel__text--titular">
+              <h3 class="mt-0 mb-3 carrusel__text--titular">
                 {{ new.titulo }}
-              </h6>
+              </h3>
+              <h4 class="carrusel__text--subtitular">
+                {{ new.subtitulo }}
+              </h4>
             </div>
           </div>
         </div>

@@ -39,7 +39,9 @@
             class="noticias__img--subprincipal"
           />
           <div class="noticias__card--text">
-            <p class="noticias__titular--small">{{ subNotice?.titulo }}</p>
+            <h4 class="noticias__titular--small">{{ subNotice?.titulo }}</h4>
+            <h5 class="noticias__titular--h5">{{ subNotice?.subtitulo }}</h5>
+
             <span class="noticias__redaccion">
               {{ formatearFecha(subNotice.fecha_publicacion) }}
             </span>

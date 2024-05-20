@@ -23,10 +23,11 @@ export class TiempoPageComponent implements OnInit {
     });
   };
   public kelvinToCelsius(kelvin: number): number {
-    return kelvin - 273.15;
+    return parseFloat((kelvin - 273.15).toFixed(0));
   }
+
   public mpsToKmph(mps: number): number {
-    return mps * 3.6;
+    return parseFloat((mps * 3.6).toFixed(2));
   }
   setBackground() {
     let weatherCondition = this.tiempo[0].weather[0].main; // Asegúrate de que 'tiempo' tenga los datos correctos
