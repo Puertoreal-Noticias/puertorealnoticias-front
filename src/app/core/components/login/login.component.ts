@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
-  constructor(private router: Router) {}
+  constructor(private router: Router, private AuthService: AuthService) {}
   ngOnInit(): void {
     this.formGroup = new FormGroup({
-      user: new FormControl<string | null>(null),
+      name: new FormControl<string | null>(null),
       password: new FormControl<string | null>(null),
     });
   }
@@ -23,6 +24,16 @@ export class LoginComponent implements OnInit {
     const formValues = this.formGroup.value;
     console.log(formValues);
     console.log('hola');
-    this.router.navigateByUrl('noticia/gestor/admin/page/admitido');
+    this.AuthService.logearUsuario(
+      formValues.name,
+      formValues.password
+    ).subscribe((res) => {
+      console.log('respuesta cliente', res);
+      if (res === 'autenticado') {
+        this.router.navigateByUrl('noticia/gestor/admin/page/admitido');
+      } else {
+        console.log('No tienes permisos');
+      }
+    });
   };
 }
