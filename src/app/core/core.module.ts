@@ -25,6 +25,7 @@ import { EliminarNoticiaComponent } from './components/eliminar-noticia/eliminar
 import { ObtenerNoticiaComponent } from './components/obtener-noticia/obtener-noticia.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { RecientesComponent } from './components/recientes/recientes.component';
+import { EventosPuertorealComponent } from './pages/eventos-puertoreal/eventos-puertoreal.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { RecientesComponent } from './components/recientes/recientes.component';
     ObtenerNoticiaComponent,
     CategoriaComponent,
     RecientesComponent,
+    EventosPuertorealComponent,
   ],
   imports: [
     CommonModule,

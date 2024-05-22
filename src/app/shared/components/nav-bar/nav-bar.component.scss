@@ -50,7 +50,7 @@
     flex-flow: column nowrap;
     justify-content: space-between;
     gap: 2rem;
-    @include m.movilGrandeL {
+    @include m.tabletM {
       position: relative;
       left: 0;
       bottom: auto;
@@ -80,7 +80,7 @@
     gap: 2rem;
     align-items: center;
     justify-content: center;
-    @include m.movilGrandeL {
+    @include m.tabletM {
       flex-flow: row nowrap;
     }
   }
@@ -90,7 +90,7 @@
     justify-content: center;
     flex-flow: column nowrap;
     gap: 1rem;
-    @include m.movilGrandeL {
+    @include m.tabletM {
       display: none;
     }
   }
@@ -114,7 +114,7 @@
     font-size: 1.4rem;
     cursor: pointer;
     color: white;
-    @include m.movilGrandeL {
+    @include m.tabletM {
       font-size: 1.2rem;
       color: black;
     }
@@ -145,7 +145,7 @@
   right: 2rem;
   background-color: rgba(255, 255, 255, 0.695);
   border-radius: 50%;
-  @include m.movilGrandeL {
+  @include m.tabletM {
     display: none;
   }
 }
@@ -162,7 +162,7 @@
   top: 2rem;
   left: 2rem;
   cursor: pointer;
-  @include m.movilGrandeL {
+  @include m.tabletM {
     display: none;
   }
 }

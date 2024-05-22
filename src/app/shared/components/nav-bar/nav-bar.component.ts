@@ -56,6 +56,11 @@ export class NavBarComponent implements OnInit {
     },
     {
       id: 6,
+      title: 'Eventos',
+      url: '/eventos-puerto-real',
+    },
+    {
+      id: 7,
       title: 'Tiempo',
       url: '/tiempo',
     },

@@ -12,6 +12,7 @@ import { ModificarNoticiaComponent } from './components/modificar-noticia/modifi
 import { ObtenerNoticiaComponent } from './components/obtener-noticia/obtener-noticia.component';
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { RecientesComponent } from './components/recientes/recientes.component';
+import { EventosPuertorealComponent } from './pages/eventos-puertoreal/eventos-puertoreal.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
     component: SeccionNoticiaComponent,
   },
   {
+    path: 'eventos-puerto-real',
+    component: EventosPuertorealComponent,
+  },
+  {
     path: 'tiempo',
     component: TiempoPageComponent,
   },
@@ -35,6 +40,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   // Ruta privada
+  // falta añadir el guard
   {
     path: 'noticia/gestor/admin/page/admitido',
     component: GestorNoticiasComponent,
