@@ -1,40 +1,36 @@
-import { Component } from '@angular/core';
-
+import { Component, OnInit } from '@angular/core';
+import { Event } from '../../interfaces/events.interface';
+import { EventConectService } from '../../services/event-conect.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-eventos-puertoreal',
   templateUrl: './eventos-puertoreal.component.html',
   styleUrls: ['./eventos-puertoreal.component.scss'],
 })
-export class EventosPuertorealComponent {
-  public eventos = [
-    {
-      id: 0,
-      title: 'Evento 1',
-      fecha: '2021-10-01',
-      descripcion:
-        'Descripcion del evento 1 Descripcion del evento 1 Descripcion del evento 1 Descripcion del evento 1',
-      img: '/assets/cultura/20200627_dia_villa_01.jpg',
-    },
-    {
-      id: 1,
-      title: 'Evento 2',
-      fecha: '2021-08-11',
-      descripcion: 'Descripcion del evento 2',
-      img: '/assets/cultura/20200627_dia_villa_01.jpg',
-    },
-    {
-      id: 2,
-      title: 'Evento 3',
-      fecha: '2021-01-11',
-      descripcion: 'Descripcion del evento 3',
-      img: '/assets/cultura/20200627_dia_villa_01.jpg',
-    },
-    {
-      id: 3,
-      title: 'Evento 4',
-      fecha: '2021-10-15',
-      descripcion: 'Descripcion del evento 4',
-      img: '/assets/cultura/20200627_dia_villa_01.jpg',
-    },
-  ];
+export class EventosPuertorealComponent implements OnInit {
+  public eventos: Event[] = [];
+  constructor(
+    private EventConectService: EventConectService,
+    private navigate: Router
+  ) {}
+  ngOnInit(): void {
+    this.obtenerEventos();
+  }
+  public obtenerEventos(): void {
+    this.EventConectService.obtenerEventos().subscribe((eventos) => {
+      this.eventos = eventos;
+      this.eventos.forEach((evento) => {
+        this.EventConectService.obtenerImg(evento.imagenPrincipal).subscribe(
+          (imagen) => {
+            evento.imagenUrl = imagen.url;
+          }
+        );
+      });
+      console.log(eventos);
+    });
+  }
+  public navgegateToEvento(id: string): void {
+    console.log(id);
+    this.navigate.navigate([`/eventos-puerto-real/${id}`]);
+  }
 }

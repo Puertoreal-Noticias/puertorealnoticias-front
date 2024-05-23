@@ -13,6 +13,7 @@ import { ObtenerNoticiaComponent } from './components/obtener-noticia/obtener-no
 import { CategoriaComponent } from './components/categoria/categoria.component';
 import { RecientesComponent } from './components/recientes/recientes.component';
 import { EventosPuertorealComponent } from './pages/eventos-puertoreal/eventos-puertoreal.component';
+import { EventoPageComponent } from './pages/evento-page/evento-page.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'eventos-puerto-real',
     component: EventosPuertorealComponent,
+  },
+  {
+    path: 'eventos-puerto-real/:id',
+    component: EventoPageComponent,
   },
   {
     path: 'tiempo',

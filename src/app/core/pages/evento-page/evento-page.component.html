@@ -1,0 +1,25 @@
+<ng-container *ngIf="eventoSeleccionado">
+  <section class="evento wrapper">
+    <div class="evento__global">
+      <h2 class="evento__h2">{{ eventoSeleccionado.titulo }}</h2>
+      <div class="evento__container">
+        <div class="evento__cards">
+          <img
+            [src]="eventoSeleccionado.imagenUrl"
+            [alt]="eventoSeleccionado.titulo"
+            class="evento__cards--img"
+          />
+          <div class="evento__cards--container">
+            <span class="evento__fecha">
+              {{ eventoSeleccionado.fecha_acto }}
+            </span>
+            <h3 class="evento__h3">{{ eventoSeleccionado.descripcion }}</h3>
+            <p class="evento__contenido">
+              {{ eventoSeleccionado.contenido }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-container>

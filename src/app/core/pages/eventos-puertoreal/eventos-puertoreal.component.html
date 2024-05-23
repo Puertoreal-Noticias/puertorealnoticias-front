@@ -1,19 +1,25 @@
-<section class="eventos wrapper">
-  <div class="eventos__global">
-    <h2 class="eventos__h2">Eventos Puerto Real</h2>
-    <div class="eventos__container">
-      <div class="eventos__cards" *ngFor="let eventos of eventos">
-        <img
-          [src]="eventos.img"
-          [alt]="eventos.title"
-          class="eventos__cards--img"
-        />
-        <div class="eventos__cards--container">
-          <span class="eventos__fecha"> {{ eventos.fecha }} </span>
-          <h3 class="eventos__h3">{{ eventos.title }}</h3>
-          <p class="eventos__descripcion">{{ eventos.descripcion }}</p>
+<ng-container *ngIf="eventos.length > 0">
+  <section class="eventos wrapper">
+    <div class="eventos__global">
+      <h2 class="eventos__h2">Eventos Puerto Real</h2>
+      <div class="eventos__container">
+        <div
+          class="eventos__cards"
+          *ngFor="let eventos of eventos"
+          (click)="navgegateToEvento(eventos._id)"
+        >
+          <img
+            [src]="eventos.imagenUrl"
+            [alt]="eventos.titulo"
+            class="eventos__cards--img"
+          />
+          <div class="eventos__cards--container">
+            <span class="eventos__fecha"> {{ eventos.fecha_acto }} </span>
+            <h3 class="eventos__h3">{{ eventos.titulo }}</h3>
+            <p class="eventos__descripcion">{{ eventos.descripcion }}</p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</ng-container>
