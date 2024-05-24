@@ -1,27 +1,23 @@
-<div class="global" *ngIf="noticiaSeleccionada">
+<div class="global" *ngIf="eventoSeleccionado">
   <div class="global__container">
     <h1 class="global__h1">Noticia seleccionada para modificar</h1>
     <div class="global__container--subcontainer">
       <img
-        [src]="noticiaSeleccionada.imagenUrl"
-        [alt]="noticiaSeleccionada.titulo"
+        [src]="eventoSeleccionado.imagenUrl"
+        [alt]="eventoSeleccionado.titulo"
         class="global__img"
       />
       <div class="global__subcontainer--text">
-        <h2 class="global__h2">Titulo: {{ noticiaSeleccionada.titulo }}</h2>
+        <h2 class="global__h2">Titulo: {{ eventoSeleccionado.titulo }}</h2>
         <h3 class="global__h3">
-          Subtitulo: {{ noticiaSeleccionada.subtitulo }}
+          descripcion: {{ eventoSeleccionado.descripcion }}
         </h3>
-        <p class="global__p">Contenido: {{ noticiaSeleccionada.contenido }}</p>
+        <p class="global__p">Contenido: {{ eventoSeleccionado.contenido }}</p>
+        <span class="global__fecha"> {{ eventoSeleccionado.fecha_acto }} </span>
       </div>
     </div>
   </div>
-  <form
-    action=""
-    [formGroup]="formGroup"
-    (ngSubmit)="modificarNoticia()"
-    class="global__form"
-  >
+  <form action="" [formGroup]="FormGroup" class="global__form">
     <h4>Modificar noticia</h4>
     <div class="global__form--container">
       <label for="" class="global__form--label">Titulo</label>
@@ -29,17 +25,17 @@
         type="text"
         placeholder="Titulo"
         formControlName="titulo"
-        [(ngModel)]="noticiaSeleccionada.titulo"
+        [(ngModel)]="eventoSeleccionado.titulo"
         class="global__form--input"
       />
     </div>
     <div class="global__form--container">
-      <label for="" class="global__form--label">Subtitulo</label>
+      <label for="" class="global__form--label">descripción</label>
       <input
         type="text"
-        placeholder="Subtitulo"
-        formControlName="subtitulo"
-        [(ngModel)]="noticiaSeleccionada.subtitulo"
+        placeholder="descripcion"
+        formControlName="descripcion"
+        [(ngModel)]="eventoSeleccionado.descripcion"
         class="global__form--input"
       />
     </div>
@@ -48,20 +44,22 @@
       <textarea
         placeholder="Contenido"
         formControlName="contenido"
-        [(ngModel)]="noticiaSeleccionada.contenido"
+        [(ngModel)]="eventoSeleccionado.contenido"
         class="global__form--textarea"
       ></textarea>
     </div>
     <div class="global__form--container">
-      <label for="" class="global__form--label">Autor</label>
+      <label for="" class="global__form--label">Fecha de acto</label>
       <input
         type="text"
-        placeholder="autor"
-        formControlName="autor"
-        [(ngModel)]="noticiaSeleccionada.autor"
+        placeholder="fecha_acto"
+        formControlName="fecha_acto"
+        [(ngModel)]="eventoSeleccionado.fecha_acto"
         class="global__form--input"
       />
     </div>
     <button type="submit" class="global__form--btn">Modificar</button>
   </form>
 </div>
+
+<!-- (ngSubmit)="modificarNoticia()" -->

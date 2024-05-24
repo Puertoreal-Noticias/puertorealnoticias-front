@@ -16,8 +16,18 @@ export class NavegadorGestorComponent {
     },
     {
       id: 1,
-      titulo: 'obtener noticia',
+      titulo: 'obtener noticias',
       url: 'obtener',
+    },
+    {
+      id: 2,
+      titulo: 'Añadir evento',
+      url: 'añadir-evento',
+    },
+    {
+      id: 3,
+      titulo: 'obtener eventos',
+      url: 'obtener-evento',
     },
   ];
   public cambiarRuta = (ruta: string) => {

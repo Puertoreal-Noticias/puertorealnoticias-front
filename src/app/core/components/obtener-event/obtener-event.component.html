@@ -1,0 +1,40 @@
+<div class="global">
+  <h2 class="global__h2">Eventos</h2>
+  <div class="global__cards" *ngFor="let evento of eventos">
+    <img
+      [src]="evento.imagenUrl"
+      [alt]="evento.titulo"
+      class="global__card--img"
+    />
+    <div class="global__container--padre">
+      <div class="global__container--text">
+        <span class="global__card--text">
+          titulo :
+          <span class="global__text--contenido">{{ evento.titulo }}</span>
+        </span>
+        <span class="global__card--text">
+          contenido :
+          <span class="global__text--contenido">{{ evento.contenido }}</span>
+        </span>
+
+        <span class="global__card--text">
+          descripcion :
+          <span class="global__text--contenido">{{ evento.descripcion }}</span>
+        </span>
+        <span class="global__card--text">
+          fecha de acto :
+          <span class="global__text--contenido">{{ evento.fecha_acto }}</span>
+        </span>
+      </div>
+
+      <div class="global__container--btns">
+        <button class="global__card--btn" (click)="modificarEvento(evento._id)">
+          Modificar evento
+        </button>
+        <button class="global__card--btn" (click)="eliminarEvento(evento._id)">
+          Eliminar evento
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

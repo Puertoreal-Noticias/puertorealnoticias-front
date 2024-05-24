@@ -14,6 +14,9 @@ import { CategoriaComponent } from './components/categoria/categoria.component';
 import { RecientesComponent } from './components/recientes/recientes.component';
 import { EventosPuertorealComponent } from './pages/eventos-puertoreal/eventos-puertoreal.component';
 import { EventoPageComponent } from './pages/evento-page/evento-page.component';
+import { AddEventComponent } from './components/add-event/add-event.component';
+import { ObtenerEventComponent } from './components/obtener-event/obtener-event.component';
+import { ModificarEventComponent } from './components/modificar-event/modificar-event.component';
 
 const routes: Routes = [
   {
@@ -59,8 +62,20 @@ const routes: Routes = [
         component: AddNoticiaComponent,
       },
       {
+        path: 'añadir-evento',
+        component: AddEventComponent,
+      },
+      {
+        path: 'obtener-evento',
+        component: ObtenerEventComponent,
+      },
+      {
         path: 'modificar/:id',
         component: ModificarNoticiaComponent,
+      },
+      {
+        path: 'modificar-evento/:id',
+        component: ModificarEventComponent,
       },
       {
         path: 'obtener',

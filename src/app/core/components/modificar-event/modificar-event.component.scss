@@ -1,0 +1,104 @@
+@use "../../../../scss/variables" as v;
+@use "../../../../scss/mixings" as m;
+.global {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  &__container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 80rem;
+    padding: 2rem;
+    background-color: beige;
+    border-radius: 0.3rem;
+  }
+  &__h1 {
+    font-size: 2rem;
+  }
+  &__container--subcontainer {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    max-width: 80rem;
+    padding: 2rem;
+    // background-color: beige;
+    border-radius: 0.3rem;
+  }
+  &__subcontainer--text {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+  &__img {
+    aspect-ratio: 16/9;
+  }
+  &__h2 {
+  }
+  &__h3 {
+  }
+  &__p {
+  }
+  &__form {
+    width: 100%;
+    max-width: 40rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background-color: beige;
+    padding: 2rem;
+    border-radius: 0.3rem;
+  }
+  &__form--container {
+    display: flex;
+    // background-color: red;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 2rem;
+  }
+  &__form--label {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  &__form--input {
+    font-size: 1.4rem;
+    border: solid 1px black;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    width: 100%;
+    max-width: 20rem;
+  }
+  &__form--textarea {
+    // width: 100%;
+    border: solid 1px black;
+    padding: 1rem;
+    font-size: 1.4rem;
+    width: 100%;
+    max-width: 20rem;
+    border-radius: 0.3rem;
+  }
+  &__form--btn {
+    padding: 1rem;
+    font-size: 1.6rem;
+    background-color: v.$colorPrincipal;
+    color: white;
+    border-radius: 0.3rem;
+    cursor: pointer;
+  }
+}
+h4 {
+  font-size: 1.6rem;
+}
