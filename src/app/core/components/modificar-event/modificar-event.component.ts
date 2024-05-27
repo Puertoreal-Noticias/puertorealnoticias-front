@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Event } from '../../interfaces/events.interface';
 import { EventConectService } from '../../services/event-conect.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -14,7 +14,8 @@ export class ModificarEventComponent implements OnInit {
   FormGroup!: FormGroup;
   constructor(
     private EventConectService: EventConectService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
@@ -43,15 +44,23 @@ export class ModificarEventComponent implements OnInit {
       }
     });
   };
-  // public modificarNoticia = () => {
-  //   if(this.eventoSeleccionado){
-  //     this.eventoSeleccionado.titulo = this.FormGroup.get('titulo')?.value;
-  //     this.eventoSeleccionado.descripcion = this.FormGroup.get('descripcion')?.value;
-  //     this.eventoSeleccionado.contenido = this.FormGroup.get('contenido')?.value;
-  //     this.eventoSeleccionado.fecha_acto = this.FormGroup.get('fecha_acto')?.value;
-  //     this.EventConectService.modificarEvento(this.eventoSeleccionado).subscribe((evento) => {
-  //       console.log(evento);
-  //     });
-  //   }
-  // };
+  public modificarNoticia = () => {
+    if (this.eventoSeleccionado) {
+      this.eventoSeleccionado.titulo = this.FormGroup.get('titulo')?.value;
+      this.eventoSeleccionado.descripcion =
+        this.FormGroup.get('descripcion')?.value;
+      this.eventoSeleccionado.contenido =
+        this.FormGroup.get('contenido')?.value;
+      this.eventoSeleccionado.fecha_acto =
+        this.FormGroup.get('fecha_acto')?.value;
+      this.EventConectService.modificarEvento(
+        this.eventoSeleccionado
+      ).subscribe((evento) => {
+        console.log(evento);
+        this.router.navigateByUrl(
+          '/noticia/gestor/admin/page/admitido/obtener-evento'
+        );
+      });
+    }
+  };
 }

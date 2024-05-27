@@ -21,4 +21,27 @@ export class EventConectService {
       `${environment.baseUrl}/event-imgs/obtener/${id}`
     );
   }
+  modificarEvento(event: Event): Observable<Event> {
+    return this.Http.patch<Event>(
+      `${environment.baseUrl}/event/actualizar/${event._id}`,
+      event,
+      { responseType: 'text' as 'json' }
+    );
+  }
+  eliminarEvento(id: string): Observable<Event> {
+    return this.Http.delete<Event>(
+      `${environment.baseUrl}/event/eliminar/${id}`
+    );
+  }
+  addEvent(event: Event): Observable<Event> {
+    return this.Http.post<Event>(`${environment.baseUrl}/event/crear`, event);
+  }
+  addImgToEvent(id: string, img: File): Observable<Imagen> {
+    const formData = new FormData();
+    formData.append('imagen', img);
+    return this.Http.post<Imagen>(
+      `${environment.baseUrl}/event-imgs/crear/${id}`,
+      formData
+    );
+  }
 }

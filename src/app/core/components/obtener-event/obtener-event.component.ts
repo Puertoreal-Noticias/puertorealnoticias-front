@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventConectService } from '../../services/event-conect.service';
 import { Event } from '../../interfaces/events.interface';
 import { Router } from '@angular/router';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-obtener-event',
@@ -41,5 +42,17 @@ export class ObtenerEventComponent implements OnInit {
       eventoId,
     ]);
   };
-  public eliminarEvento = (eventoId: string) => {};
+  public eliminarEvento = (eventoId: string) => {
+    this.EventConectService.eliminarEvento(eventoId)
+      .pipe(
+        catchError((error) => {
+          console.error('Error al eliminar el evento:', error);
+          return of(); // Devuelve un observable vacío para que la cadena de observables pueda continuar
+        })
+      )
+      .subscribe((response) => {
+        console.log(response); // Aquí se imprimirá "Evento eliminado"
+        this.obtenerEventos();
+      });
+  };
 }

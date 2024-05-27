@@ -1,1 +1,65 @@
-<p>add-event works!</p>
+<div class="global">
+  <h1 class="global__h1">Añadir un nuevo evento</h1>
+  <form
+    action=""
+    [formGroup]="FormGroup"
+    (ngSubmit)="addEvent()"
+    class="global__form"
+  >
+    <div class="global__form__group">
+      <label for="titulo" class="global__form__group__label">Título</label>
+      <input
+        type="text"
+        id="titulo"
+        formControlName="titulo"
+        class="global__form__group__input"
+      />
+    </div>
+    <div class="global__form__group">
+      <label for="descripcion" class="global__form__group__label"
+        >descripción</label
+      >
+      <input
+        type="text"
+        id="descripcion"
+        formControlName="descripcion"
+        class="global__form__group__input"
+      />
+    </div>
+    <div class="global__form__group">
+      <label for="fecha_acto" class="global__form__group__label"
+        >fecha de acto</label
+      >
+      <input
+        type="date"
+        id="fecha_acto"
+        formControlName="fecha_acto"
+        class="global__form__group__input"
+      />
+    </div>
+    <div class="global__form__group">
+      <label for="contenido" class="global__form__group__label"
+        >Contenido</label
+      >
+      <textarea
+        id="contenido"
+        formControlName="contenido"
+        class="global__form__group__textarea"
+      ></textarea>
+    </div>
+    <div class="global__form__group">
+      <label for="imagen" class="global__form__group__label">Imagen</label>
+      <input
+        type="file"
+        id="imagen"
+        (change)="onFileChange($event)"
+        class="global__form__group__input"
+      />
+    </div>
+    <div class="global__form__group--center">
+      <button type="submit" class="global__form__group__button">
+        Añadir evento
+      </button>
+    </div>
+  </form>
+</div>

@@ -46,8 +46,17 @@
           <span class="global__text--contenido">{{ noticia.destacado }}</span>
         </span>
         <div class="global__container--btns">
-          <button class="global__card--btn" *ngFor="let boton of btnsCrud">
-            {{ boton.text }}
+          <button
+            class="global__card--btn"
+            (click)="modificarNoticia(noticia._id)"
+          >
+            Modificar
+          </button>
+          <button
+            class="global__card--btn"
+            (click)="eliminarNoticia(noticia._id)"
+          >
+            Eliminar
           </button>
         </div>
       </div>

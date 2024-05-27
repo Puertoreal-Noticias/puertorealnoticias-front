@@ -1,5 +1,9 @@
 // De ordenador a movil
-
+@mixin ordenador {
+  @media screen and (min-width: 1400px) {
+    @content;
+  }
+}
 @mixin portatil {
   @media screen and (min-width: 1100px) {
     @content;

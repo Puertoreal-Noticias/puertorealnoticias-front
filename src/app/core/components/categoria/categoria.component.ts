@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Categoria, News } from '../../interfaces/news.interface';
 import { ApiConectService } from '../../services/api-conect.service';
+import { catchError, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categoria',
@@ -10,7 +12,11 @@ import { ApiConectService } from '../../services/api-conect.service';
 })
 export class CategoriaComponent implements OnInit {
   formGroup!: FormGroup;
-  constructor(private ApiConectService: ApiConectService) {}
+  categoriaActual: string = 'politica';
+  constructor(
+    private ApiConectService: ApiConectService,
+    private navigate: Router
+  ) {}
   public noticiasSeleccionadas: News[] = [];
   public categorias: Categoria[] = [
     {
@@ -34,24 +40,16 @@ export class CategoriaComponent implements OnInit {
       categoria: 'cultura',
     },
   ];
-  public btnsCrud = [
-    {
-      id: 0,
-      text: 'Modificar noticia',
-    },
-    {
-      id: 1,
-      text: 'Eliminar noticia',
-    },
-  ];
+
   ngOnInit(): void {
     this.formGroup = new FormGroup({
-      categoria: new FormControl<string | null>('politica'),
+      categoria: new FormControl<string | null>(this.categoriaActual),
     });
-    this.solicitarNoticias(this.formGroup.value.categoria);
+    this.solicitarNoticias(this.categoriaActual);
   }
 
   public solicitarNoticias = (categoria: string) => {
+    this.categoriaActual = categoria; // Actualiza la categoría actual cada vez que solicitas noticias
     console.log(categoria);
     this.ApiConectService.filtrarPorCategoria(categoria).subscribe(
       (noticia) => {
@@ -62,6 +60,30 @@ export class CategoriaComponent implements OnInit {
         console.log(this.noticiasSeleccionadas);
       }
     );
+  };
+
+  public eliminarNoticia = (id: string) => {
+    this.ApiConectService.eliminarNoticia(id)
+      .pipe(
+        catchError((error) => {
+          console.error('Error al eliminar la noticia:', error);
+          return of(); // Devuelve un observable vacío para que la cadena de observables pueda continuar
+        })
+      )
+      .subscribe(() => {
+        this.solicitarNoticias(this.categoriaActual); // Usa la categoría actual cuando eliminas una noticia
+      });
+  };
+  public modificarNoticia = (id: string) => {
+    this.navigate.navigate([
+      'noticia',
+      'gestor',
+      'admin',
+      'page',
+      'admitido',
+      'modificar',
+      id,
+    ]);
   };
   // public submitCategory
 }

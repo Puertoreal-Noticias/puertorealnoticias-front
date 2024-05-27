@@ -27,9 +27,9 @@ export class LoginComponent implements OnInit {
     this.AuthService.logearUsuario(
       formValues.name,
       formValues.password
-    ).subscribe((res) => {
-      console.log('respuesta cliente', res);
-      if (res === 'autenticado') {
+    ).subscribe((token: string) => {
+      if (token) {
+        localStorage.setItem('authToken', token);
         this.router.navigateByUrl('noticia/gestor/admin/page/admitido');
       } else {
         console.log('No tienes permisos');

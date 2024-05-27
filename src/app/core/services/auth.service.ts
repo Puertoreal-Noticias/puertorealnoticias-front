@@ -17,4 +17,8 @@ export class AuthService {
       { responseType: 'text' }
     );
   };
+  isUserAuthenticated(): boolean {
+    const token = localStorage.getItem('authToken');
+    return token != null;
+  }
 }
