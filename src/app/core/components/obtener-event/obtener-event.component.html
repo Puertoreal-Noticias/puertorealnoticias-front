@@ -7,6 +7,16 @@
         [alt]="evento.titulo"
         class="global__card--img"
       />
+
+      <input
+        class="global__input"
+        type="file"
+        id="image"
+        (change)="onFileChange($event)"
+      />
+      <button class="global__btn" (click)="cambiarImg(evento._id)">
+        Subir imagen
+      </button>
       <div class="global__container--padre">
         <div class="global__container--text">
           <span class="global__card--text">

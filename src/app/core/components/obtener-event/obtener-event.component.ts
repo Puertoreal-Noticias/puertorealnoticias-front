@@ -3,6 +3,7 @@ import { EventConectService } from '../../services/event-conect.service';
 import { Event } from '../../interfaces/events.interface';
 import { Router } from '@angular/router';
 import { catchError, of } from 'rxjs';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-obtener-event',
@@ -11,6 +12,9 @@ import { catchError, of } from 'rxjs';
 })
 export class ObtenerEventComponent implements OnInit {
   public eventos: Event[] = [];
+
+  imagenControl = new FormControl(null);
+
   constructor(
     private EventConectService: EventConectService,
     private navigate: Router
@@ -54,5 +58,25 @@ export class ObtenerEventComponent implements OnInit {
         console.log(response); // Aquí se imprimirá "Evento eliminado"
         this.obtenerEventos();
       });
+  };
+  onFileChange(event: any): void {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.imagenControl.setValue(file);
+    }
+  }
+  public cambiarImg = (eventoId: string) => {
+    // const formData = new FormData();
+    const img = this.imagenControl.value;
+    console.log(eventoId, img);
+    if (!img) {
+      return;
+    }
+    this.EventConectService.modificarImgToEvent(eventoId, img).subscribe(
+      (response) => {
+        console.log(response);
+        this.obtenerEventos();
+      }
+    );
   };
 }

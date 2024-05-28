@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/enviroments';
 import { Event, Imagen } from '../interfaces/events.interface';
@@ -42,6 +42,21 @@ export class EventConectService {
     return this.Http.post<Imagen>(
       `${environment.baseUrl}/event-imgs/crear/${id}`,
       formData
+    );
+  }
+
+  modificarImgToEvent(id: string, img: File): Observable<Imagen> {
+    const formData = new FormData();
+    formData.append('imagen', img);
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + localStorage.getItem('authToken'),
+    });
+
+    return this.Http.put<Imagen>(
+      `${environment.baseUrl}/event-imgs/modificar/${id}`,
+      formData,
+      { headers: headers }
     );
   }
 }

@@ -43,7 +43,7 @@ export class ApiConectService {
     const formData = new FormData();
     formData.append('imagen', img);
     return this.http.post<Imagen>(
-      `${environment.baseUrl}/imgs/upload/${id}`,
+      `${environment.baseUrl}/news-imgs/upload/${id}`,
       formData
     );
   }
@@ -53,7 +53,9 @@ export class ApiConectService {
     );
   }
   obtenerImagen(id: string): Observable<Imagen> {
-    return this.http.get<Imagen>(`${environment.baseUrl}/imgs/obtener/${id}`);
+    return this.http.get<Imagen>(
+      `${environment.baseUrl}/news-imgs/obtener/${id}`
+    );
   }
   obtenerNoticiaId(id: string): Observable<News> {
     return this.http.get<News>(`${environment.baseUrl}/noticias/obtener/${id}`);
@@ -99,4 +101,12 @@ export class ApiConectService {
       }
     );
   };
+  modificarImgToNoticia(id: string, img: File): Observable<Imagen> {
+    const formData = new FormData();
+    formData.append('imagen', img);
+    return this.http.put<Imagen>(
+      `${environment.baseUrl}/news-imgs/actualizar/${id}`,
+      formData
+    );
+  }
 }
