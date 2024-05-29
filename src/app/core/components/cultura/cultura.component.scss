@@ -26,15 +26,25 @@
     font-size: 0.8rem;
   }
   &__titular--principal {
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: bold;
+    @include m.tabletM {
+      font-size: 1.6rem;
+    }
+  }
+  &__subtitular--principal {
+    font-size: 1.2rem;
+    font-weight: bold;
+    @include m.tabletM {
+      font-size: 1.2rem;
+    }
   }
   &__span--redaccion {
     color: black;
     font-size: 0.8rem;
   }
-  &__redaccion {
-    font-size: 0.8rem;
+  &__fecha {
+    font-size: 0.9rem;
     color: v.$colorSecundario;
   }
   &__subtitular {
@@ -63,7 +73,17 @@
     gap: 1rem;
   }
   &__titular--small {
-    font-size: 0.8rem;
+    font-size: 1.1rem;
     font-weight: bolder;
+    @include m.tabletM {
+      font-size: 1.4rem;
+    }
+    &__subtitular--small {
+      font-size: 0.9rem;
+      font-weight: bolder;
+      @include m.tabletM {
+        font-size: 1.2rem;
+      }
+    }
   }
 }

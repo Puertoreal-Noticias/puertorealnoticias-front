@@ -18,6 +18,15 @@
     flex-flow: column nowrap;
     // gap: 1rem;
   }
+
+  &__h2 {
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  &__h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
   &__span--light {
     font-weight: lighter;
     font-size: 0.8rem;
@@ -86,8 +95,13 @@
     }
   }
   &__grid--titles {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bolder;
+    text-align: center;
+  }
+  &__grid--subtitles {
+    font-size: 1rem;
+    color: v.$colorSecundario;
     text-align: center;
   }
   &__grid--span {

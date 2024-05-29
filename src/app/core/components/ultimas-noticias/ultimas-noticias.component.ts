@@ -45,6 +45,14 @@ export class UltimasNoticiasComponent implements OnInit {
       }
     );
   };
+  public formatearFecha = (fecha: Date) => {
+    let fechaPublicacion = new Date(fecha);
+    return fechaPublicacion.toLocaleDateString('es-ES', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
+  };
   public navigateNoticia(id: any) {
     this.navigate.navigate(['/noticia-detallada', id]);
   }

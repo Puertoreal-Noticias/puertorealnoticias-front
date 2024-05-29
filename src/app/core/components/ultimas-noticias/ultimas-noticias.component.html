@@ -16,9 +16,12 @@
           <span class="home__news--category">
             {{ noticiaDestacada?.categoria }}
           </span>
-          <h3 class="home__news--title">{{ noticiaDestacada?.titulo }}</h3>
-          <span class="home__news--redaccion"
-            >{{ noticiaDestacada?.subtitulo }}
+          <h2 class="home__news--title">{{ noticiaDestacada?.titulo }}</h2>
+          <h3 class="home__news--subtitulo">
+            {{ noticiaDestacada?.subtitulo }}
+          </h3>
+          <span class="home__news--fecha">
+            {{ formatearFecha(noticiaDestacada!.fecha_publicacion) }}
           </span>
         </div>
       </div>
@@ -35,9 +38,14 @@
             class="home__news--img"
           />
           <div class="home__news--container">
-            <span class="home__news--category"> {{ new.categoria }} </span>
-            <h3 class="home__news--title">{{ new.titulo }}</h3>
-            <span class="home__news--redaccion"> {{ new?.subtitulo }} </span>
+            <span class="home__news--category">
+              {{ new?.categoria }}
+            </span>
+            <h2 class="home__news--title">{{ new.titulo }}</h2>
+            <h3 class="home__news--subtitulo">{{ new.subtitulo }}</h3>
+            <span class="home__news--fecha">
+              {{ formatearFecha(new.fecha_publicacion) }}
+            </span>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 @use "../../../../scss/mixings" as m;
 .eventos {
   padding: 1rem;
-  height: 100vh;
+  // height: 100vh;
   &__global {
   }
   &__h2 {
@@ -11,6 +11,7 @@
     margin-bottom: 1rem;
     width: 100%;
     text-align: center;
+    border-bottom: solid 3px v.$colorPrincipal;
   }
   &__container {
     display: flex;
@@ -37,29 +38,48 @@
   }
   &__cards--img {
     border-radius: 0.3rem;
+    margin-bottom: 1rem;
   }
   &__cards--container {
-    position: absolute;
-    bottom: 0rem;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.686);
-    text-align: center;
-    border-radius: 0.3rem;
-    padding: 1rem;
-    height: 4.85rem;
-    transition: all 0.5s ease;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    @include m.portatil {
+      position: absolute;
+      bottom: 0rem;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.686);
+      text-align: center;
+      border-radius: 0.3rem;
+      padding: 1rem;
+      height: 4.85rem;
+      transition: all 0.5s ease;
+    }
   }
   &__fecha {
-    color: white;
-    font-size: 0.9rem;
+    @include m.portatil {
+      color: white;
+      font-size: 0.9rem;
+    }
   }
-  &__h3 {
-    color: white;
-    font-size: 1.6rem;
+  &__title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: center;
+    @include m.portatil {
+      color: white;
+      font-size: 1.6rem;
+    }
   }
   &__descripcion {
-    color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+
+    @include m.portatil {
+      color: white;
+      font-size: 1.1rem;
+    }
   }
 }
 .wrapper {

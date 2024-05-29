@@ -12,19 +12,15 @@
           loading="lazy"
           class="noticias__img--principal"
         />
-        <span class="noticias__span--category">{{
-          primeraNoticia?.categoria | uppercase
-        }}</span>
-        <h3 class="noticias__titular--principal">
+        <h2 class="noticias__titular--principal">
           {{ primeraNoticia?.titulo }}
+        </h2>
+        <h3 class="noticias__subtitular--principal">
+          {{ primeraNoticia?.subtitulo }}
         </h3>
-        <span class="noticias__span--redaccion">
-          Redacción -
-          <span class="noticias__redaccion">{{
-            primeraNoticia?.contenido
-          }}</span>
+        <span class="noticias__fecha" *ngIf="primeraNoticia">
+          {{ formatearFecha(primeraNoticia.fecha_publicacion) }}
         </span>
-        <!-- <p class="noticias__subtitular">{{ primeraNoticia?.subtitular }}</p> -->
       </div>
       <div class="noticias__subcontainer">
         <div
@@ -42,7 +38,7 @@
             <h4 class="noticias__titular--small">{{ subNotice?.titulo }}</h4>
             <h5 class="noticias__titular--h5">{{ subNotice?.subtitulo }}</h5>
 
-            <span class="noticias__redaccion">
+            <span class="noticias__fecha">
               {{ formatearFecha(subNotice.fecha_publicacion) }}
             </span>
           </div>

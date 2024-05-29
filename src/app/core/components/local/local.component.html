@@ -17,8 +17,8 @@
           />
           <h2 class="categoria__h2">{{ primeraNoticia?.titulo }}</h2>
           <h3 class="categoria__h3">{{ primeraNoticia?.subtitulo }}</h3>
-          <span class="categoria__span--light">
-            {{ primeraNoticia?.categoria }}
+          <span class="categoria__grid--span" *ngIf="primeraNoticia">
+            {{ formatearFecha(primeraNoticia.fecha_publicacion) }}
           </span>
         </div>
         <div class="categoria__grid">

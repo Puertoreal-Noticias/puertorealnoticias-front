@@ -41,8 +41,21 @@
   &__text--titular {
     color: rgb(255, 255, 255);
     font-weight: bold;
+    font-size: 1.1rem;
+    @include m.tabletM {
+      font-size: 1.4rem;
+    }
   }
   &__text--subtitular {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: bold;
+    @include m.tabletM {
+      font-size: 1.2rem;
+    }
+  }
+  &__span--fecha {
+    font-size: 0.8rem;
     color: white;
   }
 }

@@ -15,11 +15,11 @@
           class="noticias__img"
         />
         <div class="noticias__container">
+          <h2 class="noticias__titular">{{ notice.titulo }}</h2>
+          <h3 class="noticias__subtitular">{{ notice.subtitulo }}</h3>
           <span class="noticias__category--small">
-            {{ notice.categoria }}
+            {{ formatearFecha(notice.fecha_publicacion) }}
           </span>
-          <p class="noticias__titular">{{ notice.titulo }}</p>
-          <p class="noticias__titular">{{ notice.subtitulo }}</p>
         </div>
       </div>
     </div>

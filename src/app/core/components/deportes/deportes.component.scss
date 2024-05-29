@@ -27,18 +27,25 @@
   &__titular--principal {
     font-size: 1.4rem;
     font-weight: bold;
+    @include m.tabletM {
+      font-size: 1.6rem;
+    }
   }
   &__span--redaccion {
     color: black;
     font-size: 0.8rem;
   }
-  &__redaccion {
-    font-size: 0.8rem;
+  &__fecha {
+    font-size: 0.9rem;
+
     color: v.$colorSecundario;
   }
-  &__subtitular {
-    font-size: 0.8rem;
-    color: v.$colorSecundario;
+  &__subtitular--principal {
+    font-size: 1.2rem;
+    font-weight: bold;
+    @include m.tabletM {
+      font-size: 1.4rem;
+    }
   }
   &__subcontainer {
     display: flex;
@@ -62,11 +69,17 @@
     gap: 1rem;
   }
   &__titular--small {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bolder;
+    @include m.tabletM {
+      font-size: 1.3rem;
+    }
   }
   &__titular--h5 {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: bolder;
+    @include m.tabletM {
+      font-size: 1.1rem;
+    }
   }
 }

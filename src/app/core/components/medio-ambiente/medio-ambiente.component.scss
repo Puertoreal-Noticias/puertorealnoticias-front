@@ -52,13 +52,22 @@
   }
   &__category--small {
     color: white;
-    font-weight: bolder;
-    text-transform: uppercase;
     font-size: 0.8rem;
   }
   &__titular {
     color: white;
     font-weight: bolder;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
+    @include m.portatil {
+      font-size: 1.4rem;
+    }
+  }
+  &__subtitular {
+    font-size: 1.1rem;
+    color: white;
+    font-weight: bold;
+    @include m.portatil {
+      font-size: 1.2rem;
+    }
   }
 }
