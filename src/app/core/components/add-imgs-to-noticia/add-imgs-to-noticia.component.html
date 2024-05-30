@@ -1,0 +1,42 @@
+<section class="global">
+  <h3 class="global__h3">
+    Añadir imágenes relacionadas con la noticia seleccionada
+  </h3>
+  <div class="global__container" *ngIf="noticiaSeleccionada">
+    <div class="global__container--data">
+      <h4 class="global__h4">Imagen principal de la noticia</h4>
+      <img
+        [src]="noticiaSeleccionada.imagenUrl"
+        alt=""
+        class="global__card--img"
+      />
+    </div>
+    <div
+      class="global__container--imgrelacionadas"
+      *ngIf="(noticiaSeleccionada?.imagenes)!.length > 0"
+    >
+      <h4 class="global__h4">
+        Imágenes relacionadas con la noticia seleccionada
+      </h4>
+      <img
+        [src]="img"
+        alt="Imagenesrelacionadas"
+        class="global__img"
+        *ngFor="let img of noticiaSeleccionada?.imagenesUrl"
+      />
+    </div>
+    <div
+      class="global__container--imgrelacionadas"
+      *ngIf="(noticiaSeleccionada?.imagenes)!.length <= 0"
+    >
+      <h4 class="global__h4">
+        No hay imágenes relacionadas con la noticia seleccionada
+      </h4>
+      <input type="file" id="image" (change)="onFileChange($event)" />
+      <button
+        type="submit"
+        (click)="cambiarImg(noticiaSeleccionada._id)"
+      ></button>
+    </div>
+  </div>
+</section>

@@ -47,6 +47,16 @@ export class ApiConectService {
       formData
     );
   }
+
+  addImgRelacionadaToNoticia(id: string, img: File): Observable<Imagen> {
+    const formData = new FormData();
+    formData.append('imagen', img);
+    return this.http.post<Imagen>(
+      `${environment.baseUrl}/news-imgs/add-img-relacionada/${id}`,
+      formData
+    );
+  }
+
   obtenerNoiticiaDestacada(limit: number = 1): Observable<News> {
     return this.http.get<News>(
       `${environment.baseUrl}/noticias/obtener/destacada?limit=${limit}`
@@ -100,6 +110,25 @@ export class ApiConectService {
         console.error('Hubo un error al obtener la imagen', error);
       }
     );
+  };
+  calcularUrlImgRelacionada = (noticia: News) => {
+    if (!noticia.imagenesUrl) {
+      noticia.imagenesUrl = []; // Inicializa el array solo si es undefined
+    }
+    noticia.imagenes.forEach((imagenId) => {
+      this.obtenerImagen(imagenId).subscribe(
+        (imagen: Imagen) => {
+          if (imagen.url) {
+            noticia.imagenesUrl!.push(imagen.url); // Agrega la URL al array
+          } else {
+            console.error('La imagen no tiene URL');
+          }
+        },
+        (error) => {
+          console.error('Hubo un error al obtener la imagen', error);
+        }
+      );
+    });
   };
   modificarImgToNoticia(id: string, img: File): Observable<Imagen> {
     const formData = new FormData();

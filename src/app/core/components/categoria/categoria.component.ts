@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class CategoriaComponent implements OnInit {
   formGroup!: FormGroup;
   categoriaActual: string = 'politica';
+  imagenControl = new FormControl(null);
   constructor(
     private ApiConectService: ApiConectService,
     private navigate: Router
@@ -84,6 +85,36 @@ export class CategoriaComponent implements OnInit {
       'modificar',
       id,
     ]);
+  };
+  public onFileChange(event: any) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.imagenControl.setValue(file);
+    }
+  }
+  public cambiarImg = (id: string) => {
+    const img = this.imagenControl.value;
+    console.log(id, img);
+    if (img === null) {
+      return;
+    }
+    this.ApiConectService.modificarImgToNoticia(id, img).subscribe(() => {
+      this.solicitarNoticias(this.categoriaActual); // Usa la categoría actual cuando eliminas una noticia
+    });
+  };
+  public addImgsToNoticia = (id: string) => {
+    if (id === null) {
+      return;
+    }
+    this.navigate.navigate([
+      'noticia',
+      'gestor',
+      'admin',
+      'page',
+      'admitido',
+      'añadir-imgs-noticia',
+      id,
+    ]); // Usa la categoría actual cuando eliminas una noticia
   };
   // public submitCategory
 }

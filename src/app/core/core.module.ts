@@ -30,6 +30,7 @@ import { EventoPageComponent } from './pages/evento-page/evento-page.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
 import { ObtenerEventComponent } from './components/obtener-event/obtener-event.component';
 import { ModificarEventComponent } from './components/modificar-event/modificar-event.component';
+import { AddImgsToNoticiaComponent } from './components/add-imgs-to-noticia/add-imgs-to-noticia.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { ModificarEventComponent } from './components/modificar-event/modificar-
     AddEventComponent,
     ObtenerEventComponent,
     ModificarEventComponent,
+    AddImgsToNoticiaComponent,
   ],
   imports: [
     CommonModule,

@@ -18,6 +18,7 @@ import { AddEventComponent } from './components/add-event/add-event.component';
 import { ObtenerEventComponent } from './components/obtener-event/obtener-event.component';
 import { ModificarEventComponent } from './components/modificar-event/modificar-event.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AddImgsToNoticiaComponent } from './components/add-imgs-to-noticia/add-imgs-to-noticia.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,10 @@ const routes: Routes = [
       {
         path: 'modificar/:id',
         component: ModificarNoticiaComponent,
+      },
+      {
+        path: 'añadir-imgs-noticia/:id',
+        component: AddImgsToNoticiaComponent,
       },
       {
         path: 'modificar-evento/:id',

@@ -21,6 +21,10 @@
     <div class="global__cards" *ngFor="let noticia of noticiasSeleccionadas">
       <img [src]="noticia.imagenUrl" alt="" class="global__card--img" />
       <div class="global__container--text">
+        <input type="file" id="image" (change)="onFileChange($event)" />
+        <button class="global__btn" (click)="cambiarImg(noticia._id)">
+          Subir imagen
+        </button>
         <span class="global__card--text">
           categoria :
           <span class="global__text--contenido">{{
@@ -51,6 +55,12 @@
             (click)="modificarNoticia(noticia._id)"
           >
             Modificar
+          </button>
+          <button
+            class="global__card--btn"
+            (click)="addImgsToNoticia(noticia._id)"
+          >
+            Añadir imagenes relacionadas
           </button>
           <button
             class="global__card--btn"
