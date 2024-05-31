@@ -10,33 +10,70 @@
         alt=""
         class="global__card--img"
       />
+      <h4 class="global__h4">
+        Título de la noticia: {{ noticiaSeleccionada.titulo }}
+      </h4>
     </div>
     <div
       class="global__container--imgrelacionadas"
-      *ngIf="(noticiaSeleccionada?.imagenes)!.length > 0"
+      *ngIf="
+        noticiaSeleccionada &&
+        noticiaSeleccionada.imagenes &&
+        noticiaSeleccionada.imagenes.length > 0
+      "
     >
       <h4 class="global__h4">
         Imágenes relacionadas con la noticia seleccionada
       </h4>
-      <img
-        [src]="img"
-        alt="Imagenesrelacionadas"
-        class="global__img"
-        *ngFor="let img of noticiaSeleccionada?.imagenesUrl"
+      <div class="grid">
+        <img
+          *ngFor="let img of noticiaSeleccionada?.imagenesUrl"
+          [src]="img"
+          alt="Imagenesrelacionadas"
+          class="global__img"
+        />
+      </div>
+
+      <label for="" class="global__label"> Añadir imagenes Relacionadas </label>
+      <input
+        class="global__input"
+        type="file"
+        id="image"
+        (change)="onFileChange($event)"
       />
+      <button
+        type="submit"
+        class="global__container--btn"
+        (click)="cambiarImg(noticiaSeleccionada._id)"
+      >
+        Añadir imagen relacionada
+      </button>
     </div>
     <div
       class="global__container--imgrelacionadas"
-      *ngIf="(noticiaSeleccionada?.imagenes)!.length <= 0"
+      *ngIf="
+        noticiaSeleccionada &&
+        noticiaSeleccionada.imagenes &&
+        noticiaSeleccionada.imagenes.length <= 0
+      "
     >
       <h4 class="global__h4">
         No hay imágenes relacionadas con la noticia seleccionada
       </h4>
-      <input type="file" id="image" (change)="onFileChange($event)" />
+      <label for="" class="global__label"> Añadir imagenes Relacionadas </label>
+      <input
+        class="global__input"
+        type="file"
+        id="image"
+        (change)="onFileChange($event)"
+      />
       <button
         type="submit"
+        class="global__container--btn"
         (click)="cambiarImg(noticiaSeleccionada._id)"
-      ></button>
+      >
+        Añadir imagen relacionada
+      </button>
     </div>
   </div>
 </section>

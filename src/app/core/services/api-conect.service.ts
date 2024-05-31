@@ -118,10 +118,11 @@ export class ApiConectService {
     noticia.imagenes.forEach((imagenId) => {
       this.obtenerImagen(imagenId).subscribe(
         (imagen: Imagen) => {
-          if (imagen.url) {
+          if (imagen && imagen.url) {
+            // Verifica que imagen y imagen.url estén definidos
             noticia.imagenesUrl!.push(imagen.url); // Agrega la URL al array
           } else {
-            console.error('La imagen no tiene URL');
+            console.error('La imagen no tiene URL o la respuesta es undefined');
           }
         },
         (error) => {

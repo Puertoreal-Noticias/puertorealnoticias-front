@@ -27,16 +27,34 @@ export class AddImgsToNoticiaComponent implements OnInit {
     });
   }
 
+  // public obtenerNoticia(id: string) {
+  //   this.ApiConectService.obtenerNoticiaId(id).subscribe((noticia) => {
+  //     this.noticiaSeleccionada = noticia;
+  //     if (this.noticiaSeleccionada) {
+  //       this.ApiConectService.calcularUrl(this.noticiaSeleccionada);
+  //     }
+  //     if (this.noticiaSeleccionada?.imagenesUrl!.length > 0) {
+  //       this.ApiConectService.calcularUrlImgRelacionada(
+  //         this.noticiaSeleccionada
+  //       );
+  //     }
+  //     console.log('Noticia seleccionada: ', this.noticiaSeleccionada);
+  //   });
+  // }
   public obtenerNoticia(id: string) {
     this.ApiConectService.obtenerNoticiaId(id).subscribe((noticia) => {
       this.noticiaSeleccionada = noticia;
       if (this.noticiaSeleccionada) {
         this.ApiConectService.calcularUrl(this.noticiaSeleccionada);
+        if (this.noticiaSeleccionada.imagenes.length > 0) {
+          this.ApiConectService.calcularUrlImgRelacionada(
+            this.noticiaSeleccionada
+          );
+        }
       }
       console.log('Noticia seleccionada: ', this.noticiaSeleccionada);
     });
   }
-
   public onFileChange(event: any) {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
@@ -49,6 +67,12 @@ export class AddImgsToNoticiaComponent implements OnInit {
     if (img === null) {
       return;
     }
+    this.ApiConectService.addImgRelacionadaToNoticia(id, img).subscribe(
+      (res) => {
+        console.log(res);
+        this.obtenerNoticia(id);
+      }
+    );
     // api conect con imagen relacionada para la noticia seleccionada
   };
 }
