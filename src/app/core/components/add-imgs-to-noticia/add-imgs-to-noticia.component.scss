@@ -14,7 +14,11 @@
   }
   &__h4 {
     margin-bottom: 1rem;
-    color: white;
+    color: rgb(0, 0, 0);
+  }
+  &__h4--white {
+    margin-bottom: 1rem;
+    color: rgb(255, 255, 255);
   }
   &__card--img {
     aspect-ratio: 16/9;
@@ -63,4 +67,10 @@
   @include m.tablet {
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   }
+}
+
+.flex {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
 }

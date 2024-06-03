@@ -5,6 +5,11 @@ export interface Imagen {
   url?: string;
 }
 
+export interface ImagenUrl {
+  url: string;
+  id: string;
+}
+
 export interface News {
   _id: string;
   titulo: string;
@@ -18,7 +23,7 @@ export interface News {
   __v: number;
   imagenPrincipal: string;
   imagenUrl?: string;
-  imagenesUrl?: string[];
+  imagenesUrl?: ImagenUrl[];
 }
 export interface AddNews {
   titulo: string;

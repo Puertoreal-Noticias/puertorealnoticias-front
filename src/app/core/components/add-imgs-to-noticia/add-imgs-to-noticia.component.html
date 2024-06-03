@@ -22,16 +22,19 @@
         noticiaSeleccionada.imagenes.length > 0
       "
     >
-      <h4 class="global__h4">
+      <h4 class="global__h4--white">
         Imágenes relacionadas con la noticia seleccionada
       </h4>
       <div class="grid">
-        <img
-          *ngFor="let img of noticiaSeleccionada?.imagenesUrl"
-          [src]="img"
-          alt="Imagenesrelacionadas"
-          class="global__img"
-        />
+        <div class="flex" *ngFor="let img of noticiaSeleccionada.imagenesUrl">
+          <button
+            class="global__container--btn"
+            (click)="eliminarImg(noticiaSeleccionada._id, img.id)"
+          >
+            Eliminar imagen relacionada
+          </button>
+          <img [src]="img.url" alt="Imagenesrelacionadas" class="global__img" />
+        </div>
       </div>
 
       <label for="" class="global__label"> Añadir imagenes Relacionadas </label>
@@ -57,7 +60,7 @@
         noticiaSeleccionada.imagenes.length <= 0
       "
     >
-      <h4 class="global__h4">
+      <h4 class="global__h4--white">
         No hay imágenes relacionadas con la noticia seleccionada
       </h4>
       <label for="" class="global__label"> Añadir imagenes Relacionadas </label>

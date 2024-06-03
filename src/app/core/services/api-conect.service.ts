@@ -96,6 +96,12 @@ export class ApiConectService {
   obtenerNoticiasPuertoReal(): Observable<Tiempo> {
     return this.http.get<Tiempo>(`${environment.baseUrlTiempo}`);
   }
+  eliminarImgRelacionada(id: string, idImg: string): Observable<string> {
+    return this.http.delete<string>(
+      `${environment.baseUrl}/news-imgs/delete-img-relacionada/${id}/${idImg}`,
+      { responseType: 'text' as 'json' }
+    );
+  }
   // Calcular la imagen
   public calcularUrl = (noticia: News) => {
     this.obtenerImagen(noticia.imagenPrincipal).subscribe(
@@ -120,7 +126,7 @@ export class ApiConectService {
         (imagen: Imagen) => {
           if (imagen && imagen.url) {
             // Verifica que imagen y imagen.url estén definidos
-            noticia.imagenesUrl!.push(imagen.url); // Agrega la URL al array
+            noticia.imagenesUrl!.push({ url: imagen.url, id: imagenId }); // Almacena la URL y el ID de la imagen
           } else {
             console.error('La imagen no tiene URL o la respuesta es undefined');
           }

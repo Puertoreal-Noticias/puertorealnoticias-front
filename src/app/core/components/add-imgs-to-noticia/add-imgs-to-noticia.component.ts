@@ -73,6 +73,21 @@ export class AddImgsToNoticiaComponent implements OnInit {
         this.obtenerNoticia(id);
       }
     );
+
     // api conect con imagen relacionada para la noticia seleccionada
+  };
+  public eliminarImg = (idNoticia: string, idImg: string) => {
+    console.log(idNoticia, idImg);
+    this.ApiConectService.eliminarImgRelacionada(idNoticia, idImg).subscribe(
+      (response) => {
+        console.log(response);
+        this.obtenerNoticia(idNoticia);
+        // Aquí puedes manejar la respuesta del servidor, por ejemplo, actualizando la lista de imágenes
+      },
+      (error) => {
+        console.error(error);
+        // Aquí puedes manejar los errores, por ejemplo, mostrando un mensaje al usuario
+      }
+    );
   };
 }

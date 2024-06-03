@@ -48,7 +48,10 @@ export class NoticiaPageComponent implements OnInit {
               if (!this.noticiaSeleccionada.imagenesUrl) {
                 this.noticiaSeleccionada.imagenesUrl = [];
               }
-              this.noticiaSeleccionada.imagenesUrl.push(imagen.url);
+              this.noticiaSeleccionada.imagenesUrl.push({
+                url: imagen.url,
+                id: imagen._id,
+              });
             }
           }
         },

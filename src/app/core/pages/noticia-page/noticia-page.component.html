@@ -27,7 +27,7 @@
             *ngFor="let imgUrl of noticiaSeleccionada?.imagenesUrl"
           >
             <img
-              [src]="imgUrl"
+              [src]="imgUrl.url"
               alt="Imagenes relacionadas con la noticia"
               class="noticia__galeria--img"
             />
@@ -45,7 +45,7 @@
         (click)="navigateNoticia(noticia._id)"
       >
         <img
-          [src]="noticia.imagenUrl"
+          [src]="noticia.imagenesUrl"
           [alt]="noticia.titulo"
           class="noticia__relacionada--img"
         />
