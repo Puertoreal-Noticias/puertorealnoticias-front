@@ -1,4 +1,4 @@
-<section class="noticias">
+<section class="noticias" *ngIf="noticias">
   <article class="noticias__general">
     <span class="noticias__category">{{ categoria | uppercase }}</span>
 
@@ -25,3 +25,6 @@
     </div>
   </article>
 </section>
+<ng-container *ngIf="!noticias">
+  <p-progressSpinner ariaLabel="loading" />
+</ng-container>

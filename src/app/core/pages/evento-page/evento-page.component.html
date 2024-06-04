@@ -23,3 +23,6 @@
     </div>
   </section>
 </ng-container>
+<ng-container *ngIf="!eventoSeleccionado">
+  <p-progressSpinner ariaLabel="loading" />
+</ng-container>

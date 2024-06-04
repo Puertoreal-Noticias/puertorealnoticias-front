@@ -6,6 +6,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
 import { ListboxModule } from 'primeng/listbox';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 @NgModule({
   declarations: [],
   imports: [CommonModule],
@@ -15,6 +16,7 @@ import { ListboxModule } from 'primeng/listbox';
     InputTextModule,
     PasswordModule,
     ListboxModule,
+    ProgressSpinnerModule,
   ],
 })
 export class PrimeNgModule {}

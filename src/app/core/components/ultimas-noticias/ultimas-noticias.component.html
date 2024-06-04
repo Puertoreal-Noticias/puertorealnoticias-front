@@ -1,24 +1,24 @@
-<ng-container class="home">
+<ng-container class="home" *ngIf="noticiaDestacada && nuevasNoticias">
   <article class="home__article--news">
     <span class="home__last--span"> {{ spanLastNews | uppercase }} </span>
 
     <div class="home__flex--global">
       <div
         class="home__news--destacado"
-        (click)="navigateNoticia(noticiaDestacada?._id)"
+        (click)="navigateNoticia(noticiaDestacada._id)"
       >
         <img
-          [src]="noticiaDestacada?.imagenUrl"
-          [alt]="noticiaDestacada?.titulo"
+          [src]="noticiaDestacada.imagenUrl"
+          [alt]="noticiaDestacada.titulo"
           class="home__img--destacado"
         />
         <div class="home__news--container home__news--containerdestacado">
           <span class="home__news--category">
-            {{ noticiaDestacada?.categoria }}
+            {{ noticiaDestacada.categoria }}
           </span>
-          <h2 class="home__news--title">{{ noticiaDestacada?.titulo }}</h2>
+          <h2 class="home__news--title">{{ noticiaDestacada.titulo }}</h2>
           <h3 class="home__news--subtitulo">
-            {{ noticiaDestacada?.subtitulo }}
+            {{ noticiaDestacada.subtitulo }}
           </h3>
           <span class="home__news--fecha">
             {{ formatearFecha(noticiaDestacada!.fecha_publicacion) }}
@@ -51,4 +51,7 @@
       </div>
     </div>
   </article>
+</ng-container>
+<ng-container *ngIf="!noticiaDestacada && !nuevasNoticias">
+  <p-progressSpinner ariaLabel="loading" />
 </ng-container>

@@ -1,22 +1,22 @@
-<section class="noticias">
+<section class="noticias" *ngIf="primeraNoticia && exceptoUltimasNoticias">
   <article class="noticias__general">
     <span class="noticias__category">{{ categoria | uppercase }}</span>
     <div class="noticias__card">
       <div
         class="noticias__container"
-        (click)="navigateNoticia(primeraNoticia?._id)"
+        (click)="navigateNoticia(primeraNoticia._id)"
       >
         <img
-          [src]="primeraNoticia?.imagenUrl"
-          [alt]="primeraNoticia?.titulo"
+          [src]="primeraNoticia.imagenUrl"
+          [alt]="primeraNoticia.titulo"
           loading="lazy"
           class="noticias__img--principal"
         />
         <h2 class="noticias__titular--principal">
-          {{ primeraNoticia?.titulo }}
+          {{ primeraNoticia.titulo }}
         </h2>
         <h3 class="noticias__subtitular--principal">
-          {{ primeraNoticia?.subtitulo }}
+          {{ primeraNoticia.subtitulo }}
         </h3>
         <span class="noticias__fecha" *ngIf="primeraNoticia">
           {{ formatearFecha(primeraNoticia.fecha_publicacion) }}
@@ -48,3 +48,6 @@
     </div>
   </article>
 </section>
+<ng-container *ngIf="!noticiasExceptoUltima && !primeraNoticia">
+  <p-progressSpinner ariaLabel="loading" />
+</ng-container>

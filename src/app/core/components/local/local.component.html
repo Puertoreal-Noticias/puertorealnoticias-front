@@ -1,4 +1,7 @@
-<ng-container class="categoria">
+<ng-container
+  class="categoria"
+  *ngIf="primeraNoticia && exceptoUltimasNoticias"
+>
   <article class="categoria__local">
     <div class="categoria__local--principal">
       <span class="categoria__local--span">
@@ -7,16 +10,16 @@
       <div class="categoria__flex">
         <div
           class="categoria__container"
-          (click)="navigateNoticia(primeraNoticia?._id)"
+          (click)="navigateNoticia(primeraNoticia._id)"
         >
           <img
-            [src]="primeraNoticia?.imagenUrl"
-            [alt]="primeraNoticia?.titulo"
+            [src]="primeraNoticia.imagenUrl"
+            [alt]="primeraNoticia.titulo"
             loading="lazy"
             class="categoria__img"
           />
-          <h2 class="categoria__h2">{{ primeraNoticia?.titulo }}</h2>
-          <h3 class="categoria__h3">{{ primeraNoticia?.subtitulo }}</h3>
+          <h2 class="categoria__h2">{{ primeraNoticia.titulo }}</h2>
+          <h3 class="categoria__h3">{{ primeraNoticia.subtitulo }}</h3>
           <span class="categoria__grid--span" *ngIf="primeraNoticia">
             {{ formatearFecha(primeraNoticia.fecha_publicacion) }}
           </span>
@@ -48,4 +51,7 @@
       </div>
     </div>
   </article>
+</ng-container>
+<ng-container *ngIf="!noticiasExceptoUltima && !primeraNoticia">
+  <p-progressSpinner ariaLabel="loading" />
 </ng-container>

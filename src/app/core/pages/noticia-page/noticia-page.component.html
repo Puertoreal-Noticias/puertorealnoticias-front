@@ -1,18 +1,21 @@
-<section class="noticia wrapper">
+<section
+  class="noticia wrapper"
+  *ngIf="noticiaSeleccionada && noticiasRelacionadasRandom"
+>
   <article class="noticia__global">
     <div class="noticia__container">
       <span class="noticia__span--categoria">
-        {{ noticiaSeleccionada?.categoria }}
+        {{ noticiaSeleccionada.categoria }}
       </span>
-      <h3 class="noticia__h3--titular">{{ noticiaSeleccionada?.titulo }}</h3>
-      <h4 class="noticia__subtitulo">{{ noticiaSeleccionada?.subtitulo }}</h4>
+      <h3 class="noticia__h3--titular">{{ noticiaSeleccionada.titulo }}</h3>
+      <h4 class="noticia__subtitulo">{{ noticiaSeleccionada.subtitulo }}</h4>
       <div class="noticia__subcontainer">
         <img
-          [src]="noticiaSeleccionada?.imagenUrl"
-          [alt]="noticiaSeleccionada?.titulo"
+          [src]="noticiaSeleccionada.imagenUrl"
+          [alt]="noticiaSeleccionada.titulo"
           class="noticia__img--titular"
         />
-        <p class="noticia__parrafo">{{ noticiaSeleccionada?.contenido }}</p>
+        <p class="noticia__parrafo">{{ noticiaSeleccionada.contenido }}</p>
       </div>
       <ng-container *ngIf="noticiaSeleccionada?.imagenes">
         <h3
@@ -59,3 +62,6 @@
     </div>
   </article>
 </section>
+<ng-container *ngIf="!noticiaSeleccionada && !noticiasRelacionadasRandom">
+  <p-progressSpinner ariaLabel="loading" />
+</ng-container>
