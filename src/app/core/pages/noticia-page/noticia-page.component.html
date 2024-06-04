@@ -1,7 +1,4 @@
-<section
-  class="noticia wrapper"
-  *ngIf="noticiaSeleccionada && noticiasRelacionadasRandom"
->
+<section class="noticia wrapper" *ngIf="noticiaSeleccionada">
   <article class="noticia__global">
     <div class="noticia__container">
       <span class="noticia__span--categoria">
@@ -39,8 +36,11 @@
       </ng-container>
     </div>
   </article>
-  <article class="noticia__relacionada--container">
-    <span class="noticia__relacionada--span"> Árticulos relacionados </span>
+  <article
+    class="noticia__relacionada--container"
+    *ngIf="noticiasRelacionadasRandom"
+  >
+    <span class="noticia__relacionada--span"> Noticias relacionadas </span>
     <div class="noticia__relacionada--grid">
       <div
         class="noticia__relacionada--card"
@@ -61,7 +61,10 @@
       </div>
     </div>
   </article>
+  <ng-container *ngIf="!noticiasRelacionadasRandom">
+    <p-progressSpinner ariaLabel="loading" />
+  </ng-container>
 </section>
-<ng-container *ngIf="!noticiaSeleccionada && !noticiasRelacionadasRandom">
+<ng-container *ngIf="!noticiaSeleccionada">
   <p-progressSpinner ariaLabel="loading" />
 </ng-container>
