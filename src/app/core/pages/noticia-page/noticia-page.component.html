@@ -14,7 +14,7 @@
         />
         <p class="noticia__parrafo">{{ noticiaSeleccionada.contenido }}</p>
       </div>
-      <ng-container *ngIf="noticiaSeleccionada?.imagenes">
+      <ng-container *ngIf="(noticiaSeleccionada?.imagenes)!.length > 0">
         <h3
           *ngIf="noticiaSeleccionada?.imagenesUrl"
           class="noticia__h3--relacionado"
@@ -24,10 +24,10 @@
         <div class="noticia__grid">
           <div
             class="noticia__grid--card"
-            *ngFor="let imgUrl of noticiaSeleccionada?.imagenesUrl"
+            *ngFor="let news of noticiaSeleccionada.imagenesUrl"
           >
             <img
-              [src]="imgUrl.url"
+              [src]="news.url"
               alt="Imagenes relacionadas con la noticia"
               class="noticia__galeria--img"
             />
@@ -48,7 +48,7 @@
         (click)="navigateNoticia(noticia._id)"
       >
         <img
-          [src]="noticia.imagenesUrl"
+          [src]="noticia.imagenUrl"
           [alt]="noticia.titulo"
           class="noticia__relacionada--img"
         />
@@ -61,9 +61,6 @@
       </div>
     </div>
   </article>
-  <ng-container *ngIf="!noticiasRelacionadasRandom">
-    <p-progressSpinner ariaLabel="loading" />
-  </ng-container>
 </section>
 <ng-container *ngIf="!noticiaSeleccionada">
   <p-progressSpinner ariaLabel="loading" />

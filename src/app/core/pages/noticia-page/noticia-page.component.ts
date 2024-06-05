@@ -26,69 +26,31 @@ export class NoticiaPageComponent implements OnInit {
       }
     });
   }
+  public obtenerNoticia = (idNoticiaSeleccionada: string) => {
+    this.ApiConectService.obtenerNoticiaId(idNoticiaSeleccionada).subscribe(
+      (noticia) => {
+        const categoria = noticia.categoria;
+        this.ApiConectService.obtenerNoticiasRelacionadasRandom(
+          categoria
+        ).subscribe((noticiasRandom) => {
+          // this.ApiConectService.calcularUrlImgRelacionada(noticiasRandom)
+          this.noticiasRelacionadasRandom = noticiasRandom;
+          noticiasRandom.forEach((noticia) => {
+            this.ApiConectService.calcularUrl(noticia);
+          });
+          console.log('Noticias random', noticiasRandom);
+        });
 
-  public calcularUrl = (noticia: News) => {
-    this.ApiConectService.obtenerImagen(noticia.imagenPrincipal).subscribe(
-      (imagen: Imagen) => {
-        if (imagen.url) {
-          noticia.imagenUrl = imagen.url;
-        } else {
-          console.error('La imagen no tiene URL');
+        this.noticiaSeleccionada = noticia;
+        this.ApiConectService.calcularUrl(noticia);
+
+        if (noticia.imagenes) {
+          this.ApiConectService.calcularUrlImgRelacionada(noticia);
+          console.log('noticiaSeleccionada imganeres relacionadas:', noticia);
         }
-      },
-      (error) => {
-        console.error('Hubo un error al obtener la imagen', error);
+        console.log('noticiaSeleccionada sin imganeres relacionadas:', noticia);
       }
     );
-    this.noticiaSeleccionada?.imagenes.forEach((imagenId: string) => {
-      this.ApiConectService.obtenerImagen(imagenId).subscribe(
-        (imagen: Imagen) => {
-          if (imagen.url) {
-            if (this.noticiaSeleccionada) {
-              if (!this.noticiaSeleccionada.imagenesUrl) {
-                this.noticiaSeleccionada.imagenesUrl = [];
-              }
-              this.noticiaSeleccionada.imagenesUrl.push({
-                url: imagen.url,
-                id: imagen._id,
-              });
-            }
-          }
-        },
-        (error) => {
-          console.error('Hubo un error al obtener la imagen', error);
-        }
-      );
-    });
-  };
-
-  public calcularUrlArticulosRelacionados = (noticia: News) => {
-    this.ApiConectService.calcularUrl(noticia);
-  };
-
-  public obtenerNoticia = (id: string) => {
-    this.ApiConectService.obtenerNoticiaId(id).subscribe((noticia: News) => {
-      this.noticiaSeleccionada = noticia;
-      this.ApiConectService.obtenerNoticiasRelacionadasRandom(
-        `${this.noticiaSeleccionada?.categoria}`
-      ).subscribe(
-        (noticias) => {
-          this.noticiasRelacionadasRandom = noticias;
-          console.log('Noticias random', this.noticiasRelacionadasRandom);
-          this.noticiasRelacionadasRandom.forEach((noticia) => {
-            this.calcularUrlArticulosRelacionados(noticia);
-          });
-          // Utiliza noticiasRelacionadasRandom aquí si es necesario
-        },
-        (error) => {
-          console.error(
-            'Hubo un error al obtener las noticias relacionadas',
-            error
-          );
-        }
-      );
-      this.calcularUrl(this.noticiaSeleccionada);
-    });
   };
   public navigateNoticia(id: any) {
     this.router.navigate(['/noticia-detallada', id]);
