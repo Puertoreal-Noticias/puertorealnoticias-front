@@ -17,7 +17,7 @@
       </option>
     </select>
   </form>
-  <div class="global__container">
+  <div class="global__container" *ngIf="noticiasSeleccionadas">
     <div class="global__cards" *ngFor="let noticia of noticiasSeleccionadas">
       <img [src]="noticia.imagenUrl" alt="" class="global__card--img" />
       <div class="global__container--text">
@@ -72,4 +72,7 @@
       </div>
     </div>
   </div>
+  <ng-container *ngIf="!noticiasSeleccionadas">
+    <p-progressSpinner ariaLabel="loading" />
+  </ng-container>
 </div>

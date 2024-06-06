@@ -1,6 +1,6 @@
 <div class="global">
   <h2 class="global__h2">Eventos</h2>
-  <div class="global__grid">
+  <div class="global__grid" *ngIf="eventos">
     <div class="global__cards" *ngFor="let evento of eventos">
       <img
         [src]="evento.imagenUrl"
@@ -57,4 +57,7 @@
       </div>
     </div>
   </div>
+  <ng-container *ngIf="!eventos">
+    <p-progressSpinner ariaLabel="loading" />
+  </ng-container>
 </div>

@@ -1,4 +1,4 @@
-<div class="global">
+<div class="global" ngIf="noticiasRecientes">
   <div class="global__cards" *ngFor="let noticia of noticiasRecientes">
     <img [src]="noticia.imagenUrl" alt="" class="global__card--img" />
     <input
@@ -55,3 +55,6 @@
     </div>
   </div>
 </div>
+<ng-container *ngIf="!noticiasRecientes">
+  <p-progressSpinner ariaLabel="loading" />
+</ng-container>
