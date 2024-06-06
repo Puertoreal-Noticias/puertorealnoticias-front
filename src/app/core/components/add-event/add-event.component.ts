@@ -42,7 +42,6 @@ export class AddEventComponent implements OnInit {
             }
           );
         }
-        alert('Evento creado');
       },
       (error) => {
         console.log(error);
