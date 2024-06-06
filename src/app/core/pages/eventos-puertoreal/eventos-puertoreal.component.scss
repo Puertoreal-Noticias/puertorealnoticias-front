@@ -18,7 +18,7 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     @include m.tablet {
       flex-flow: row wrap;
       justify-content: space-around;
@@ -29,19 +29,22 @@
     position: relative;
     width: 100%;
     max-width: 22rem;
-    height: 22rem;
+    // height: 22rem;
     cursor: pointer;
-    &:hover &--container {
-      height: 9.5rem;
-      transition: all 0.5s ease;
-      // background-color: red;
+    @include m.portatil {
+      width: 22rem;
+      height: 22rem;
+      &:hover &--container {
+        height: 9.5rem;
+        transition: all 0.5s ease;
+        // background-color: red;
+      }
     }
   }
   &__cards--img {
     border-radius: 0.3rem;
     margin-bottom: 1rem;
     height: 22rem;
-
   }
   &__cards--container {
     display: flex;
@@ -49,6 +52,7 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    position: relative;
     @include m.portatil {
       position: absolute;
       bottom: 0rem;
@@ -57,7 +61,7 @@
       text-align: center;
       border-radius: 0.3rem;
       height: 8rem;
-      padding-top: .5rem;
+      padding-top: 0.5rem;
       transition: all 0.5s ease;
     }
   }
@@ -73,7 +77,6 @@
     text-align: center;
     @include m.portatil {
       color: white;
-
     }
   }
   &__descripcion {
