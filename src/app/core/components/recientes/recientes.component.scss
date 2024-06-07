@@ -1,19 +1,22 @@
 @use "../../../../scss/variables" as v;
 @use "../../../../scss/mixings" as m;
 .global {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-  gap: 1rem;
-  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
   height: 100vh;
   overflow-y: scroll;
   &__cards {
+    width: 100%;
+    max-width: 40rem;
+    display: flex;
     gap: 1rem;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
     background-color: v.$colorPrincipal;
     padding: 1rem;
     border-radius: 0.3rem;
+    flex-flow: column nowrap;
   }
   &__card--text {
     font-size: 1.1rem;
@@ -39,6 +42,11 @@
       color: rgb(255, 255, 255);
       transition: all 0.5s ease;
     }
+  }
+  &__text--parrafo {
+    max-width: 20rem;
+    font-size: 1.1rem;
+    word-wrap: break-word;
   }
   &__text--contenido {
     font-weight: 500;

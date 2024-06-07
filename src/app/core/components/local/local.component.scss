@@ -65,29 +65,33 @@
   }
   &__grid {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row wrap;
+
     gap: 1rem;
     @include m.tabletM {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      justify-content: space-between;
-      margin-bottom: 2rem;
+      // display: grid;
+      // grid-template-columns: repeat(2, 1fr);
+      // gap: 1rem;
+      // justify-content: space-between;
+      // margin-bottom: 2rem;
     }
     @include m.portatil {
-      grid-template-columns: repeat(4, 1fr);
+      // grid-template-columns: repeat(4, 1fr);
     }
   }
   &__subnoticias--card {
     display: flex;
     flex-flow: column nowrap;
-    align-items: center;
+    align-items: self-start;
     gap: 1rem;
     cursor: pointer;
+    width: 100%;
+    max-width: 20rem;
+    // background-color: red;
   }
   &__grid--img {
     width: 100%;
-    max-width: 15rem;
+    max-width: 20rem;
     border-radius: 0.3rem;
     aspect-ratio: 16/9;
     @include m.portatil {

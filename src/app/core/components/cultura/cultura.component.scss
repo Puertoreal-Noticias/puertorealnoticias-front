@@ -17,7 +17,6 @@
     cursor: pointer;
   }
   &__img--principal {
-    // height: 23rem;
     height: 25rem;
     aspect-ratio: 16/9;
     border-radius: 0.3rem;
@@ -66,6 +65,10 @@
     width: 100%;
     max-width: 6rem;
     border-radius: 0.3rem;
+    @include m.tabletM {
+      max-width: 12rem;
+      aspect-ratio: 16/9;
+    }
   }
   &__card--text {
     display: flex;

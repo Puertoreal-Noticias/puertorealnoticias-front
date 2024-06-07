@@ -26,6 +26,7 @@ export class RecientesComponent implements OnInit {
       this.noticiasRecientes.forEach((noticia) => {
         this.ApiConectService.calcularUrl(noticia);
       });
+      console.log('noticias recientes', this.noticiasRecientes);
     });
   };
   public eliminarNoticia = (id: string) => {

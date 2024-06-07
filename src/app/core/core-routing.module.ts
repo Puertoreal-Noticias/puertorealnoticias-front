@@ -90,7 +90,7 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: CategoriaComponent,
+            component: RecientesComponent,
           },
           {
             path: 'categoria',

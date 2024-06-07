@@ -9,7 +9,7 @@ import { News, Imagen } from '../../interfaces/news.interface';
   styleUrls: ['./ultimas-noticias.component.scss'],
 })
 export class UltimasNoticiasComponent implements OnInit {
-  public spanLastNews: string = 'Útimas entradas';
+  public spanLastNews: string = 'Últimas entradas';
   public noticiaDestacada: News | null = null;
   public nuevasNoticias: News[] = [];
   public limit: number = 6;

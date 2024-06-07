@@ -51,6 +51,7 @@
     @include m.tabletM {
       flex-flow: row nowrap;
       gap: 1rem;
+      justify-content: space-between;
     }
   }
   &__img--titular {
@@ -61,12 +62,23 @@
     @include m.tabletM {
       max-width: 20rem;
     }
-    @include m.portatil {
+    @include m.tablet {
+      max-width: 25rem;
+    }
+    @include m.ordenador {
       max-width: 30rem;
     }
   }
   &__parrafo {
     font-size: 1.2rem;
+    max-width: 100%;
+    word-wrap: break-word;
+    @include m.tabletM {
+      max-width: 55%;
+    }
+    @include m.tablet {
+      max-width: 65%;
+    }
   }
   &__relacionada--span {
     font-weight: bold;

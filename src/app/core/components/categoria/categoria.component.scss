@@ -54,6 +54,12 @@
   &__text--contenido {
     font-weight: 500;
     color: white;
+    word-wrap: break-word;
+  }
+  &__text--parrafo {
+    max-width: 20rem;
+    font-size: 1.1rem;
+    word-wrap: break-word;
   }
   &__container--text {
     display: flex;
@@ -61,7 +67,6 @@
     gap: 1rem;
     height: 100%;
     width: 100%;
-
   }
   &__container--btns {
     display: flex;
@@ -88,7 +93,7 @@
       color: rgb(255, 255, 255);
       transition: all 0.5s ease;
     }
-    &:active{
+    &:active {
       background-color: rgb(0, 0, 0);
       color: rgb(255, 255, 255);
     }

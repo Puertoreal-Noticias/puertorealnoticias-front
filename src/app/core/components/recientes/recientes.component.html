@@ -1,4 +1,4 @@
-<div class="global" ngIf="noticiasRecientes">
+<div class="global" *ngIf="noticiasRecientes">
   <div class="global__cards" *ngFor="let noticia of noticiasRecientes">
     <img [src]="noticia.imagenUrl" alt="" class="global__card--img" />
     <input
@@ -19,7 +19,7 @@
           }}</span> </span
         ><span class="global__card--text"
           >contenido :
-          <span class="global__text--contenido">{{
+          <span class="global__text--parrafo">{{
             noticia.contenido
           }}</span> </span
         ><span class="global__card--text"

@@ -22,7 +22,6 @@ export class ObtenerNoticiaComponent {
   ];
 
   public tipoNoticiaObtener = (ruta: string) => {
-    console.log('hola');
     this.router.navigateByUrl(
       `noticia/gestor/admin/page/admitido/obtener/${ruta}`
     );
