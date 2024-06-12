@@ -15,21 +15,39 @@
   &__global {
     background-color: v.$colorGrisaceo;
     padding: 1rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
   }
   &__ul {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    flex-flow: column nowrap;
     gap: 1rem;
+    justify-content: center;
+    align-content: center;
   }
   &__title {
-    color: red;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
     text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
   &__links {
-    color: rgb(92, 92, 92);
-    font-size: 0.8rem;
-    text-align: center;
+    color: v.$colorPrincipal;
   }
+  &__logo {
+    width: 100%;
+    max-width: 10rem;
+    display: block;
+  }
+  &__ul--second {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+.pi {
+  font-size: 1.6rem;
+  cursor: pointer;
 }

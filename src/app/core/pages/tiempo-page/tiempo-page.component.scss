@@ -17,6 +17,7 @@
     max-width: 30rem;
     font-weight: bolder;
     text-align: center;
+
     @include m.tablet {
       max-width: 35rem;
     }
@@ -57,7 +58,7 @@
     color: white;
     font-weight: bold;
     font-size: 1.1rem;
-    background-color: rgba(0, 0, 0, 0.116);
+    background-color: rgba(0, 0, 0, 0.257);
     padding: 0.5rem;
     border-radius: 0.3rem;
   }
@@ -67,10 +68,11 @@
     gap: 2rem;
     align-items: center;
     justify-content: space-around;
+    // padding: 1rem;
   }
   &__tiempo--spantop {
     color: white;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: bolder;
     text-transform: capitalize;
     padding-top: 0.5rem;
@@ -78,6 +80,9 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.257);
+    border-radius: 0.3rem;
+    padding: 0.5rem;
   }
   &__img--icon {
     width: 3rem;

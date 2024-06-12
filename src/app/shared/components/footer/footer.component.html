@@ -1,15 +1,21 @@
 <footer class="footer">
   <h2 class="footer__h2">Puerto Real Noticias</h2>
   <div class="footer__global">
+    <img src="./assets/logo-noticias.webp" class="footer__logo" alt="" />
     <ul class="footer__ul">
-      <li class="footer__title" *ngFor="let element of footerElements">
-        {{ element.title }}
-        <ul>
-          <li class="footer__links" *ngFor="let subtitle of element.subtitles">
-            {{ subtitle.element }}
-          </li>
-        </ul>
-      </li>
+      <li class="footer__title">Redes sociales</li>
+      <ul class="footer__ul--second">
+        <a
+          href="https://www.facebook.com/Puertorealnoticias/photos?locale=es_ES%2F"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="pi pi-facebook + ' footer__links'"></i>
+        </a>
+        <a href="http://" target="_blank" rel="noopener noreferrer">
+          <i class="pi pi-instagram + ' footer__links'"></i>
+        </a>
+      </ul>
     </ul>
   </div>
 </footer>

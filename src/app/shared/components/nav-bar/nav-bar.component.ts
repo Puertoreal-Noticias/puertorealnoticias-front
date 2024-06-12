@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { ApiConectService } from '../../../core/services/api-conect.service';
 import { News } from 'src/app/core/interfaces/news.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -14,11 +14,18 @@ export class NavBarComponent implements OnInit {
   public $menuVisible: Observable<boolean> = this.menuVisible.asObservable();
   public limit: number = 1;
   public new: News[] = [];
+  public urlActual: string = '/';
   public categoria: string = 'importante';
   constructor(
     private route: Router,
     private ApiConectService: ApiConectService
-  ) {}
+  ) {
+    this.route.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.urlActual = event.urlAfterRedirects;
+      }
+    });
+  }
   ngOnInit(): void {
     this.obtenerImg();
   }
@@ -66,9 +73,13 @@ export class NavBarComponent implements OnInit {
     },
   ];
   public redesSociales = [
-    { id: 0, title: 'facebook', url: '', img: 'pi pi-facebook' },
-    { id: 1, title: 'instagram', url: '', img: 'pi pi-facebook' },
-    { id: 2, title: 'instagram', url: '', img: 'pi pi-facebook' },
+    {
+      id: 0,
+      title: 'facebook',
+      url: 'https://www.facebook.com/Puertorealnoticias/photos?locale=es_ES%2F',
+      img: 'pi pi-facebook',
+    },
+    { id: 1, title: 'instagram', url: '*', img: 'pi pi-facebook' },
   ];
   public obtenerImg = () => {
     this.ApiConectService.filtrarPorCategoria(

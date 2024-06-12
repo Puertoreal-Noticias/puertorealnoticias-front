@@ -15,6 +15,7 @@
           class="header__li"
           *ngFor="let element of navBarElements"
           (click)="navigateAndHideMenu(element.url)"
+          [ngClass]="{ active: element.url === urlActual }"
         >
           {{ element.title | titlecase }}
         </li>
@@ -22,10 +23,16 @@
       <div class="header__redes--container">
         <span class="header__redes--span">Redes sociales</span>
         <div class="header__redes--flex">
-          <div class="header__redes--card" *ngFor="let redes of redesSociales">
+          <a
+            class="header__redes--card"
+            *ngFor="let redes of redesSociales"
+            target="_blank"
+            [href]="redes.url"
+            rel="noopener noreferrer"
+          >
             <i [class]="redes.img"></i>
             <span class="header__redes--social">{{ redes.title }}</span>
-          </div>
+          </a>
         </div>
       </div>
     </ul>
