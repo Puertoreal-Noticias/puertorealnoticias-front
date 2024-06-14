@@ -17,7 +17,7 @@ export class EventosPuertorealComponent implements OnInit {
     this.obtenerEventos();
   }
   public obtenerEventos(): void {
-    this.EventConectService.obtenerEventos(3).subscribe((eventos) => {
+    this.EventConectService.obtenerEventos(8).subscribe((eventos) => {
       this.eventos = eventos;
       this.eventos.forEach((evento) => {
         this.EventConectService.obtenerImg(evento.imagenPrincipal).subscribe(
