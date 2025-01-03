@@ -1,0 +1,31 @@
+.ad {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  &__container {
+    width: 100%;
+    max-width: 12rem;
+    height: 12rem;
+    text-align: center;
+    position: relative;
+  }
+  &__span {
+    background-color: rgba(0, 0, 0, 0.477);
+    padding: 0.5rem;
+    width: 100%;
+    max-width: 11.1rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 2;
+    left: 7px;
+  }
+  &__image {
+    object-fit: cover;
+    object-position: center;
+    height: 12rem;
+  }
+}

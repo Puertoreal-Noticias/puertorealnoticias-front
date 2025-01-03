@@ -1,6 +1,10 @@
 @use "../../../../scss/variables" as v;
 @use "../../../../scss/mixings" as m;
 
+.ad {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
 .categoria {
   &__local--span {
     font-weight: bold;
