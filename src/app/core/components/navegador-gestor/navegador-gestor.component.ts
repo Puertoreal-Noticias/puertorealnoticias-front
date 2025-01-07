@@ -29,6 +29,16 @@ export class NavegadorGestorComponent {
       titulo: 'obtener eventos',
       url: 'obtener-evento',
     },
+    {
+      id: 4,
+      titulo: 'Añadir anuncio',
+      url: 'añadir-anuncio',
+    },
+    {
+      id: 5,
+      titulo: 'obtener anuncios',
+      url: 'obtener-anuncio',
+    },
   ];
   public cambiarRuta = (ruta: string) => {
     console.log('ha entrao');

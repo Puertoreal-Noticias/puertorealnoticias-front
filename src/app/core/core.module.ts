@@ -32,6 +32,8 @@ import { ObtenerEventComponent } from './components/obtener-event/obtener-event.
 import { ModificarEventComponent } from './components/modificar-event/modificar-event.component';
 import { AddImgsToNoticiaComponent } from './components/add-imgs-to-noticia/add-imgs-to-noticia.component';
 import { AnunciosAmazonComponent } from './components/anuncios-amazon/anuncios-amazon.component';
+import { AddAdComponent } from './components/add-ad/add-ad.component';
+import { AdsComponent } from './components/ads/ads.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { AnunciosAmazonComponent } from './components/anuncios-amazon/anuncios-a
     ModificarEventComponent,
     AddImgsToNoticiaComponent,
     AnunciosAmazonComponent,
+    AddAdComponent,
+    AdsComponent,
   ],
   imports: [
     CommonModule,

@@ -19,6 +19,8 @@ import { ObtenerEventComponent } from './components/obtener-event/obtener-event.
 import { ModificarEventComponent } from './components/modificar-event/modificar-event.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AddImgsToNoticiaComponent } from './components/add-imgs-to-noticia/add-imgs-to-noticia.component';
+import { AddAdComponent } from './components/add-ad/add-ad.component';
+import { AdsComponent } from './components/ads/ads.component';
 
 const routes: Routes = [
   {
@@ -101,6 +103,14 @@ const routes: Routes = [
             component: RecientesComponent,
           },
         ],
+      },
+      {
+        path: 'añadir-anuncio',
+        component: AddAdComponent,
+      },
+      {
+        path: 'obtener-anuncio',
+        component: AdsComponent,
       },
     ],
   },
