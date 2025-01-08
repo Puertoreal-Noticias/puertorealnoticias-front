@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/enviroments';
 import { News, Imagen, AddNews } from '../interfaces/news.interface';
 import { Tiempo } from '../interfaces/tiempo.inteface';
+import { Ad } from '../interfaces/ad.interface';
 @Injectable({
   providedIn: 'root',
 })
@@ -13,6 +14,18 @@ export class ApiConectService {
   obtenerNoticias(limit?: number): Observable<News[]> {
     return this.http.get<News[]>(
       `${environment.baseUrl}/noticias/obtener?limit=${limit}`
+    );
+  }
+  obtenerAnuncios(): Observable<Ad[]> {
+    return this.http.get<Ad[]>(`${environment.baseUrl}/anuncios/obtener`);
+  }
+  crearAnuncio(anuncio: FormData): Observable<Ad> {
+    return this.http.post<Ad>(`${environment.baseUrl}/anuncios/crear`, anuncio);
+  }
+  eliminarAnuncio(id: string): Observable<string> {
+    return this.http.delete<string>(
+      `${environment.baseUrl}/anuncios/eliminar/${id}`,
+      { responseType: 'text' as 'json' }
     );
   }
   obtenerRecientes(limit?: number): Observable<News[]> {

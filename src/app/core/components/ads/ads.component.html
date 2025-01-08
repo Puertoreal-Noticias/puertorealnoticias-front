@@ -1,1 +1,10 @@
-<p>ads works!</p>
+<div *ngIf="anuncios.length > 0; else noAds">
+  <div *ngFor="let ad of anuncios">
+    <p>URL: {{ ad.url }}</p>
+    <img [src]="ad.imgPath" alt="Anuncio Imagen" />
+    <button (click)="eliminarAnuncio(ad._id)">Eliminar Anuncio</button>
+  </div>
+</div>
+<ng-template #noAds>
+  <p>No hay anuncios disponibles.</p>
+</ng-template>
