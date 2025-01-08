@@ -1,0 +1,32 @@
+.global {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  &__ad {
+    width: 20rem;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+    align-items: center;
+  }
+  &__a {
+    color: blue;
+    font-size: 1.2rem;
+  }
+  &__img {
+    width: 100%;
+    max-width: 12rem;
+    border-radius: 0.3rem;
+    // aspect-ratio: 16/9;
+  }
+  &__btn {
+    background-color: blue;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+}
