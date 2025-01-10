@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { News, Imagen } from '../../interfaces/news.interface';
 import { ApiConectService } from '../../services/api-conect.service';
 import { Router } from '@angular/router';
+import { Ad } from '../../interfaces/ad.interface';
 
 @Component({
   selector: 'app-local',
@@ -13,6 +14,7 @@ export class LocalComponent implements OnInit {
   public exceptoUltimasNoticias: News[] = [];
   public primeraNoticia: News | null = null;
   public limit: number = 4;
+  @Input() anuncios: Ad[] = [];
 
   constructor(
     private ApiConectService: ApiConectService,
