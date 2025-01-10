@@ -1,18 +1,11 @@
-<div class="ad">
-  <a class="ad__container" href="https://amzn.to/3W7HUiC" target="_blank">
-    <span href="" class="ad__span">Anuncio de amazon</span>
-    <img
-      src="../../../../assets/anunciosAmazon.png"
-      alt="Anuncio de amazon"
-      class="ad__image"
-    />
-  </a>
-  <a class="ad__container" href="https://amzn.to/3W7HUiC" target="_blank">
-    <span href="" class="ad__span">Anuncio de amazon</span>
-    <img
-      src="../../../../assets/anunciosAmazon.png"
-      alt="Anuncio de amazon"
-      class="ad__image"
-    />
-  </a>
+<div class="ad" *ngIf="anuncios.length > 0; else noAds">
+  <div *ngFor="let ad of anuncios">
+    <a class="ad__container" [href]="ad.url" target="_blank">
+      <span class="ad__span">Anuncio de amazon</span>
+      <img [src]="ad.imgPath" [alt]="ad.url" class="ad__image" />
+    </a>
+  </div>
 </div>
+<ng-template #noAds>
+  <p>No hay anuncios disponibles.</p>
+</ng-template>

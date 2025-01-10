@@ -16,8 +16,13 @@ export class ApiConectService {
       `${environment.baseUrl}/noticias/obtener?limit=${limit}`
     );
   }
-  obtenerAnuncios(): Observable<Ad[]> {
-    return this.http.get<Ad[]>(`${environment.baseUrl}/anuncios/obtener`);
+  // obtenerAnuncios(): Observable<Ad[]> {
+  //   return this.http.get<Ad[]>(`${environment.baseUrl}/anuncios/obtener`);
+  // }
+  obtenerAnuncios(limit?: number): Observable<Ad[]> {
+    return this.http.get<Ad[]>(
+      `${environment.baseUrl}/anuncios/obtener?limit=${limit}`
+    );
   }
   crearAnuncio(anuncio: FormData): Observable<Ad> {
     return this.http.post<Ad>(`${environment.baseUrl}/anuncios/crear`, anuncio);
