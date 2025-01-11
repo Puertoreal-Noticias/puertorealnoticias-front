@@ -13,11 +13,11 @@ export class HomePageComponent implements OnInit {
   constructor(private apiService: ApiConectService) {}
 
   ngOnInit(): void {
-    this.obtenerAnuncios(4); // Obteniendo los últimos 4 anuncios
+    this.obtenerAnuncios(); // Obteniendo los últimos 4 anuncios
   }
 
-  obtenerAnuncios(limit: number): void {
-    this.apiService.obtenerAnuncios(limit).subscribe(
+  obtenerAnuncios(): void {
+    this.apiService.obtenerAnuncios().subscribe(
       (ads: Ad[]) => {
         this.anuncios = ads;
         console.log('Anuncios recibidos en el componente:', ads);
