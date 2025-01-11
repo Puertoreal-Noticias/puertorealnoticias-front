@@ -46,12 +46,6 @@
         </div>
       </div>
     </div>
-    <ng-container *ngIf="primeraNoticia && exceptoUltimasNoticias">
-      <article class="categoria__local">
-        <!-- Otros códigos -->
-        <app-anuncios-amazon [grupo]="2"> </app-anuncios-amazon>
-      </article>
-    </ng-container>
   </article>
 </section>
 <ng-container *ngIf="!noticiasExceptoUltima && !primeraNoticia">

@@ -14,7 +14,6 @@ export class LocalComponent implements OnInit {
   public exceptoUltimasNoticias: News[] = [];
   public primeraNoticia: News | null = null;
   public limit: number = 4;
-  @Input() anuncios: Ad[] = [];
 
   constructor(
     private ApiConectService: ApiConectService,

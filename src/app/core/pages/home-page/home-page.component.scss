@@ -21,3 +21,19 @@
     }
   }
 }
+.ad {
+  /* Estilos para los anuncios */
+  margin: 10px 0;
+}
+.ad__container {
+  text-decoration: none;
+}
+.ad__span {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.ad__image {
+  width: 100%;
+  height: auto;
+}
