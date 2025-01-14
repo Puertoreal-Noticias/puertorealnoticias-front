@@ -8,7 +8,8 @@ import { Ad } from '../../interfaces/ad.interface';
   styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-  anuncios: Ad[] = [];
+  anunciosSeccion1: Ad[] = [];
+  anunciosSeccion2: Ad[] = [];
 
   constructor(private apiService: ApiConectService) {}
 
@@ -17,9 +18,10 @@ export class HomePageComponent implements OnInit {
   }
 
   obtenerAnuncios(): void {
-    this.apiService.obtenerAnuncios().subscribe(
+    this.apiService.obtenerAnuncios(4).subscribe(
       (ads: Ad[]) => {
-        this.anuncios = ads;
+        this.anunciosSeccion1 = ads.slice(0, 2);
+        this.anunciosSeccion2 = ads.slice(2, 4);
         console.log('Anuncios recibidos en el componente:', ads);
       },
       (error) => {
