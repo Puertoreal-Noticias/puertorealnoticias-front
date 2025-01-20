@@ -42,6 +42,6 @@ export class NavegadorGestorComponent {
   ];
   public cambiarRuta = (ruta: string) => {
     console.log('ha entrao');
-    this.route.navigateByUrl(`noticia/gestor/admin/page/admitido/${ruta}`);
+    this.route.navigateByUrl(`noticia/crear-noticias/admin/gestor/${ruta}`);
   };
 }
