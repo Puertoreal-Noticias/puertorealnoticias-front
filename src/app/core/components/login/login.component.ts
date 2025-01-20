@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
 
   public submitForm(event: Event): void {
     event.preventDefault();
-    // Navegación directa sin validación
-    this.router.navigateByUrl('noticia/crear-noticias/admin/login/gestor');
+    // Redirige directamente al gestor
+    this.router.navigateByUrl('noticia/crear-noticias/admin/gestor');
   }
 }

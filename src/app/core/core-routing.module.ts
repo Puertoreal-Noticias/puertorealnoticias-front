@@ -22,97 +22,132 @@ import { AddAdComponent } from './components/add-ad/add-ad.component';
 import { AdsComponent } from './components/ads/ads.component';
 
 const routes: Routes = [
+  { path: '', component: HomePageComponent },
+  { path: 'noticia-detallada/:id', component: NoticiaPageComponent },
+  { path: 'tipo-noticia/:categoria', component: SeccionNoticiaComponent },
+  { path: 'eventos-puerto-real', component: EventosPuertorealComponent },
+  { path: 'eventos-puerto-real/:id', component: EventoPageComponent },
+  { path: 'tiempo', component: TiempoPageComponent },
+  { path: 'noticia/crear-noticias/admin/login', component: LoginComponent },
+  // Ruta para el gestor movida fuera del login
   {
-    path: '',
-    component: HomePageComponent,
-  },
-  {
-    path: 'noticia-detallada/:id',
-    component: NoticiaPageComponent,
-  },
-  {
-    path: 'tipo-noticia/:categoria',
-    component: SeccionNoticiaComponent,
-  },
-  {
-    path: 'eventos-puerto-real',
-    component: EventosPuertorealComponent,
-  },
-  {
-    path: 'eventos-puerto-real/:id',
-    component: EventoPageComponent,
-  },
-  {
-    path: 'tiempo',
-    component: TiempoPageComponent,
-  },
-  {
-    path: 'noticia/crear-noticias/admin/login',
-    component: LoginComponent,
+    path: 'noticia/crear-noticias/admin/gestor',
+    component: GestorNoticiasComponent,
     children: [
+      { path: '', component: AddNoticiaComponent },
+      { path: 'añadir', component: AddNoticiaComponent },
+      { path: 'añadir-evento', component: AddEventComponent },
+      { path: 'obtener-evento', component: ObtenerEventComponent },
+      { path: 'modificar/:id', component: ModificarNoticiaComponent },
+      { path: 'añadir-imgs-noticia/:id', component: AddImgsToNoticiaComponent },
+      { path: 'modificar-evento/:id', component: ModificarEventComponent },
       {
-        path: 'gestor',
-        component: GestorNoticiasComponent,
+        path: 'obtener',
+        component: ObtenerNoticiaComponent,
         children: [
-          {
-            path: '',
-            component: AddNoticiaComponent,
-          },
-          {
-            path: 'añadir',
-            component: AddNoticiaComponent,
-          },
-          {
-            path: 'añadir-evento',
-            component: AddEventComponent,
-          },
-          {
-            path: 'obtener-evento',
-            component: ObtenerEventComponent,
-          },
-          {
-            path: 'modificar/:id',
-            component: ModificarNoticiaComponent,
-          },
-          {
-            path: 'añadir-imgs-noticia/:id',
-            component: AddImgsToNoticiaComponent,
-          },
-          {
-            path: 'modificar-evento/:id',
-            component: ModificarEventComponent,
-          },
-          {
-            path: 'obtener',
-            component: ObtenerNoticiaComponent,
-            children: [
-              {
-                path: '',
-                component: CategoriaComponent,
-              },
-              {
-                path: 'categoria',
-                component: CategoriaComponent,
-              },
-              {
-                path: 'recientes',
-                component: RecientesComponent,
-              },
-            ],
-          },
-          {
-            path: 'añadir-anuncio',
-            component: AddAdComponent,
-          },
-          {
-            path: 'obtener-anuncio',
-            component: AdsComponent,
-          },
+          { path: '', component: CategoriaComponent },
+          { path: 'categoria', component: CategoriaComponent },
+          { path: 'recientes', component: RecientesComponent },
         ],
       },
+      { path: 'añadir-anuncio', component: AddAdComponent },
+      { path: 'obtener-anuncio', component: AdsComponent },
     ],
   },
 ];
+
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: HomePageComponent,
+//   },
+//   {
+//     path: 'noticia-detallada/:id',
+//     component: NoticiaPageComponent,
+//   },
+//   {
+//     path: 'tipo-noticia/:categoria',
+//     component: SeccionNoticiaComponent,
+//   },
+//   {
+//     path: 'eventos-puerto-real',
+//     component: EventosPuertorealComponent,
+//   },
+//   {
+//     path: 'eventos-puerto-real/:id',
+//     component: EventoPageComponent,
+//   },
+//   {
+//     path: 'tiempo',
+//     component: TiempoPageComponent,
+//   },
+//   {
+//     path: 'noticia/crear-noticias/admin/login',
+//     component: LoginComponent,
+//     children: [
+//       {
+//         path: 'gestor',
+//         component: GestorNoticiasComponent,
+//         children: [
+//           {
+//             path: '',
+//             component: AddNoticiaComponent,
+//           },
+//           {
+//             path: 'añadir',
+//             component: AddNoticiaComponent,
+//           },
+//           {
+//             path: 'añadir-evento',
+//             component: AddEventComponent,
+//           },
+//           {
+//             path: 'obtener-evento',
+//             component: ObtenerEventComponent,
+//           },
+//           {
+//             path: 'modificar/:id',
+//             component: ModificarNoticiaComponent,
+//           },
+//           {
+//             path: 'añadir-imgs-noticia/:id',
+//             component: AddImgsToNoticiaComponent,
+//           },
+//           {
+//             path: 'modificar-evento/:id',
+//             component: ModificarEventComponent,
+//           },
+//           {
+//             path: 'obtener',
+//             component: ObtenerNoticiaComponent,
+//             children: [
+//               {
+//                 path: '',
+//                 component: CategoriaComponent,
+//               },
+//               {
+//                 path: 'categoria',
+//                 component: CategoriaComponent,
+//               },
+//               {
+//                 path: 'recientes',
+//                 component: RecientesComponent,
+//               },
+//             ],
+//           },
+//           {
+//             path: 'añadir-anuncio',
+//             component: AddAdComponent,
+//           },
+//           {
+//             path: 'obtener-anuncio',
+//             component: AdsComponent,
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
