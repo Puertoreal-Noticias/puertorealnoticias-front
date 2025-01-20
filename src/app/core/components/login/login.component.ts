@@ -21,19 +21,21 @@ export class LoginComponent implements OnInit {
   // CONTROLAR EL FORMULARIO Y SI NO ES VALIDO O NO COINCIDE CON EL ADMIN QUE NO ENTRE A ESA RUTA
   public submitForm = (event: Event) => {
     event.preventDefault();
-    const formValues = this.formGroup.value;
-    console.log(formValues);
-    console.log('hola');
-    this.AuthService.logearUsuario(
-      formValues.name,
-      formValues.password
-    ).subscribe((token: string) => {
-      if (token) {
-        localStorage.setItem('authToken', token);
-        this.router.navigateByUrl('noticia/gestor/admin/page/admitido');
-      } else {
-        console.log('No tienes permisos');
-      }
-    });
+    this.router.navigateByUrl('noticia/gestor/admin/page/admitido');
+
+    // const formValues = this.formGroup.value;
+    // console.log(formValues);
+    // console.log('hola');
+    // this.AuthService.logearUsuario(
+    //   formValues.name,
+    //   formValues.password
+    // ).subscribe((token: string) => {
+    //   if (token) {
+    //     localStorage.setItem('authToken', token);
+    //     this.router.navigateByUrl('noticia/gestor/admin/page/admitido');
+    //   } else {
+    //     console.log('No tienes permisos');
+    //   }
+    // });
   };
 }
