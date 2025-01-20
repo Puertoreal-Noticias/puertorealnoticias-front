@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
 
-  constructor(private router: Router, private AuthService: AuthService) {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.formGroup = new FormGroup({
@@ -20,24 +19,9 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // CONTROLAR EL FORMULARIO Y SI NO ES VALIDO O NO COINCIDE CON EL ADMIN QUE NO ENTRE A ESA RUTA
-  public submitForm = (event: Event) => {
+  public submitForm(event: Event): void {
     event.preventDefault();
+    // Navegación directa sin validación
     this.router.navigateByUrl('noticia/crear-noticias/admin/login/gestor');
-
-    // const formValues = this.formGroup.value;
-    // console.log(formValues);
-    // console.log('hola');
-    // this.AuthService.logearUsuario(
-    //   formValues.name,
-    //   formValues.password
-    // ).subscribe((token: string) => {
-    //   if (token) {
-    //     localStorage.setItem('authToken', token);
-    //     this.router.navigateByUrl('noticia/crear-noticias/admin/login/gestor');
-    //   } else {
-    //     console.log('No tienes permisos');
-    //   }
-    // });
-  };
+  }
 }
