@@ -10,7 +10,9 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   formGroup!: FormGroup;
+
   constructor(private router: Router, private AuthService: AuthService) {}
+
   ngOnInit(): void {
     this.formGroup = new FormGroup({
       name: new FormControl<string | null>(null),
@@ -21,7 +23,7 @@ export class LoginComponent implements OnInit {
   // CONTROLAR EL FORMULARIO Y SI NO ES VALIDO O NO COINCIDE CON EL ADMIN QUE NO ENTRE A ESA RUTA
   public submitForm = (event: Event) => {
     event.preventDefault();
-    this.router.navigateByUrl('noticia/gestor/admin/page/admitido');
+    this.router.navigateByUrl('noticia/crear-noticias/admin/login/gestor');
 
     // const formValues = this.formGroup.value;
     // console.log(formValues);
@@ -32,7 +34,7 @@ export class LoginComponent implements OnInit {
     // ).subscribe((token: string) => {
     //   if (token) {
     //     localStorage.setItem('authToken', token);
-    //     this.router.navigateByUrl('noticia/gestor/admin/page/admitido');
+    //     this.router.navigateByUrl('noticia/crear-noticias/admin/login/gestor');
     //   } else {
     //     console.log('No tienes permisos');
     //   }

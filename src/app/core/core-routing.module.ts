@@ -17,7 +17,6 @@ import { EventoPageComponent } from './pages/evento-page/evento-page.component';
 import { AddEventComponent } from './components/add-event/add-event.component';
 import { ObtenerEventComponent } from './components/obtener-event/obtener-event.component';
 import { ModificarEventComponent } from './components/modificar-event/modificar-event.component';
-import { AuthGuardService } from './services/auth-guard.service';
 import { AddImgsToNoticiaComponent } from './components/add-imgs-to-noticia/add-imgs-to-noticia.component';
 import { AddAdComponent } from './components/add-ad/add-ad.component';
 import { AdsComponent } from './components/ads/ads.component';
@@ -50,67 +49,66 @@ const routes: Routes = [
   {
     path: 'noticia/crear-noticias/admin/login',
     component: LoginComponent,
-  },
-  // Ruta privada
-  // falta añadir el guard
-  {
-    path: 'noticia/gestor/admin/page/admitido',
-    component: GestorNoticiasComponent,
-    canActivate: [AuthGuardService],
     children: [
       {
-        path: '',
-        component: AddNoticiaComponent,
-      },
-      {
-        path: 'añadir',
-        component: AddNoticiaComponent,
-      },
-      {
-        path: 'añadir-evento',
-        component: AddEventComponent,
-      },
-      {
-        path: 'obtener-evento',
-        component: ObtenerEventComponent,
-      },
-      {
-        path: 'modificar/:id',
-        component: ModificarNoticiaComponent,
-      },
-      {
-        path: 'añadir-imgs-noticia/:id',
-        component: AddImgsToNoticiaComponent,
-      },
-      {
-        path: 'modificar-evento/:id',
-        component: ModificarEventComponent,
-      },
-      {
-        path: 'obtener',
-        component: ObtenerNoticiaComponent,
+        path: 'gestor',
+        component: GestorNoticiasComponent,
         children: [
           {
             path: '',
-            component: CategoriaComponent,
+            component: AddNoticiaComponent,
           },
           {
-            path: 'categoria',
-            component: CategoriaComponent,
+            path: 'añadir',
+            component: AddNoticiaComponent,
           },
           {
-            path: 'recientes',
-            component: RecientesComponent,
+            path: 'añadir-evento',
+            component: AddEventComponent,
+          },
+          {
+            path: 'obtener-evento',
+            component: ObtenerEventComponent,
+          },
+          {
+            path: 'modificar/:id',
+            component: ModificarNoticiaComponent,
+          },
+          {
+            path: 'añadir-imgs-noticia/:id',
+            component: AddImgsToNoticiaComponent,
+          },
+          {
+            path: 'modificar-evento/:id',
+            component: ModificarEventComponent,
+          },
+          {
+            path: 'obtener',
+            component: ObtenerNoticiaComponent,
+            children: [
+              {
+                path: '',
+                component: CategoriaComponent,
+              },
+              {
+                path: 'categoria',
+                component: CategoriaComponent,
+              },
+              {
+                path: 'recientes',
+                component: RecientesComponent,
+              },
+            ],
+          },
+          {
+            path: 'añadir-anuncio',
+            component: AddAdComponent,
+          },
+          {
+            path: 'obtener-anuncio',
+            component: AdsComponent,
           },
         ],
-      },
-      {
-        path: 'añadir-anuncio',
-        component: AddAdComponent,
-      },
-      {
-        path: 'obtener-anuncio',
-        component: AdsComponent,
       },
     ],
   },
