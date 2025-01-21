@@ -46,7 +46,7 @@ export class RecientesComponent implements OnInit {
       'noticia',
       'crear-noticias',
       'admin',
-      'login',
+      'gestor',
       'modificar',
       id,
     ]);

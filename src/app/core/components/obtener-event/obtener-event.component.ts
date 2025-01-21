@@ -40,7 +40,7 @@ export class ObtenerEventComponent implements OnInit {
       'noticia',
       'crear-noticias',
       'admin',
-      'login',
+      'gestor',
       'modificar-evento',
       eventoId,
     ]);

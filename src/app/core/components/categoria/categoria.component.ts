@@ -80,7 +80,7 @@ export class CategoriaComponent implements OnInit {
       'noticia',
       'crear-noticias',
       'admin',
-      'login',
+      'gestor',
       'modificar',
       id,
     ]);
@@ -107,10 +107,9 @@ export class CategoriaComponent implements OnInit {
     }
     this.navigate.navigate([
       'noticia',
-      'gestor',
+      'crear-noticias',
       'admin',
-      'page',
-      'admitido',
+      'gestor',
       'añadir-imgs-noticia',
       id,
     ]); // Usa la categoría actual cuando eliminas una noticia
