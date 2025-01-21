@@ -23,7 +23,7 @@ export class ObtenerNoticiaComponent {
 
   public tipoNoticiaObtener = (ruta: string) => {
     this.router.navigateByUrl(
-      `noticia/gestor/admin/page/admitido/obtener/${ruta}`
+      `noticia/crear-noticias/admin/login/obtener/${ruta}`
     );
   };
 }

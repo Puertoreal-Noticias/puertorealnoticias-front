@@ -44,10 +44,9 @@ export class RecientesComponent implements OnInit {
   public modificarNoticia = (id: string) => {
     this.navigate.navigate([
       'noticia',
-      'gestor',
+      'crear-noticias',
       'admin',
-      'page',
-      'admitido',
+      'login',
       'modificar',
       id,
     ]);

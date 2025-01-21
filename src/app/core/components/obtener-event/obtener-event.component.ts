@@ -38,10 +38,9 @@ export class ObtenerEventComponent implements OnInit {
   public modificarEvento = (eventoId: string) => {
     this.navigate.navigate([
       'noticia',
-      'gestor',
+      'crear-noticias',
       'admin',
-      'page',
-      'admitido',
+      'login',
       'modificar-evento',
       eventoId,
     ]);
