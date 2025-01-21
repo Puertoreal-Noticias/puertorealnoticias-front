@@ -3,12 +3,9 @@
     <label for="url">URL del Anuncio:</label>
     <input id="url" formControlName="url" type="text" />
     <div *ngIf="adForm.get('url')?.invalid && adForm.get('url')?.touched">
-      <small *ngIf="adForm.get('url')?.errors?.['required']"
-        >La URL es obligatoria.</small
-      >
-      <small *ngIf="adForm.get('url')?.errors?.['pattern']"
-        >La URL no es válida.</small
-      >
+      <small *ngIf="adForm.get('url')?.errors?.['pattern']">
+        La URL no es válida.
+      </small>
     </div>
   </div>
 
@@ -16,9 +13,9 @@
     <label for="image">Imagen del Anuncio:</label>
     <input id="image" type="file" (change)="onFileChange($event)" />
     <div *ngIf="adForm.get('image')?.invalid && adForm.get('image')?.touched">
-      <small *ngIf="adForm.get('image')?.errors?.['required']"
-        >La imagen es obligatoria.</small
-      >
+      <small *ngIf="adForm.get('image')?.errors?.['required']">
+        La imagen es obligatoria.
+      </small>
     </div>
   </div>
 

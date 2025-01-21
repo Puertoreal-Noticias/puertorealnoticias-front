@@ -13,7 +13,7 @@ export class AddAdComponent {
 
   constructor(private fb: FormBuilder, private apiService: ApiConectService) {
     this.adForm = this.fb.group({
-      url: ['', [Validators.required, Validators.pattern('https?://.+')]],
+      url: ['', [Validators.pattern('https?://.+')]], // URL ya no es requerida
       image: [null, Validators.required],
     });
   }
@@ -33,7 +33,9 @@ export class AddAdComponent {
     }
 
     const formData = new FormData();
-    formData.append('url', this.adForm.get('url')?.value);
+    if (this.adForm.get('url')?.value) {
+      formData.append('url', this.adForm.get('url')?.value);
+    }
     formData.append('image', this.adForm.get('image')?.value);
 
     this.apiService.crearAnuncio(formData).subscribe(
