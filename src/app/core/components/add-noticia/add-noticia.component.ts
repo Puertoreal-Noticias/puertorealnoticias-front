@@ -45,6 +45,10 @@ export class AddNoticiaComponent implements OnInit {
       id: 4,
       nombre: 'local',
     },
+    {
+      id: 5,
+      nombre: 'importante',
+    },
   ];
   public destacado = [
     { id: 0, nombre: 'no' },
