@@ -46,7 +46,10 @@ export class NoticiaPageComponent implements OnInit {
 
         if (noticia.imagenes) {
           this.ApiConectService.calcularUrlImgRelacionada(noticia);
-          console.log('noticiaSeleccionada imganeres relacionadas:', noticia);
+          console.log(
+            'noticiaSeleccionada imganeres relacionadas:',
+            noticia.imagenesUrl
+          );
         }
         console.log('noticiaSeleccionada sin imganeres relacionadas:', noticia);
       }

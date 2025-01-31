@@ -135,26 +135,60 @@ export class ApiConectService {
       }
     );
   };
+
   calcularUrlImgRelacionada = (noticia: News) => {
     if (!noticia.imagenesUrl) {
       noticia.imagenesUrl = []; // Inicializa el array solo si es undefined
     }
+
+    console.log('Antes de procesar imágenes:', noticia);
+
     noticia.imagenes.forEach((imagenId) => {
       this.obtenerImagen(imagenId).subscribe(
         (imagen: Imagen) => {
+          console.log(`Imagen obtenida para ID ${imagenId}:`, imagen);
           if (imagen && imagen.url) {
-            // Verifica que imagen y imagen.url estén definidos
-            noticia.imagenesUrl!.push({ url: imagen.url, id: imagenId }); // Almacena la URL y el ID de la imagen
+            noticia.imagenesUrl!.push({ url: imagen.url, id: imagenId });
+            console.log('Imagen agregada a imagenesUrl:', noticia.imagenesUrl);
           } else {
-            console.error('La imagen no tiene URL o la respuesta es undefined');
+            console.error(`La imagen con ID ${imagenId} no tiene URL válida.`);
           }
         },
         (error) => {
-          console.error('Hubo un error al obtener la imagen', error);
+          console.error(
+            `Error al obtener la imagen con ID ${imagenId}:`,
+            error
+          );
         }
       );
     });
+
+    console.log(
+      'Después de iniciar la carga de imágenes:',
+      noticia.imagenesUrl
+    );
   };
+
+  // calcularUrlImgRelacionada = (noticia: News) => {
+  //   if (!noticia.imagenesUrl) {
+  //     noticia.imagenesUrl = []; // Inicializa el array solo si es undefined
+  //   }
+  //   noticia.imagenes.forEach((imagenId) => {
+  //     this.obtenerImagen(imagenId).subscribe(
+  //       (imagen: Imagen) => {
+  //         if (imagen && imagen.url) {
+  //           // Verifica que imagen y imagen.url estén definidos
+  //           noticia.imagenesUrl!.push({ url: imagen.url, id: imagenId }); // Almacena la URL y el ID de la imagen
+  //         } else {
+  //           console.error('La imagen no tiene URL o la respuesta es undefined');
+  //         }
+  //       },
+  //       (error) => {
+  //         console.error('Hubo un error al obtener la imagen', error);
+  //       }
+  //     );
+  //   });
+  // };
   modificarImgToNoticia(id: string, img: File): Observable<Imagen> {
     const formData = new FormData();
     formData.append('imagen', img);
