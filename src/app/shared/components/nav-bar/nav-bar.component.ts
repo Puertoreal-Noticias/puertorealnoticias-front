@@ -89,9 +89,11 @@ export class NavBarComponent implements OnInit {
       this.new = noticia;
       this.new.forEach((ele) => {
         this.ApiConectService.calcularUrl(ele);
+        console.log('Imagen URL generada:', ele.imagenUrl); // 👈 Verifica la URL
       });
     });
   };
+
   public navigate(params: string) {
     this.route.navigateByUrl(`${params}`);
   }
